@@ -41,3 +41,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Environment
+    uniqueID: 897083321
+    locked: 0
+  - name: Interactable
+    uniqueID: 2820117919
+    locked: 0
+  - name: Visuals
+    uniqueID: 2242195935
+    locked: 0
