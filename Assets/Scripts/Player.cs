@@ -32,7 +32,6 @@ public class Player : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
-        Debug.Log(transform.position);
         vfxRenderer.SetVector3("ColliderPos", transform.position);
     }
 

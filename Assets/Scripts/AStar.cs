@@ -194,9 +194,9 @@ public class Spot
         //    Neighboors.Add(grid[X + 1, Y + 1]);
         #endregion
     }
-    public Vector3 SpotToVector()
+    public Vector3Int SpotToVector()
     {
-        return new Vector3(X, Y, 0);
+        return new Vector3Int(X, Y, 0);
     }
 
 

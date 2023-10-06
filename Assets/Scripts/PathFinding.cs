@@ -9,14 +9,13 @@ public class PathFinding : MonoBehaviour
     public Vector3Int[,] grid;
     AStar AStar;
     List<Spot> roadPath = new List<Spot>();
-    new Camera camera;
     BoundsInt bounds;
 
     float speed = 1;
 
     public TileBase roadTile;
     public TileBase groundTile;
-    // Start is called before the first frame update
+    
     void Start()
     {
         tilemap.CompressBounds();
@@ -26,6 +25,7 @@ public class PathFinding : MonoBehaviour
         CreateGrid();
         AStar = new AStar(grid, bounds.size.x, bounds.size.y);
     }
+    // Function for mapping out the grid for A*
     public void CreateGrid()
     {
         grid = new Vector3Int[bounds.size.x, bounds.size.y];
@@ -33,10 +33,14 @@ public class PathFinding : MonoBehaviour
         {
             for (int y = bounds.yMin, j = 0; j < (bounds.size.y); y++, j++)
             {
+                // If there is a walkable ground tile on coordinates x, y
+                // Grid value is 0
                 if (tilemap.HasTile(new Vector3Int(x, y, 0)))
                 {
                     grid[i, j] = new Vector3Int(x, y, 0);
                 }
+                // If there isn't walkable terrain on coords x, y
+                // Grid value is 1
                 else
                 {
                     grid[i, j] = new Vector3Int(x, y, 1);
@@ -45,37 +49,59 @@ public class PathFinding : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
+    
     public Vector2Int start;
     public Vector2Int end;
     void Update()
     {
 
+        // Get path start coordinates
         Vector3 worldStart = transform.position;
         Vector3Int gridPosStart = tilemap.WorldToCell(worldStart);
         start = new Vector2Int(gridPosStart.x, gridPosStart.y);
 
+        // Get path end coordinates
         Vector3 worldEnd = Player.Instance.transform.position;
         Vector3Int gridPosEnd = tilemap.WorldToCell(worldEnd);
         end = new Vector2Int(gridPosEnd.x, gridPosEnd.y);
 
-
+        // If a path is drawn, erase it
+        // Development aiding function - should be deleted for production
         if (roadPath != null)
+        {
             ClearRoad();
-        roadPath = AStar.CreatePath(grid, start, end, 1000);
-        if (roadPath == null)
-            return;
-        DrawRoad();
-        var step = speed * Time.deltaTime;
+        }
+        // A* algorithm
+        roadPath = AStar.CreatePath(grid, end, start, 1000);
         
-        var tilesize = 0.3f;
-        Vector3 nextNode = roadPath[0].SpotToVector();
-        Debug.Log(nextNode);
-        nextNode.x += tilesize;
-        nextNode.y += tilesize;
-        transform.position = Vector3.MoveTowards(transform.position, nextNode, step);
-    }
+        // If there is no viable path and enemy is not immediately next to the player, don't try to draw the path
+        if (roadPath == null && Vector3.Distance(transform.position, Player.Instance.transform.position) > 1f)
+            return;
 
+        // Movement speed of enemy
+        var step = speed * Time.deltaTime;
+        var tilesize = 0.5f;
+
+        // If there is a viable path and the enemy is atleast 1 unit away from the player
+        // Draw the path and move the enemy towards the next node in the path
+        if (Vector3.Distance(transform.position, Player.Instance.transform.position) > 1f && roadPath != null)
+        {
+            DrawRoad(); // Development aiding function - should be deleted for production
+            Vector3 nextNode = tilemap.CellToWorld(roadPath[1].SpotToVector());
+            nextNode.x += tilesize;
+            nextNode.y += tilesize;
+            transform.position = Vector3.MoveTowards(transform.position, nextNode, step);
+        }
+        // If the enemy is closer than 1 unit to the player
+        // Move the enemy directly towards the player position
+        else
+        {
+            transform.position = Vector3.MoveTowards(transform.position, Player.Instance.transform.position, step);
+        }
+            
+    }
+    // Place road tiles based on the current path
+    // Development aiding function - should be deleted for production
     private void DrawRoad()
     {
         for (int i = 0; i < roadPath.Count; i++)
@@ -84,6 +110,8 @@ public class PathFinding : MonoBehaviour
         }
     }
 
+    // Place ground tiles on the previous path
+    // Development aiding function - should be deleted for production
     private void ClearRoad()
     {
         for (int i = 0; i < roadPath.Count; i++)
