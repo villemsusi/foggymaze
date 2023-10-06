@@ -39416,11 +39416,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2539757194123991167, guid: a3079afe05a38214e8b73b9fb9f9bb6e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.5370708
+      value: 7.25
       objectReference: {fileID: 0}
     - target: {fileID: 2539757194123991167, guid: a3079afe05a38214e8b73b9fb9f9bb6e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.370892
+      value: -5.49
       objectReference: {fileID: 0}
     - target: {fileID: 2539757194123991167, guid: a3079afe05a38214e8b73b9fb9f9bb6e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -39462,6 +39462,18 @@ PrefabInstance:
       propertyPath: m_SortingLayerID
       value: -1474849377
       objectReference: {fileID: 0}
+    - target: {fileID: 5629998773500790083, guid: a3079afe05a38214e8b73b9fb9f9bb6e, type: 3}
+      propertyPath: tilemap
+      value: 
+      objectReference: {fileID: 1425560408}
+    - target: {fileID: 5629998773500790083, guid: a3079afe05a38214e8b73b9fb9f9bb6e, type: 3}
+      propertyPath: roadTile
+      value: 
+      objectReference: {fileID: 11400000, guid: e6d84b9f2c245f5468a7e5264fe3fd07, type: 2}
+    - target: {fileID: 5629998773500790083, guid: a3079afe05a38214e8b73b9fb9f9bb6e, type: 3}
+      propertyPath: groundTile
+      value: 
+      objectReference: {fileID: 11400000, guid: dfc4e8f76d9e47547883b8b7c16e3034, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
