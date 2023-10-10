@@ -11,7 +11,9 @@ public class Game : MonoBehaviour
     public static Game Instance;
 
     public VisualEffect vfxRenderer;
-    private float fogRadius = 0.02f;
+    private float fogRadius = 1f;
+    private float fogDelay;
+    private float currentRadius;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,13 +26,9 @@ public class Game : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (vfxRenderer.GetFloat("CircleRadius") > fogRadius)
-        //    vfxRenderer.SetFloat("CircleRadius", fogRadius*Time.deltaTime*0.3f);
-        Vector3 pos = Player.Instance.transform.position;
-        Debug.Log(pos);
-        vfxRenderer.SetVector3("ColliderPosLeft", new Vector3(pos.x - fogSep, pos.y, pos.z));
-        vfxRenderer.SetVector3("ColliderPosRight", new Vector3(pos.x + fogSep, pos.y, pos.z));
+        FogControl();
     }
+
 
 
     public void RestartGame()
@@ -38,10 +36,28 @@ public class Game : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
+
+    // Function that controls the fogfree circle around the player
+    private void FogControl()
+    {
+        Vector3 pos = Player.Instance.transform.position;
+        vfxRenderer.SetVector3("ColliderPosLeft", new Vector3(pos.x - fogSep, pos.y, pos.z));
+        vfxRenderer.SetVector3("ColliderPosRight", new Vector3(pos.x + fogSep, pos.y, pos.z));
+
+        if (vfxRenderer.GetFloat("CircleRadius") > fogRadius && fogDelay > 0)
+        {
+            fogDelay -= Time.deltaTime;
+            currentRadius -= 15 * Time.deltaTime;
+            vfxRenderer.SetFloat("CircleRadius", currentRadius);
+        }
+    }
+
     public void ExpandFog()
     {
         vfxRenderer.SetFloat("CircleRadius", 15f);
-
+        currentRadius = 15f;
+        fogDelay = 1f;
+        
     }
 
 }

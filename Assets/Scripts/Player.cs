@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     float vertical;
 
     // Set movement speed of player
-    private float moveSpeed = 5.0f;
+    private float moveSpeed = 4.0f;
 
 
     
