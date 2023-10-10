@@ -15,7 +15,14 @@ public class PathFinding : MonoBehaviour
 
     public TileBase roadTile;
     public TileBase groundTile;
-    
+
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     void Start()
     {
         tilemap.CompressBounds();
@@ -91,6 +98,11 @@ public class PathFinding : MonoBehaviour
             nextNode.x += tilesize;
             nextNode.y += tilesize;
             transform.position = Vector3.MoveTowards(transform.position, nextNode, step);
+
+            animator.SetFloat("X", nextNode.x-transform.position.x);
+            animator.SetFloat("Y", nextNode.y-transform.position.y);
+
+            animator.SetBool("isWalking", true);
         }
         // If the enemy is closer than 1 unit to the player
         // Move the enemy directly towards the player position
@@ -98,7 +110,8 @@ public class PathFinding : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, Player.Instance.transform.position, step);
         }
-            
+        
+
     }
     // Place road tiles based on the current path
     // Development aiding function - should be deleted for production

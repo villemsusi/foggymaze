@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.VFX;
 
 
 public class Player : MonoBehaviour
 {
-    Rigidbody2D body;
+    private Rigidbody2D body;
+    private Animator animator;
+
     public static Player Instance;
 
     float horizontal;
@@ -16,13 +17,19 @@ public class Player : MonoBehaviour
     private float moveSpeed = 5.0f;
 
 
-    public VisualEffect vfxRenderer;
+    
+
+    private void Awake()
+    {
+        body = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         Instance = this;
-        body = GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
@@ -32,18 +39,34 @@ public class Player : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
 
-        vfxRenderer.SetVector3("ColliderPos", transform.position);
+
+        // Velocity based on input and movespeed
+        body.velocity = new Vector2(horizontal * moveSpeed, vertical * moveSpeed);
+        if (horizontal != 0 || vertical != 0)
+        {
+            animator.SetFloat("X", horizontal);
+            animator.SetFloat("Y", vertical);
+
+            animator.SetBool("isWalking", true);
+        }
+        else
+        {
+            animator.SetBool("isWalking", false);
+        }
+
+
+        // Adjust velocity for diagonal movement
+        if (horizontal != 0 && vertical != 0)
+            body.velocity *= 0.7f;
+
+        if (Input.GetMouseButtonDown(0))
+            Game.Instance.ExpandFog();
     }
 
     private void FixedUpdate()
     {
-        // Velocity based on input and movespeed
-        body.velocity = new Vector2(horizontal * moveSpeed, vertical * moveSpeed);
-        // Adjust velocity for diagonal movement
-        if (horizontal != 0 && vertical != 0)
-            body.velocity *= 0.7f;
+        
     }
-
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
