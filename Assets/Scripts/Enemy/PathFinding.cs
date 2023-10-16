@@ -68,7 +68,7 @@ public class PathFinding : MonoBehaviour
         start = new Vector2Int(gridPosStart.x, gridPosStart.y);
 
         // Get path end coordinates
-        Vector3 worldEnd = Player.Instance.transform.position;
+        Vector3 worldEnd = Events.GetPlayerPosition();
         Vector3Int gridPosEnd = tilemap.WorldToCell(worldEnd);
         end = new Vector2Int(gridPosEnd.x, gridPosEnd.y);
 

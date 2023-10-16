@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 8861893306650198126}
   - component: {fileID: -4180610078260450451}
   - component: {fileID: 1682135878166744424}
-  - component: {fileID: -8458030873258639168}
   - component: {fileID: 5629998773500790083}
   - component: {fileID: 8929848847252182668}
+  - component: {fileID: -2879956830634787194}
   m_Layer: 0
   m_Name: Enemy_Teleport
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -77,14 +77,14 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1474849377
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: -468328986, guid: 44956ebb1211f994f8e655aea898f078, type: 3}
+  m_Sprite: {fileID: -2067868354, guid: d6c5201097bc10b4aa8a19555c914f2a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.375, y: 0.875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -154,7 +154,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.375, y: 0.875}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 0.375, y: 0.875}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -174,18 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f70242db6d48ed343816242ba532f1b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-8458030873258639168
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 571588167766083240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c29bb0bad4db3fe459e7a4f37256eca9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  EnemyData: {fileID: 0}
 --- !u!114 &5629998773500790083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,3 +213,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-2879956830634787194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571588167766083240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bf3f7826ed2a5d4ba3b6e50ec031a25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthPoints: 3
