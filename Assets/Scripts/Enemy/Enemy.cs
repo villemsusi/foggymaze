@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
 
     float teleportDelay = 4f;
     float teleportCurrentDelay = 1f;
-    float teleportChannelDuration;
+    float teleportChannelDuration = 1f;
     float teleportChannel;
 
 
@@ -25,25 +25,33 @@ public class Enemy : MonoBehaviour
     {
         if (EnemyData.Teleporting)
         {
-            if (teleportCurrentDelay > 0 || teleportChannel > 0)
+            if (Vector3.Distance(transform.position, Events.GetPlayerPosition()) > 1f)
             {
-                if (teleportChannel > 0)
+
+                if (teleportCurrentDelay > 0 || teleportChannel > 0)
                 {
-                    teleportChannel -= teleportChannelDuration * Time.deltaTime;
-                    if (teleportChannel <= 0)
+                    if (teleportChannel > 0)
                     {
-                        animator.SetBool("isTeleporting", false);
-                        Teleport(EnemyData.Speed);
-                        teleportCurrentDelay = teleportDelay;
+                        teleportChannel -= teleportChannelDuration * Time.deltaTime;
+                        if (teleportChannel <= 0)
+                        {
+                            animator.SetBool("isTeleporting", false);
+                            Teleport(EnemyData.Speed);
+                            teleportCurrentDelay = teleportDelay;
+                        }
                     }
-                } 
+                    else
+                        teleportCurrentDelay -= teleportDelay * Time.deltaTime;
+                }
                 else
-                    teleportCurrentDelay -= teleportDelay * Time.deltaTime;
-            } 
+                {
+                    teleportChannel = teleportChannelDuration;
+                    animator.SetBool("isTeleporting", true);
+                }
+            }
             else
             {
-                teleportChannel = teleportChannelDuration;
-                animator.SetBool("isTeleporting", true);
+                Move(EnemyData.Speed);
             }
         }
         else

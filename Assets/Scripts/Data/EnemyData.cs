@@ -11,5 +11,4 @@ public class EnemyData : ScriptableObject
     public Enemy EnemyPrefab;
 
     public bool Teleporting;
-    public bool Walking;
 }
