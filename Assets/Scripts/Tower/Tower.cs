@@ -25,13 +25,15 @@ public class Tower : MonoBehaviour
     {
         range = GetComponent<CircleCollider2D>();
         material = GetComponent<SpriteRenderer>().material;
+
     }
 
     private void Start()
     {
         range.radius = TowerData.ShotRadius;
         currentAmmo = TowerData.MaxAmmo;
-        ToggleShader(0);
+        
+        ToggleSelectionShader(0);
 
     }
 
@@ -84,7 +86,7 @@ public class Tower : MonoBehaviour
 
     public void Reload()
     {
-
+        Debug.Log("Try to reload");
         if (Events.GetMoney() >= TowerData.ReloadCost && currentAmmo < TowerData.MaxAmmo)
         {
             Events.SetMoney(Events.GetMoney() - TowerData.ReloadCost);
@@ -94,7 +96,18 @@ public class Tower : MonoBehaviour
         }
     }
 
-    public void ToggleShader(int state)
+    public void Upgrade()
+    {
+        if (Events.GetMoney() >= TowerData.Cost && TowerData.NextUpgrade != null)
+        {
+            Debug.Log("Upgrade");
+            Events.SetMoney(Events.GetMoney() - TowerData.Cost);
+            Instantiate(TowerData.NextUpgrade, transform.position, Quaternion.identity, null);
+            Destroy(gameObject);
+        }
+    }
+
+    public void ToggleSelectionShader(int state)
     {
         material.SetInt("_ShowShader", state);
     }
@@ -159,9 +172,7 @@ public class Tower : MonoBehaviour
 
     private void DrawAmmoDisplay()
     {
-        float newAmount = (float)currentAmmo / (float)TowerData.MaxAmmo;
-        Debug.Log(currentAmmo);
-        Debug.Log(TowerData.MaxAmmo);
+        float newAmount = (float)currentAmmo / TowerData.MaxAmmo;
         ammoDisplay.fillAmount = newAmount;
     }
 }

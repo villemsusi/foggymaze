@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9fb557a6d061d7e498d2ae62fd0270b8
+guid: c4844f89162a67a40bc040c13969ed02
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -119,11 +119,24 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dungeon_0
+      name: dungeon_black_bckgr_0
       rect:
         serializedVersion: 2
         x: 0
@@ -137,14 +150,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b9298ba74bfe8484ca04f5461e9941d3
-      internalID: 938737286
+      spriteID: 8f7e3c35e952f864eb3ce1b8a68aeac8
+      internalID: -2134411174
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_1
+      name: dungeon_black_bckgr_1
       rect:
         serializedVersion: 2
         x: 32
@@ -158,14 +171,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: df84bd2f64fbbb5469263da955d344aa
-      internalID: -604989932
+      spriteID: 10897d55059b47841845b982b4f502eb
+      internalID: -1031589997
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_2
+      name: dungeon_black_bckgr_2
       rect:
         serializedVersion: 2
         x: 64
@@ -179,14 +192,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 536c2c2978a33484ab33193c2997f03e
-      internalID: -2090785242
+      spriteID: 3d6d1c9c7e7ce75429fb6abeca1fc20b
+      internalID: 217668534
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_3
+      name: dungeon_black_bckgr_3
       rect:
         serializedVersion: 2
         x: 96
@@ -200,14 +213,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2131c7dd96fcdcf40b4ea2a0646dd493
-      internalID: -1189962643
+      spriteID: 7a7582eddbfe93a4ab5a9fc1a5e787e9
+      internalID: -1476990466
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_4
+      name: dungeon_black_bckgr_4
       rect:
         serializedVersion: 2
         x: 128
@@ -221,14 +234,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a5afca233987195409df8da41fe6cd67
-      internalID: 206041352
+      spriteID: f4df0dad0dced1e4690c0058a147afa8
+      internalID: 842694199
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_5
+      name: dungeon_black_bckgr_5
       rect:
         serializedVersion: 2
         x: 160
@@ -242,14 +255,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4306470ac48f6ae4d855de5b79bc1eee
-      internalID: -244533610
+      spriteID: 256e7152f52085d4b85e5c220b5b52fe
+      internalID: 1380116738
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_6
+      name: dungeon_black_bckgr_6
       rect:
         serializedVersion: 2
         x: 192
@@ -263,14 +276,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b3e230e80d9c6940a16d0d9ac9d58cf
-      internalID: -127896481
+      spriteID: e50be8a68d7f4784ebae0fedffcee0fb
+      internalID: 710379559
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_7
+      name: dungeon_black_bckgr_7
       rect:
         serializedVersion: 2
         x: 224
@@ -284,14 +297,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46150b566081dad44b8d13389263634e
-      internalID: 614018799
+      spriteID: 0624f8cd840172546813ed340f9d2e3f
+      internalID: -2000982714
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_8
+      name: dungeon_black_bckgr_8
       rect:
         serializedVersion: 2
         x: 0
@@ -305,14 +318,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a34894da8d348f945b19f302c909716e
-      internalID: -804140873
+      spriteID: 4b85d610820d8aa4884c3b495f8b76b3
+      internalID: -439323407
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_9
+      name: dungeon_black_bckgr_9
       rect:
         serializedVersion: 2
         x: 32
@@ -326,14 +339,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 71ab1d2e283746645880e9e00896f679
-      internalID: -1325313968
+      spriteID: 00c2f5ef72591924d812dce2a7bfaaca
+      internalID: 1147065860
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_10
+      name: dungeon_black_bckgr_10
       rect:
         serializedVersion: 2
         x: 64
@@ -347,14 +360,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7ece8d711e72c56439d465cf215ac8f4
-      internalID: 1120201503
+      spriteID: 3d147a2460c04844398dad7310523f61
+      internalID: 327871639
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_11
+      name: dungeon_black_bckgr_11
       rect:
         serializedVersion: 2
         x: 96
@@ -368,14 +381,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b99dbcda48300984a80bb6108983b12c
-      internalID: -1394658039
+      spriteID: e4b7da3fe6eb74d4c9d72008f4134a9e
+      internalID: -1306852965
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_12
+      name: dungeon_black_bckgr_12
       rect:
         serializedVersion: 2
         x: 128
@@ -389,14 +402,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e5c8d7c07a6c014ba06bd9cf8e0e288
-      internalID: 2057663024
+      spriteID: c4f23314235fbad499d99de77a52a6cf
+      internalID: -1986757276
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_13
+      name: dungeon_black_bckgr_13
       rect:
         serializedVersion: 2
         x: 160
@@ -410,14 +423,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e4540040ac342d74f88eeb77e4d32834
-      internalID: 361954153
+      spriteID: a55661c259c29d04c8429da4a26f2ea8
+      internalID: -1418974527
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_14
+      name: dungeon_black_bckgr_14
       rect:
         serializedVersion: 2
         x: 192
@@ -431,14 +444,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a76b5712731d7934e91e530816f84810
-      internalID: -1167444942
+      spriteID: 80e97cf9e692b4b4996a1de76563191d
+      internalID: -1486449347
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_15
+      name: dungeon_black_bckgr_15
       rect:
         serializedVersion: 2
         x: 224
@@ -452,14 +465,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c5c512c86473814c8c1b149a90957e6
-      internalID: 2108260997
+      spriteID: 93e1f0685b28f144e8f7422df86e3423
+      internalID: 908979465
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_16
+      name: dungeon_black_bckgr_16
       rect:
         serializedVersion: 2
         x: 0
@@ -473,14 +486,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 18af7f0e71b57a847a97c1c5530e9fd1
-      internalID: 322525124
+      spriteID: fd06b628c544ed648a5aaf59494c875b
+      internalID: -1434068869
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_17
+      name: dungeon_black_bckgr_17
       rect:
         serializedVersion: 2
         x: 32
@@ -494,14 +507,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d9c754a8fdd44641b6c2e7f7ebd49c7
-      internalID: -1640839319
+      spriteID: dfb3f98be6d92c24a89c9027ee6fe735
+      internalID: 878491555
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_18
+      name: dungeon_black_bckgr_18
       rect:
         serializedVersion: 2
         x: 64
@@ -515,14 +528,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2795f4c74db39e24a8cbe3b8a72cf4c9
-      internalID: 504023270
+      spriteID: 9734e53d10b76f24d83bd1a2c20e74aa
+      internalID: -641195863
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_19
+      name: dungeon_black_bckgr_19
       rect:
         serializedVersion: 2
         x: 96
@@ -536,14 +549,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 76b90f0822172af4cb9068b1eaba31d9
-      internalID: -1693070197
+      spriteID: 7847acbdf504788438b89d69ad209ef0
+      internalID: 986146065
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_20
+      name: dungeon_black_bckgr_20
       rect:
         serializedVersion: 2
         x: 128
@@ -557,14 +570,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d2755fb99bc703c4db8d1818c43d21e7
-      internalID: 922903141
+      spriteID: 6bf9443853317d7488806543a14f5499
+      internalID: -1174867903
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_21
+      name: dungeon_black_bckgr_21
       rect:
         serializedVersion: 2
         x: 160
@@ -578,14 +591,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 95cb77efde00e854faacbdd6e724e665
-      internalID: -1234935611
+      spriteID: bd98888b3167adc47ad9ffb307396dd8
+      internalID: -2087843697
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_22
+      name: dungeon_black_bckgr_22
       rect:
         serializedVersion: 2
         x: 192
@@ -599,14 +612,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bb711f84eaeb6fc4782e2f8c9b1e9dd2
-      internalID: 772794603
+      spriteID: 41b59a293a4753e4da47c52893521db7
+      internalID: -331722649
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_23
+      name: dungeon_black_bckgr_23
       rect:
         serializedVersion: 2
         x: 224
@@ -620,14 +633,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7f43741dfa9f4fb47b49be73932c3d26
-      internalID: -1695099330
+      spriteID: c7b56182d45e38a478b5434d33b3542f
+      internalID: 881896625
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_24
+      name: dungeon_black_bckgr_24
       rect:
         serializedVersion: 2
         x: 0
@@ -641,14 +654,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 664e1f7500ba1cb4aa065d95b2604d7f
-      internalID: -959871769
+      spriteID: 1c9ba6def29c6ba43acd92e68cb00016
+      internalID: 72761805
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_25
+      name: dungeon_black_bckgr_25
       rect:
         serializedVersion: 2
         x: 32
@@ -662,14 +675,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 592989f211ba4f6408efdb02ce341e95
-      internalID: 498393452
+      spriteID: 2fb5d166648189e44bcedddaa0bca04a
+      internalID: 1854036226
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_26
+      name: dungeon_black_bckgr_26
       rect:
         serializedVersion: 2
         x: 64
@@ -683,14 +696,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: eb1be84f57fcba44da59f84e727a7490
-      internalID: 159968245
+      spriteID: 58e2d0b8c38f25e438106e17ec567296
+      internalID: 1384637020
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_27
+      name: dungeon_black_bckgr_27
       rect:
         serializedVersion: 2
         x: 96
@@ -704,14 +717,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c13cd0e48d445e9498b0214a94a0be1a
-      internalID: -1743390720
+      spriteID: bd4116cb2bf5d8d4f95cd4f1b2be270e
+      internalID: -1860426123
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_28
+      name: dungeon_black_bckgr_28
       rect:
         serializedVersion: 2
         x: 128
@@ -725,14 +738,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c0cf8d8602f1d54782d181c1f3b0e9e
-      internalID: -1960908052
+      spriteID: fbff4201e6cb05d4eadafe8c905dbcee
+      internalID: -1953002206
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_29
+      name: dungeon_black_bckgr_29
       rect:
         serializedVersion: 2
         x: 160
@@ -746,14 +759,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 050d4edfc15c29840b1abfa01721d123
-      internalID: 1444438093
+      spriteID: 86418a94d5cf4984ca5ea79be1c2e905
+      internalID: -715705721
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_30
+      name: dungeon_black_bckgr_30
       rect:
         serializedVersion: 2
         x: 192
@@ -767,14 +780,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 359185f86f5f2404db2c88d0b86e4bd5
-      internalID: 200781115
+      spriteID: e9c6e51dbe2374f42856387694e2dd4b
+      internalID: -285931962
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_31
+      name: dungeon_black_bckgr_31
       rect:
         serializedVersion: 2
         x: 224
@@ -788,14 +801,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 023bbedad6971be4292fb272cd5f5246
-      internalID: 1823904611
+      spriteID: e65d42daeb92dce4b97159ead2462fac
+      internalID: 638792410
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_32
+      name: dungeon_black_bckgr_32
       rect:
         serializedVersion: 2
         x: 0
@@ -809,14 +822,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 41eb60604dce5694ba372016f85096b6
-      internalID: 2130225904
+      spriteID: f1e86162e909ea04589c0653c85ff432
+      internalID: 1230296240
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_33
+      name: dungeon_black_bckgr_33
       rect:
         serializedVersion: 2
         x: 32
@@ -830,14 +843,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0ba090ae6d41fc4ebc8412de1e6c230
-      internalID: 1647045119
+      spriteID: 66ce23accb94e6543bca5d57bb1c64c4
+      internalID: -1619541954
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_34
+      name: dungeon_black_bckgr_34
       rect:
         serializedVersion: 2
         x: 64
@@ -851,14 +864,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 84049153c96c7814a8b0f98cb885516c
-      internalID: 546948573
+      spriteID: c5dfd8a7dcf83fd408e198eac45686c1
+      internalID: -165852475
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_35
+      name: dungeon_black_bckgr_35
       rect:
         serializedVersion: 2
         x: 96
@@ -872,14 +885,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d3b10b3af44dbf49b2e07b6d60fa8d0
-      internalID: -2094471815
+      spriteID: 5d15537ad44950949bc08e6622a7438a
+      internalID: 509475443
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_36
+      name: dungeon_black_bckgr_36
       rect:
         serializedVersion: 2
         x: 128
@@ -893,14 +906,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f7de8e8da4da72a4a8e0b00f32ea3e1a
-      internalID: -903745024
+      spriteID: 79fd938c736e5374abdffe424922999a
+      internalID: -60541878
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_37
+      name: dungeon_black_bckgr_37
       rect:
         serializedVersion: 2
         x: 160
@@ -914,14 +927,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7572edd70d89c9545b849c4cf560fc46
-      internalID: 852559645
+      spriteID: 20f7f95236b2c7740912b4946da4c8e5
+      internalID: -1553896985
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_38
+      name: dungeon_black_bckgr_38
       rect:
         serializedVersion: 2
         x: 192
@@ -935,14 +948,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d2fd5bf0761bcf4c8c053db06841ab4
-      internalID: 458302283
+      spriteID: 98796d53fab0e5e41aab0d0744af2d8d
+      internalID: -1407562797
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_39
+      name: dungeon_black_bckgr_39
       rect:
         serializedVersion: 2
         x: 224
@@ -956,14 +969,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a49dc3b5460f476498b639e67708e533
-      internalID: -842813108
+      spriteID: eb0a6df0d7512fc4591c9e5bb4e7523f
+      internalID: 1385799881
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_40
+      name: dungeon_black_bckgr_40
       rect:
         serializedVersion: 2
         x: 0
@@ -977,14 +990,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e119f68ca2abfc14591d612015a8df9d
-      internalID: 1242830788
+      spriteID: 21514f3817f2cdd45862fc95cfc51aeb
+      internalID: -1115876370
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_41
+      name: dungeon_black_bckgr_41
       rect:
         serializedVersion: 2
         x: 32
@@ -998,14 +1011,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 896cbd01df18da54aac1e02b4a0cc8dc
-      internalID: -1338876789
+      spriteID: d250a570c97a0ff47bef456b01abf73d
+      internalID: -86528450
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_42
+      name: dungeon_black_bckgr_42
       rect:
         serializedVersion: 2
         x: 64
@@ -1019,14 +1032,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d45784f43e1e41849a6a9df86f715101
-      internalID: 1919485401
+      spriteID: 5317008f2f6990e4d998caeba0995df3
+      internalID: -101307208
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_43
+      name: dungeon_black_bckgr_43
       rect:
         serializedVersion: 2
         x: 96
@@ -1040,14 +1053,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65239d04a8c5bf14c90b43ba7d34b812
-      internalID: 1948207279
+      spriteID: cda5057cd39b79f4fa389660a56d3bb0
+      internalID: -251910128
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_44
+      name: dungeon_black_bckgr_44
       rect:
         serializedVersion: 2
         x: 128
@@ -1061,14 +1074,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08cd40b95629b2b43bdb90a88e950c91
-      internalID: 1372557698
+      spriteID: 51f87b30ece3f0f4fa3d12f5fcff6e3b
+      internalID: 363456003
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_45
+      name: dungeon_black_bckgr_45
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f4e49b893330c14bb9b54b92cb71c00
+      internalID: -1332543861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_black_bckgr_46
       rect:
         serializedVersion: 2
         x: 192
@@ -1082,14 +1116,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1db2cdbe1c7972b4fa9c5b0b1af646eb
-      internalID: 600933510
+      spriteID: 4629d079d67f1184a956d110455ea783
+      internalID: -345266969
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_46
+      name: dungeon_black_bckgr_47
       rect:
         serializedVersion: 2
         x: 224
@@ -1103,14 +1137,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e6401c5c7859d04484035a9ee38ea2a
-      internalID: 1129553958
+      spriteID: 992c09a9c68463640a08eb6da51db8b3
+      internalID: 474692971
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_47
+      name: dungeon_black_bckgr_48
       rect:
         serializedVersion: 2
         x: 0
@@ -1124,14 +1158,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b005c2245b212d4fb9292ad567b9549
-      internalID: -370117696
+      spriteID: a8e31081a98cd734a878bfea7f83bc94
+      internalID: -145388163
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_48
+      name: dungeon_black_bckgr_49
       rect:
         serializedVersion: 2
         x: 32
@@ -1145,14 +1179,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b4e44e14d4d9dd4891ca3789f386431
-      internalID: -1287826934
+      spriteID: c9f78c0faa20c5c4db90869b352b51bc
+      internalID: 956986436
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_49
+      name: dungeon_black_bckgr_50
       rect:
         serializedVersion: 2
         x: 64
@@ -1166,14 +1200,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad1888033132434428b69eab3e442214
-      internalID: 2032222624
+      spriteID: 2ee2f856958210e4d8d121b24c3f1657
+      internalID: -101638266
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_50
+      name: dungeon_black_bckgr_51
       rect:
         serializedVersion: 2
         x: 96
@@ -1187,14 +1221,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 57643158ecb97a14baa483aeb783d5de
-      internalID: 1488287171
+      spriteID: 0a02a274b5ba9f649982995a09277595
+      internalID: 457367934
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dungeon_51
+      name: dungeon_black_bckgr_52
       rect:
         serializedVersion: 2
         x: 128
@@ -1208,8 +1242,239 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46691ea557886c342b5881da0da8c3b8
-      internalID: 353664259
+      spriteID: d6593c84c982b6a4e9ab7e3247e2137c
+      internalID: -1996135753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_black_bckgr_53
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 838e8633069456149a6ece157d79bf4f
+      internalID: 509090922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_black_bckgr_54
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ebe6186c85cb974998be20bff53386f
+      internalID: 832057694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_black_bckgr_55
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26d772ce396086f4f867a07a47250205
+      internalID: 2076589030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_black_bckgr_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bc77b5bd4636e242917120bfce6b777
+      internalID: -387586348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_black_bckgr_57
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 429705cbc91f9054bb02de79900ea307
+      internalID: -1154173570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_black_bckgr_58
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 200c02bb02f04e845847f283833c834a
+      internalID: -1569274189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_black_bckgr_59
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 747e5fb914c328941a0325e282cb4b14
+      internalID: 786020159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_black_bckgr_60
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ed58318106d5f643a0166a7bf535a3f
+      internalID: 451947067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_black_bckgr_61
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7758520578dd98346a5204e0e984facc
+      internalID: 820021356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_black_bckgr_62
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0c7561a7b2294241b0415d710eac208
+      internalID: -2137814192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dungeon_black_bckgr_63
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d3dc1da6103285d48ab627832d0d06c0
+      internalID: 305482754
       vertices: []
       indices: 
       edges: []
@@ -1225,58 +1490,70 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      dungeon_0: 938737286
-      dungeon_1: -604989932
-      dungeon_10: 1120201503
-      dungeon_11: -1394658039
-      dungeon_12: 2057663024
-      dungeon_13: 361954153
-      dungeon_14: -1167444942
-      dungeon_15: 2108260997
-      dungeon_16: 322525124
-      dungeon_17: -1640839319
-      dungeon_18: 504023270
-      dungeon_19: -1693070197
-      dungeon_2: -2090785242
-      dungeon_20: 922903141
-      dungeon_21: -1234935611
-      dungeon_22: 772794603
-      dungeon_23: -1695099330
-      dungeon_24: -959871769
-      dungeon_25: 498393452
-      dungeon_26: 159968245
-      dungeon_27: -1743390720
-      dungeon_28: -1960908052
-      dungeon_29: 1444438093
-      dungeon_3: -1189962643
-      dungeon_30: 200781115
-      dungeon_31: 1823904611
-      dungeon_32: 2130225904
-      dungeon_33: 1647045119
-      dungeon_34: 546948573
-      dungeon_35: -2094471815
-      dungeon_36: -903745024
-      dungeon_37: 852559645
-      dungeon_38: 458302283
-      dungeon_39: -842813108
-      dungeon_4: 206041352
-      dungeon_40: 1242830788
-      dungeon_41: -1338876789
-      dungeon_42: 1919485401
-      dungeon_43: 1948207279
-      dungeon_44: 1372557698
-      dungeon_45: 600933510
-      dungeon_46: 1129553958
-      dungeon_47: -370117696
-      dungeon_48: -1287826934
-      dungeon_49: 2032222624
-      dungeon_5: -244533610
-      dungeon_50: 1488287171
-      dungeon_51: 353664259
-      dungeon_6: -127896481
-      dungeon_7: 614018799
-      dungeon_8: -804140873
-      dungeon_9: -1325313968
+      dungeon_black_bckgr_0: -2134411174
+      dungeon_black_bckgr_1: -1031589997
+      dungeon_black_bckgr_10: 327871639
+      dungeon_black_bckgr_11: -1306852965
+      dungeon_black_bckgr_12: -1986757276
+      dungeon_black_bckgr_13: -1418974527
+      dungeon_black_bckgr_14: -1486449347
+      dungeon_black_bckgr_15: 908979465
+      dungeon_black_bckgr_16: -1434068869
+      dungeon_black_bckgr_17: 878491555
+      dungeon_black_bckgr_18: -641195863
+      dungeon_black_bckgr_19: 986146065
+      dungeon_black_bckgr_2: 217668534
+      dungeon_black_bckgr_20: -1174867903
+      dungeon_black_bckgr_21: -2087843697
+      dungeon_black_bckgr_22: -331722649
+      dungeon_black_bckgr_23: 881896625
+      dungeon_black_bckgr_24: 72761805
+      dungeon_black_bckgr_25: 1854036226
+      dungeon_black_bckgr_26: 1384637020
+      dungeon_black_bckgr_27: -1860426123
+      dungeon_black_bckgr_28: -1953002206
+      dungeon_black_bckgr_29: -715705721
+      dungeon_black_bckgr_3: -1476990466
+      dungeon_black_bckgr_30: -285931962
+      dungeon_black_bckgr_31: 638792410
+      dungeon_black_bckgr_32: 1230296240
+      dungeon_black_bckgr_33: -1619541954
+      dungeon_black_bckgr_34: -165852475
+      dungeon_black_bckgr_35: 509475443
+      dungeon_black_bckgr_36: -60541878
+      dungeon_black_bckgr_37: -1553896985
+      dungeon_black_bckgr_38: -1407562797
+      dungeon_black_bckgr_39: 1385799881
+      dungeon_black_bckgr_4: 842694199
+      dungeon_black_bckgr_40: -1115876370
+      dungeon_black_bckgr_41: -86528450
+      dungeon_black_bckgr_42: -101307208
+      dungeon_black_bckgr_43: -251910128
+      dungeon_black_bckgr_44: 363456003
+      dungeon_black_bckgr_45: -1332543861
+      dungeon_black_bckgr_46: -345266969
+      dungeon_black_bckgr_47: 474692971
+      dungeon_black_bckgr_48: -145388163
+      dungeon_black_bckgr_49: 956986436
+      dungeon_black_bckgr_5: 1380116738
+      dungeon_black_bckgr_50: -101638266
+      dungeon_black_bckgr_51: 457367934
+      dungeon_black_bckgr_52: -1996135753
+      dungeon_black_bckgr_53: 509090922
+      dungeon_black_bckgr_54: 832057694
+      dungeon_black_bckgr_55: 2076589030
+      dungeon_black_bckgr_56: -387586348
+      dungeon_black_bckgr_57: -1154173570
+      dungeon_black_bckgr_58: -1569274189
+      dungeon_black_bckgr_59: 786020159
+      dungeon_black_bckgr_6: 710379559
+      dungeon_black_bckgr_60: 451947067
+      dungeon_black_bckgr_61: 820021356
+      dungeon_black_bckgr_62: -2137814192
+      dungeon_black_bckgr_63: 305482754
+      dungeon_black_bckgr_7: -2000982714
+      dungeon_black_bckgr_8: -439323407
+      dungeon_black_bckgr_9: 1147065860
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

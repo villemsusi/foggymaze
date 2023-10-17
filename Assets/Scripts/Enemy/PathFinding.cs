@@ -16,6 +16,8 @@ public class PathFinding : MonoBehaviour
     public TileBase roadTile;
     public TileBase groundTile;
 
+    private static bool canDraw = false;
+
     
 
     void Start()
@@ -74,14 +76,14 @@ public class PathFinding : MonoBehaviour
 
         // If a path is drawn, erase it
         // Development aiding function - should be deleted for production
-        if (roadPath != null)
+        if (roadPath != null && canDraw)
         {
             ClearRoad();
         }
         // A* algorithm
         roadPath = AStar.CreatePath(grid, end, start, 1000);
 
-        if (roadPath != null)
+        if (roadPath != null && canDraw)
             DrawRoad();
         return roadPath;
     }

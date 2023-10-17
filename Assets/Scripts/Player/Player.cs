@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        Events.SetMoney(5);
+        Events.SetMoney(50);
     }
 
 
@@ -47,6 +47,14 @@ public class Player : MonoBehaviour
             {
                 SelectedTower.Reload();
                 Debug.Log(Events.GetMoney().ToString());
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            if (SelectedTower != null)
+            {
+                SelectedTower.Upgrade();
             }
         }
     }

@@ -9,8 +9,9 @@ public class TowerData : ScriptableObject
     public int Cost;
     public float ShotRadius;
     public string Shortcut;
-    public Sprite Icon;
+    public Texture Texture;
     public Tower TowerPrefab;
+    public Tower NextUpgrade;
 
     public Projectile ProjectilePrefab;
     public int ProjDamage;

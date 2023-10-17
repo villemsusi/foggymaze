@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -4746443489706926072}
   - component: {fileID: 5039262248334625267}
   m_Layer: 0
-  m_Name: Tower
+  m_Name: Tower1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -56,7 +56,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 42db90cdfc9f2fa41b5a536199721206, type: 2}
+  - {fileID: 2100000, guid: fa56feda4b62f574c8db66a831225f39, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: -1474849377
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ed71967bc0e6dca45863a4693e6f7053, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5898ef0263738914cba3295c025a90e3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd560761ec342e74dbc29c838ed0d09e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TowerData: {fileID: 11400000, guid: e98b6e2ced9466c48924fd84b13e8062, type: 2}
+  TowerData: {fileID: 11400000, guid: aadfa9779ba41ae4e82c3caa7b70ef36, type: 2}
   EnemiesInRange: []
   EnemiesNotVisible: []
   ammoDisplay: {fileID: 8881073520559256813}
@@ -174,8 +174,8 @@ BoxCollider2D:
   m_Offset: {x: -0.002262935, y: 0.11118594}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5064656, y: 0.35743392}
-    oldSize: {x: 0.4375, y: 0.75}
+    pivot: {x: 0.49773702, y: 0.3710116}
+    oldSize: {x: 0.5, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -318,8 +318,8 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: -2052771361
-  m_SortingOrder: 0
+  m_SortingLayerID: -1474849377
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &3147731535044792439
 MonoBehaviour:

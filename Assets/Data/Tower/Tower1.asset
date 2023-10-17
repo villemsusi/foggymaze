@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 944b72dc82c6951488094976cd5d7fda, type: 3}
+  m_Name: Tower1
+  m_EditorClassIdentifier: 
+  Name: Basic Tower
+  Cost: 1
+  ShotRadius: 5
+  Shortcut: u
+  Texture: {fileID: 2800000, guid: 5898ef0263738914cba3295c025a90e3, type: 3}
+  TowerPrefab: {fileID: 5899442377747358072, guid: d1bf343eb1cd9654b96bebaff979b83a, type: 3}
+  NextUpgrade: {fileID: 5899442377747358072, guid: 077ec2c36f7bca6489ddbe9728e310a6, type: 3}
+  ProjectilePrefab: {fileID: 5345155349098639341, guid: b32ff8f6affea8f4e9f3406c69f7407f, type: 3}
+  ProjDamage: 2
+  ProjCooldown: 1
+  ProjSpeed: 10
+  MaxAmmo: 10
+  ReloadCost: 3
