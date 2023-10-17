@@ -16,4 +16,7 @@ public class TowerData : ScriptableObject
     public int ProjDamage;
     public float ProjCooldown;
     public float ProjSpeed;
+
+    public int MaxAmmo;
+    public int ReloadCost;
 }

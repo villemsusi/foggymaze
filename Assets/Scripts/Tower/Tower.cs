@@ -1,27 +1,38 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Tower : MonoBehaviour
 {
 
     public TowerData TowerData;
+    
     public List<Health> EnemiesInRange;
     public List<Health> EnemiesNotVisible;
+    
     private CircleCollider2D range;
+    
+    private Material material;
 
+    public Image ammoDisplay;
 
     private float currentCooldown = 0;
+    private int currentAmmo;
 
 
     private void Awake()
     {
         range = GetComponent<CircleCollider2D>();
+        material = GetComponent<SpriteRenderer>().material;
     }
 
     private void Start()
     {
         range.radius = TowerData.ShotRadius;
+        currentAmmo = TowerData.MaxAmmo;
+        ToggleShader(0);
+
     }
 
     // Update is called once per frame
@@ -38,6 +49,7 @@ public class Tower : MonoBehaviour
         }
 
         CheckNotVisibleEnemies();
+
     }
 
     private void Attack()
@@ -54,17 +66,37 @@ public class Tower : MonoBehaviour
             }
         }
         if (enemy == null) return;
-
+        if (currentAmmo <= 0) return;
         Shoot();
     }
 
     private void Shoot()
     {
+        currentAmmo -= 1;
+        DrawAmmoDisplay();
+
         transform.up = (EnemiesInRange[0].transform.position - transform.position);
         Projectile projectile = Instantiate(TowerData.ProjectilePrefab, transform.position, Quaternion.identity, transform);
         projectile.target = EnemiesInRange[0].transform;
         projectile.damage = TowerData.ProjDamage;
         projectile.speed = TowerData.ProjSpeed;
+    }
+
+    public void Reload()
+    {
+
+        if (Events.GetMoney() >= TowerData.ReloadCost && currentAmmo < TowerData.MaxAmmo)
+        {
+            Events.SetMoney(Events.GetMoney() - TowerData.ReloadCost);
+            currentAmmo = TowerData.MaxAmmo;
+            DrawAmmoDisplay();
+
+        }
+    }
+
+    public void ToggleShader(int state)
+    {
+        material.SetInt("_ShowShader", state);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -123,5 +155,13 @@ public class Tower : MonoBehaviour
                     
             }
         }
+    }
+
+    private void DrawAmmoDisplay()
+    {
+        float newAmount = (float)currentAmmo / (float)TowerData.MaxAmmo;
+        Debug.Log(currentAmmo);
+        Debug.Log(TowerData.MaxAmmo);
+        ammoDisplay.fillAmount = newAmount;
     }
 }

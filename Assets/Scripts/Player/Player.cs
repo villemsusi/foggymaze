@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     private int moneyAmount;
     private int health;
 
+    private Tower SelectedTower;
+
     private void Awake()
     {
         Events.OnGetHealth += GetHealth;
@@ -26,6 +28,11 @@ public class Player : MonoBehaviour
         Events.OnGetPlayerPosition -= GetPosition;
     }
 
+    private void Start()
+    {
+        Events.SetMoney(5);
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -33,6 +40,15 @@ public class Player : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
             Events.ExpandFog();
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (SelectedTower != null)
+            {
+                SelectedTower.Reload();
+                Debug.Log(Events.GetMoney().ToString());
+            }
+        }
     }
 
     public int GetMoney() => moneyAmount;
@@ -47,6 +63,24 @@ public class Player : MonoBehaviour
         if (enemy != null)
         {
             Events.RestartGame();
+        }
+        Tower tower = collision.gameObject.GetComponent<Tower>();
+        if (tower != null && collision is BoxCollider2D)
+        {
+            if (SelectedTower != null)
+                SelectedTower.ToggleShader(0);
+            SelectedTower = tower;
+            SelectedTower.ToggleShader(1);
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Tower tower = collision.gameObject.GetComponent<Tower>();
+        if (tower != null)
+        {
+            tower.ToggleShader(0);
+            SelectedTower = null;
         }
     }
 }

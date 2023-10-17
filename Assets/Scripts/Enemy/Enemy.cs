@@ -25,6 +25,7 @@ public class Enemy : MonoBehaviour
     {
         if (EnemyData.Teleporting)
         {
+            animator.SetBool("isTeleporting", true);
             if (Vector3.Distance(transform.position, Events.GetPlayerPosition()) > 1f)
             {
 
@@ -35,7 +36,6 @@ public class Enemy : MonoBehaviour
                         teleportChannel -= teleportChannelDuration * Time.deltaTime;
                         if (teleportChannel <= 0)
                         {
-                            animator.SetBool("isTeleporting", false);
                             Teleport(EnemyData.Speed);
                             teleportCurrentDelay = teleportDelay;
                         }
@@ -46,7 +46,6 @@ public class Enemy : MonoBehaviour
                 else
                 {
                     teleportChannel = teleportChannelDuration;
-                    animator.SetBool("isTeleporting", true);
                 }
             }
             else
