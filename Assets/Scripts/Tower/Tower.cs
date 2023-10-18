@@ -12,7 +12,7 @@ public class Tower : MonoBehaviour
     public List<Health> EnemiesNotVisible;
     
     private CircleCollider2D range;
-    
+    private AudioSource audioSource;
     private Material material;
 
     public Image ammoDisplay;
@@ -25,6 +25,7 @@ public class Tower : MonoBehaviour
     {
         range = GetComponent<CircleCollider2D>();
         material = GetComponent<SpriteRenderer>().material;
+        audioSource = GetComponent<AudioSource>();
 
     }
 
@@ -77,6 +78,8 @@ public class Tower : MonoBehaviour
         currentAmmo -= 1;
         DrawAmmoDisplay();
 
+        audioSource.Play(0);
+
         transform.up = (EnemiesInRange[0].transform.position - transform.position);
         Projectile projectile = Instantiate(TowerData.ProjectilePrefab, transform.position, Quaternion.identity, transform);
         projectile.target = EnemiesInRange[0].transform;
@@ -102,7 +105,8 @@ public class Tower : MonoBehaviour
         {
             Debug.Log("Upgrade");
             Events.SetMoney(Events.GetMoney() - TowerData.Cost);
-            Instantiate(TowerData.NextUpgrade, transform.position, Quaternion.identity, null);
+            Tower newtower = Instantiate(TowerData.NextUpgrade, transform.position, Quaternion.identity, null);
+            newtower.transform.up = transform.up;
             Destroy(gameObject);
         }
     }
