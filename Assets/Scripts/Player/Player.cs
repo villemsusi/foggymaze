@@ -7,34 +7,46 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
 
-    private int moneyAmount;
-    private int health;
+    private int turretCount = 0;
+    private int upgradeCount = 0;
+    private int ammoCount = 0;
+    private int health = 0;
+    private int maxHealth;
 
+    private Lootbox SelectedBox;
     private Tower SelectedTower;
+
     public Slider slider;
 
     private void Awake()
     {
         Events.OnGetHealth += GetHealth;
         Events.OnSetHealth += SetHealth;
-        Events.OnGetMoney += GetMoney;
-        Events.OnSetMoney += SetMoney;
+        Events.OnGetAmmoCount += GetAmmo;
+        Events.OnSetAmmoCount += SetAmmo;
+        Events.OnSetUpgradeCount += SetUpgrade;
+        Events.OnGetUpgradeCount += GetUpgrade;
+        Events.OnSetTurretCount += SetTurret;
+        Events.OnGetTurretCount += GetTurret;
         Events.OnGetPlayerPosition += GetPosition;
     }
     private void OnDestroy()
     {
         Events.OnGetHealth -= GetHealth;
         Events.OnSetHealth -= SetHealth;
-        Events.OnGetMoney -= GetMoney;
-        Events.OnSetMoney -= SetMoney;
+        Events.OnGetAmmoCount -= GetAmmo;
+        Events.OnSetAmmoCount -= SetAmmo;
+        Events.OnSetUpgradeCount -= SetUpgrade;
+        Events.OnGetUpgradeCount -= GetUpgrade;
+        Events.OnSetTurretCount -= SetTurret;
+        Events.OnGetTurretCount -= GetTurret;
         Events.OnGetPlayerPosition -= GetPosition;
     }
 
     private void Start()
     {
-        Events.SetMoney(50);
-        Events.SetHealth(100);
         SetSliderMaxHealth(health);
+        maxHealth = health;
     }
 
 
@@ -47,25 +59,33 @@ public class Player : MonoBehaviour
             if (SelectedTower != null)
             {
                 SelectedTower.Reload();
-                Debug.Log(Events.GetMoney().ToString());
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.U))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if (SelectedTower != null)
             {
                 SelectedTower.Upgrade();
             }
+            if (SelectedBox != null)
+            {
+                SelectedBox.Open();
+            }
         }
     }
 
-    public int GetMoney() => moneyAmount;
-    public void SetMoney(int amount) => moneyAmount = amount;
+    // Get / Set
+    public int GetUpgrade() => upgradeCount;
+    public void SetUpgrade(int amount) => upgradeCount = amount;
+    public int GetTurret() => turretCount;
+    public void SetTurret(int amount) => turretCount = amount;
+    public int GetAmmo() => ammoCount;
+    public void SetAmmo(int amount) => ammoCount = amount;
     public int GetHealth() => health;
     public void SetHealth(int amount)
     {
-        health = amount;
+        health = Mathf.Clamp(amount, 0, maxHealth);
         slider.value = health;
         if (health <= 0)
             Events.RestartGame();
@@ -77,12 +97,20 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Tower tower = collision.gameObject.GetComponent<Tower>();
+        Lootbox lootbox = collision.gameObject.GetComponent<Lootbox>();
         if (tower != null && collision is BoxCollider2D)
         {
             if (SelectedTower != null)
-                SelectedTower.ToggleSelectionShader(0);
+                ToggleSelectionShader(0, SelectedTower.gameObject);
             SelectedTower = tower;
-            SelectedTower.ToggleSelectionShader(1);
+            ToggleSelectionShader(1, SelectedTower.gameObject);
+        }
+        if (lootbox != null)
+        {
+            if (SelectedTower != null)
+                ToggleSelectionShader(0, SelectedBox.gameObject);
+            SelectedBox = lootbox;
+            ToggleSelectionShader(1, SelectedBox.gameObject);
         }
     }
 
@@ -91,8 +119,20 @@ public class Player : MonoBehaviour
         Tower tower = collision.gameObject.GetComponent<Tower>();
         if (tower != null)
         {
-            tower.ToggleSelectionShader(0);
+            ToggleSelectionShader(0, tower.gameObject);
             SelectedTower = null;
         }
+        Lootbox lootbox = collision.gameObject.GetComponent<Lootbox>();
+        if (lootbox != null)
+        {
+            ToggleSelectionShader(0, lootbox.gameObject);
+            SelectedBox = null;
+        }
+    }
+
+
+    private void ToggleSelectionShader(int state, GameObject obj)
+    {
+        obj.GetComponent<SpriteRenderer>().material.SetInt("_ShowShader", state);
     }
 }

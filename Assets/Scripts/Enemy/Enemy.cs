@@ -30,14 +30,12 @@ public class Enemy : MonoBehaviour
     private void FixedUpdate()
     {
         if (EnemyData.Teleporting)
-        {
-            
-        }
+            Teleport();
         else
-            Move(EnemyData.Speed);
+            Move();
     }
 
-    public void Move(float speed)
+    public void Move()
     {
 
         List<Spot> roadPath = GetComponent<PathFinding>().GetPath();
@@ -45,8 +43,6 @@ public class Enemy : MonoBehaviour
         // If there is no viable path and enemy is not immediately next to the player, don't try to draw the path
         if (roadPath == null && Vector3.Distance(transform.position, Events.GetPlayerPosition()) > 1f)
             return;
-        // Movement speed of enemy
-        var step = speed * Time.deltaTime;
         var tilesize = 0.5f;
 
         // If there is a viable path and the enemy is atleast 1 unit away from the player
@@ -121,7 +117,7 @@ public class Enemy : MonoBehaviour
             return;
         }
 
-        Move(EnemyData.Speed);
+        Move();
 
     }
 

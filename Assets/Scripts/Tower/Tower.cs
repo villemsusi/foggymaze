@@ -34,7 +34,7 @@ public class Tower : MonoBehaviour
         range.radius = TowerData.ShotRadius;
         currentAmmo = TowerData.MaxAmmo;
         
-        ToggleSelectionShader(0);
+        //ToggleSelectionShader(0);
 
     }
 
@@ -89,10 +89,9 @@ public class Tower : MonoBehaviour
 
     public void Reload()
     {
-        Debug.Log("Try to reload");
-        if (Events.GetMoney() >= TowerData.ReloadCost && currentAmmo < TowerData.MaxAmmo)
+        if (Events.GetAmmoCount() > 0 && currentAmmo < TowerData.MaxAmmo)
         {
-            Events.SetMoney(Events.GetMoney() - TowerData.ReloadCost);
+            Events.SetAmmoCount(Events.GetAmmoCount() - 1);
             currentAmmo = TowerData.MaxAmmo;
             DrawAmmoDisplay();
 
@@ -101,18 +100,13 @@ public class Tower : MonoBehaviour
 
     public void Upgrade()
     {
-        if (Events.GetMoney() >= TowerData.Cost && TowerData.NextUpgrade != null)
+        if (Events.GetUpgradeCount() > 0 && TowerData.NextUpgrade != null)
         {
-            Events.SetMoney(Events.GetMoney() - TowerData.Cost);
+            Events.SetUpgradeCount(Events.GetUpgradeCount() - 1);
             Tower newtower = Instantiate(TowerData.NextUpgrade, transform.position, Quaternion.identity, null);
             newtower.transform.up = transform.up;
             Destroy(gameObject);
         }
-    }
-
-    public void ToggleSelectionShader(int state)
-    {
-        material.SetInt("_ShowShader", state);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Enemy
   - Wall
+  - UpgradeItem
+  - TurretItem
+  - AmmoItem
+  - Lootbox
+  - HealthOrb
   layers:
   - Default
   - TransparentFX
@@ -51,6 +56,9 @@ TagManager:
     locked: 0
   - name: Interactable
     uniqueID: 2820117919
+    locked: 0
+  - name: Pickup
+    uniqueID: 605473069
     locked: 0
   - name: Player
     uniqueID: 1927989789

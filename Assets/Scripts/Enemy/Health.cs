@@ -12,7 +12,6 @@ public class Health : MonoBehaviour
         healthPoints -= damageAmount;
         if (healthPoints <= 0)
         {
-            Events.SetMoney(Events.GetMoney() + 2);
             Destroy(gameObject);
         }
     }
