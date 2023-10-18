@@ -76,9 +76,9 @@ public class Player : MonoBehaviour
         if (tower != null && collision is BoxCollider2D)
         {
             if (SelectedTower != null)
-                SelectedTower.ToggleShader(0);
+                SelectedTower.ToggleSelectionShader(0);
             SelectedTower = tower;
-            SelectedTower.ToggleShader(1);
+            SelectedTower.ToggleSelectionShader(1);
         }
     }
 
@@ -87,7 +87,7 @@ public class Player : MonoBehaviour
         Tower tower = collision.gameObject.GetComponent<Tower>();
         if (tower != null)
         {
-            tower.ToggleShader(0);
+            tower.ToggleSelectionShader(0);
             SelectedTower = null;
         }
     }
