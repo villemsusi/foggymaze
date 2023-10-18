@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Teleporting_Enemy
   m_EditorClassIdentifier: 
   Health: 5
-  Damage: 1
+  Damage: 10
   Speed: 1
+  KnockbackAmount: 10
   EnemyPrefab: {fileID: 1682135878166744424, guid: 18ec48b63042f4b488fc2e7ffce98682, type: 3}
   Teleporting: 1
-  Walking: 1

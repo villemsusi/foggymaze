@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class Player : MonoBehaviour
@@ -10,6 +11,7 @@ public class Player : MonoBehaviour
     private int health;
 
     private Tower SelectedTower;
+    public Slider slider;
 
     private void Awake()
     {
@@ -31,15 +33,14 @@ public class Player : MonoBehaviour
     private void Start()
     {
         Events.SetMoney(50);
+        Events.SetHealth(100);
+        SetSliderMaxHealth(health);
     }
 
 
     // Update is called once per frame
     void Update()
     { 
-
-        if (Input.GetMouseButtonDown(0))
-            Events.ExpandFog();
 
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -62,16 +63,19 @@ public class Player : MonoBehaviour
     public int GetMoney() => moneyAmount;
     public void SetMoney(int amount) => moneyAmount = amount;
     public int GetHealth() => health;
-    public void SetHealth(int amount) => health = amount;
+    public void SetHealth(int amount)
+    {
+        health = amount;
+        slider.value = health;
+        if (health <= 0)
+            Events.RestartGame();
+    }
     public Vector3 GetPosition() => transform.position;
+
+    void SetSliderMaxHealth(int amount) => slider.maxValue = amount;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Enemy enemy = collision.gameObject.GetComponent<Enemy>();
-        if (enemy != null)
-        {
-            Events.RestartGame();
-        }
         Tower tower = collision.gameObject.GetComponent<Tower>();
         if (tower != null && collision is BoxCollider2D)
         {

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Beefy_Enemy
   m_EditorClassIdentifier: 
   Health: 10
-  Damage: 3
+  Damage: 40
   Speed: 1
+  KnockbackAmount: 5
   EnemyPrefab: {fileID: 1682135878166744424, guid: 158c9776c7e028243909ba64e36689f4, type: 3}
   Teleporting: 0
-  Walking: 1

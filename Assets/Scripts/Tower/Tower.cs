@@ -51,7 +51,7 @@ public class Tower : MonoBehaviour
             currentCooldown = TowerData.ProjCooldown;
         }
 
-        CheckNotVisibleEnemies();
+        CheckEnemyVisibility();
 
     }
 
@@ -103,7 +103,6 @@ public class Tower : MonoBehaviour
     {
         if (Events.GetMoney() >= TowerData.Cost && TowerData.NextUpgrade != null)
         {
-            Debug.Log("Upgrade");
             Events.SetMoney(Events.GetMoney() - TowerData.Cost);
             Tower newtower = Instantiate(TowerData.NextUpgrade, transform.position, Quaternion.identity, null);
             newtower.transform.up = transform.up;
@@ -154,7 +153,8 @@ public class Tower : MonoBehaviour
         return true;
     }
 
-    private void CheckNotVisibleEnemies()
+    // Function checks every in range enemy if they are visible
+    private void CheckEnemyVisibility()
     {
         foreach (Health enemy in EnemiesNotVisible.ToArray())
         {
@@ -170,6 +170,23 @@ public class Tower : MonoBehaviour
                 if (hit.collider.tag == "Wall")
                     break;
                     
+            }
+        }
+
+        foreach (Health enemy in EnemiesInRange.ToArray())
+        {
+            RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, enemy.transform.position - transform.position);
+            foreach (RaycastHit2D hit in hits)
+            {
+                if (hit.collider.tag == "Wall")
+                {
+                    EnemiesNotVisible.Add(enemy);
+                    EnemiesInRange.Remove(enemy);
+                    break;
+                }
+                if (hit.collider.tag == "Enemy")
+                    break;
+
             }
         }
     }

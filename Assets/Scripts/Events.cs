@@ -7,8 +7,7 @@ public static class Events
 {
     public static event Action OnRestartGame;
     public static void RestartGame() => OnRestartGame?.Invoke();
-    public static event Action OnExpandFog;
-    public static void ExpandFog() => OnExpandFog?.Invoke();
+
 
 
     public static event Action<int> OnSetMoney;
