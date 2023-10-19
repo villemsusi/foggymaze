@@ -15,15 +15,11 @@ public class Lootbox : MonoBehaviour
         SelectedItem = Items[randomItemIndex];
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     
     public void Open()
     {
-        Item item = Instantiate(SelectedItem, transform.position, Quaternion.identity, null);
-
+        Instantiate(SelectedItem, transform.position, Quaternion.identity, null);
+        Debug.Log(transform.position);
+        Destroy(gameObject);
     }
 }

@@ -6,12 +6,13 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public PlayerData PlayerData;
+
 
     private int turretCount = 0;
     private int upgradeCount = 0;
     private int ammoCount = 0;
     private int health = 0;
-    private int maxHealth;
 
     private Lootbox SelectedBox;
     private Tower SelectedTower;
@@ -45,8 +46,8 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        SetSliderMaxHealth(health);
-        maxHealth = health;
+        SetSliderMaxHealth(PlayerData.MaxHealth);
+
     }
 
 
@@ -85,7 +86,7 @@ public class Player : MonoBehaviour
     public int GetHealth() => health;
     public void SetHealth(int amount)
     {
-        health = Mathf.Clamp(amount, 0, maxHealth);
+        health = Mathf.Clamp(amount, 0, PlayerData.MaxHealth);
         slider.value = health;
         if (health <= 0)
             Events.RestartGame();
