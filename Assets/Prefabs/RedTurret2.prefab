@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 5899442377747358072}
   - component: {fileID: -4746443489706926072}
   - component: {fileID: 5039262248334625267}
-  - component: {fileID: -5228855610039244589}
+  - component: {fileID: 7418294247254243211}
   m_Layer: 0
-  m_Name: Tower0
+  m_Name: RedTurret2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57,7 +57,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 42db90cdfc9f2fa41b5a536199721206, type: 2}
+  - {fileID: 2100000, guid: fa56feda4b62f574c8db66a831225f39, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -78,8 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: -1474849377
   m_SortingLayer: 3
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 34f972740dbfd4a41987fd72b8b55a12, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 5898ef0263738914cba3295c025a90e3, type: 3}
+  m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd560761ec342e74dbc29c838ed0d09e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TowerData: {fileID: 11400000, guid: e98b6e2ced9466c48924fd84b13e8062, type: 2}
+  TurretData: {fileID: 0}
   EnemiesInRange: []
   EnemiesNotVisible: []
   ammoDisplay: {fileID: 8881073520559256813}
@@ -175,7 +175,7 @@ BoxCollider2D:
   m_Offset: {x: -0.002262935, y: 0.11118594}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.51131475, y: 0.4219281}
+    pivot: {x: 0.49773702, y: 0.3710116}
     oldSize: {x: 0.5, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -185,7 +185,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.3958225, y: 0.6758923}
   m_EdgeRadius: 0
---- !u!82 &-5228855610039244589
+--- !u!82 &7418294247254243211
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

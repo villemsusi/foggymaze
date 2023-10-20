@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Tower : MonoBehaviour
+public class Turret : MonoBehaviour
 {
 
-    public TowerData TowerData;
+    public TurretData TurretData;
     
     public List<Health> EnemiesInRange;
     public List<Health> EnemiesNotVisible;
@@ -31,8 +31,8 @@ public class Tower : MonoBehaviour
 
     private void Start()
     {
-        range.radius = TowerData.ShotRadius;
-        currentAmmo = TowerData.MaxAmmo;
+        range.radius = TurretData.ShotRadius;
+        currentAmmo = TurretData.MaxAmmo;
         
         //ToggleSelectionShader(0);
 
@@ -48,7 +48,7 @@ public class Tower : MonoBehaviour
         else
         {
             Attack();
-            currentCooldown = TowerData.ProjCooldown;
+            currentCooldown = TurretData.ProjCooldown;
         }
 
         CheckEnemyVisibility();
@@ -81,18 +81,18 @@ public class Tower : MonoBehaviour
         audioSource.Play(0);
 
         transform.up = (EnemiesInRange[0].transform.position - transform.position);
-        Projectile projectile = Instantiate(TowerData.ProjectilePrefab, transform.position, Quaternion.identity, transform);
+        Projectile projectile = Instantiate(TurretData.ProjectilePrefab, transform.position, Quaternion.identity, transform);
         projectile.target = EnemiesInRange[0].transform;
-        projectile.damage = TowerData.ProjDamage;
-        projectile.speed = TowerData.ProjSpeed;
+        projectile.damage = TurretData.ProjDamage;
+        projectile.speed = TurretData.ProjSpeed;
     }
 
     public void Reload()
     {
-        if (Events.GetAmmoCount() > 0 && currentAmmo < TowerData.MaxAmmo)
+        if (Events.GetAmmoCount() > 0 && currentAmmo < TurretData.MaxAmmo)
         {
             Events.SetAmmoCount(Events.GetAmmoCount() - 1);
-            currentAmmo = TowerData.MaxAmmo;
+            currentAmmo = TurretData.MaxAmmo;
             DrawAmmoDisplay();
 
         }
@@ -100,11 +100,11 @@ public class Tower : MonoBehaviour
 
     public void Upgrade()
     {
-        if (Events.GetUpgradeCount() > 0 && TowerData.NextUpgrade != null)
+        if (Events.GetUpgradeCount() > 0 && TurretData.NextUpgrade != null)
         {
             Events.SetUpgradeCount(Events.GetUpgradeCount() - 1);
-            Tower newtower = Instantiate(TowerData.NextUpgrade, transform.position, Quaternion.identity, null);
-            newtower.transform.up = transform.up;
+            Turret newTurret = Instantiate(TurretData.NextUpgrade, transform.position, Quaternion.identity, null);
+            newTurret.transform.up = transform.up;
             Destroy(gameObject);
         }
     }
@@ -187,7 +187,7 @@ public class Tower : MonoBehaviour
 
     private void DrawAmmoDisplay()
     {
-        float newAmount = (float)currentAmmo / TowerData.MaxAmmo;
+        float newAmount = (float)currentAmmo / TurretData.MaxAmmo;
         ammoDisplay.fillAmount = newAmount;
     }
 }

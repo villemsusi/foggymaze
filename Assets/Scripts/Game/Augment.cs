@@ -13,7 +13,7 @@ public class Augment : MonoBehaviour
 
     private void Awake()
     {
-        Selections = transform.GetChild(1).gameObject;
+        Selections = transform.Find("Selections").gameObject;
         Selection1 = Selections.transform.GetChild(0).GetComponent<Button>();
         Selection2 = Selections.transform.GetChild(1).GetComponent<Button>();
         Selection3 = Selections.transform.GetChild(2).GetComponent<Button>();

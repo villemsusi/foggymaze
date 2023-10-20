@@ -64,8 +64,8 @@ public static class Events
     public static event Func<int> OnGetTurretCount;
     public static int GetTurretCount() => OnGetTurretCount?.Invoke() ?? 0;
 
-    public static event Action<TowerData> OnTowerSelected;
-    public static void SelectTower(TowerData data) => OnTowerSelected?.Invoke(data);
+    public static event Action<TurretData> OnTurretSelected;
+    public static void SelectTurret(TurretData data) => OnTurretSelected?.Invoke(data);
 
 
 

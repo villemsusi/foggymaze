@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5039262248334625267}
   - component: {fileID: -3645516379264281654}
   m_Layer: 0
-  m_Name: Tower2
+  m_Name: BasicTurret3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd560761ec342e74dbc29c838ed0d09e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TowerData: {fileID: 11400000, guid: 69a0c567a65335e4aa0dae3c4c9100a8, type: 2}
+  TurretData: {fileID: 11400000, guid: 69a0c567a65335e4aa0dae3c4c9100a8, type: 2}
   EnemiesInRange: []
   EnemiesNotVisible: []
   ammoDisplay: {fileID: 8881073520559256813}

@@ -2,16 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "FoggyMaze/Tower")]
-public class TowerData : ScriptableObject
+[CreateAssetMenu(menuName = "FoggyMaze/Turret")]
+public class TurretData : ScriptableObject
 {
     public string Name;
-    public int Cost;
-    public float ShotRadius;
     public string Shortcut;
+
+    public float ShotRadius;
     public Texture Texture;
-    public Tower TowerPrefab;
-    public Tower NextUpgrade;
+    public Turret TurretPrefab;
+    public Turret NextUpgrade;
 
     public Projectile ProjectilePrefab;
     public int ProjDamage;

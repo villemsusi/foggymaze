@@ -16,9 +16,10 @@ public class Player : MonoBehaviour
     private bool onStairs;
 
     private Lootbox SelectedBox;
-    private Tower SelectedTower;
+    private Turret SelectedTurret;
 
     public Slider slider;
+    public TurretBuilder turretBuilder;
 
     private void Awake()
     {
@@ -37,6 +38,8 @@ public class Player : MonoBehaviour
 
 
         Events.OnGetPlayerPosition += GetPosition;
+
+        turretBuilder.gameObject.SetActive(false);
     }
     private void OnDestroy()
     {
@@ -72,9 +75,10 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            if (SelectedTower != null)
+            if (SelectedTurret != null)
             {
-                SelectedTower.Reload();
+                SelectedTurret.Reload();
+                return;
             }
         }
 
@@ -84,13 +88,27 @@ public class Player : MonoBehaviour
             {
                 Time.timeScale = 0;
                 Events.EnableAugments();
+                return;
             }
 
-            if (SelectedTower != null)
-                SelectedTower.Upgrade();
+            if (SelectedTurret != null)
+            {
+                SelectedTurret.Upgrade();
+                return;
+            }
+                
 
             if (SelectedBox != null)
+            {
                 SelectedBox.Open();
+                return;
+            }
+
+            if (Events.GetTurretCount() > 0)
+            {
+                turretBuilder.gameObject.SetActive(true);
+                return;
+            }
             
         }
     }
@@ -126,20 +144,20 @@ public class Player : MonoBehaviour
         Stairs stairs = collision.gameObject.GetComponent<Stairs>();
         if (stairs != null)
         {
-            onStairs = true;    
+            onStairs = true;
         }
-        Tower tower = collision.gameObject.GetComponent<Tower>();
-        if (tower != null && collision is BoxCollider2D)
+        Turret turret = collision.gameObject.GetComponent<Turret>();
+        if (turret != null && collision is BoxCollider2D)
         {
-            if (SelectedTower != null)
-                ToggleSelectionShader(0, SelectedTower.gameObject);
-            SelectedTower = tower;
-            ToggleSelectionShader(1, SelectedTower.gameObject);
+            if (SelectedTurret != null)
+                ToggleSelectionShader(0, SelectedTurret.gameObject);
+            SelectedTurret = turret;
+            ToggleSelectionShader(1, SelectedTurret.gameObject);
         }
         Lootbox lootbox = collision.gameObject.GetComponent<Lootbox>();
         if (lootbox != null)
         {
-            if (SelectedTower != null)
+            if (SelectedTurret != null)
                 ToggleSelectionShader(0, SelectedBox.gameObject);
             SelectedBox = lootbox;
             ToggleSelectionShader(1, SelectedBox.gameObject);
@@ -153,11 +171,11 @@ public class Player : MonoBehaviour
         {
             onStairs = false;
         }
-        Tower tower = collision.gameObject.GetComponent<Tower>();
-        if (tower != null)
+        Turret turret = collision.gameObject.GetComponent<Turret>();
+        if (turret != null)
         {
-            ToggleSelectionShader(0, tower.gameObject);
-            SelectedTower = null;
+            ToggleSelectionShader(0, turret.gameObject);
+            SelectedTurret = null;
         }
         Lootbox lootbox = collision.gameObject.GetComponent<Lootbox>();
         if (lootbox != null)
