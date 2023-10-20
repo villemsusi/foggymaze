@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 Movement;
 
     // Set movement speed of player
-    public float moveSpeed = 4.0f;
+    private float moveSpeed;
     public Vector2 ForceToApply;
     public float forceDamping;
 
@@ -21,6 +21,11 @@ public class PlayerMovement : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        moveSpeed = Events.GetMovespeed();
     }
 
     private void FixedUpdate()

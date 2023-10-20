@@ -19,7 +19,10 @@ public class Item : MonoBehaviour
     private void Start()
     {
         coroutineAllowed = true;
-        canPickup = false;
+        if (transform.CompareTag("TurretItem"))
+            canPickup = true;
+        else
+            canPickup = false;
         t = 0;
 
         xOffset = Random.Range(-0.5f, 0.5f);
@@ -31,7 +34,7 @@ public class Item : MonoBehaviour
 
     private void Update()
     {
-        if (coroutineAllowed)
+        if (coroutineAllowed && !transform.CompareTag("TurretItem"))
             StartCoroutine(DropCurve());
     }
 

@@ -9,9 +9,11 @@ public class StageData : ScriptableObject
     public string SceneName;
     public int LevelNr;
 
+    public string NextSceneName;
+
     public float Timer;
     public int StartingTurretCount;
-    public List<Enemy> Enemies;
+    //public List<(Enemy, int)> Enemies;
     
 
 }

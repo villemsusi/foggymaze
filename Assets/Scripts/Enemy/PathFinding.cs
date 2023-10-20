@@ -18,8 +18,7 @@ public class PathFinding : MonoBehaviour
 
     private static bool canDraw = false;
 
-    
-
+   
     void Start()
     {
         tilemap.CompressBounds();
@@ -57,10 +56,6 @@ public class PathFinding : MonoBehaviour
     public Vector2Int start;
     public Vector2Int end;
 
-    void Update()
-    {
-
-    }
 
     public List<Spot> GetPath()
     {

@@ -9,7 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4175a135f17a1ed40988a930e537fd3a, type: 3}
-  m_Name: Player
+  m_Script: {fileID: 11500000, guid: 78430c3412d22244c983ee8c8bb601c9, type: 3}
+  m_Name: Stage 2
   m_EditorClassIdentifier: 
-  MaxHealth: 100
+  PresentedName: Stage 2
+  SceneName: Stage 2
+  LevelNr: 2
+  NextSceneName: Stage 1
+  Timer: 10
+  StartingTurretCount: 2
