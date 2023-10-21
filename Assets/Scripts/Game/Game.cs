@@ -44,6 +44,9 @@ public class Game : MonoBehaviour
     private void Start()
     {
         timer = Stage.Timer;
+        Events.SetTimer((int) timer);
+
+        Events.SetLevelProgress(Events.GetLevelProgress() + 1);
 
     }
 
@@ -51,11 +54,16 @@ public class Game : MonoBehaviour
     private void FixedUpdate()
     {
         timer -= Time.deltaTime;
+    
         if (timer <= 0)
         {
             Events.EnableStairs();
         }
-    }
+        if (timer > 0)
+        {
+            Events.SetTimer((int)Mathf.Round(timer));
+        }
+}
 
     
 

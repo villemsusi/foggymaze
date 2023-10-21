@@ -15,7 +15,7 @@ MonoBehaviour:
   PresentedName: Stage 6
   SceneName: Stage 6
   LevelNr: 6
-  NextSceneName: 
+  NextSceneName: Stage 1
   LootboxCount: 25
   TurretDropCount: 10
   StartingTurretCount: 3

@@ -23,6 +23,12 @@ public static class Events
 
     // Game controller section
 
+    public static Action<int> OnSetLevelProgress;
+    public static void SetLevelProgress(int amount) => OnSetLevelProgress?.Invoke(amount);
+    
+    public static Func<int> OnGetLevelProgress;
+    public static int GetLevelProgress() => OnGetLevelProgress?.Invoke() ?? 0;
+
     public static event Action OnRestartGame;
     public static void RestartGame() => OnRestartGame?.Invoke();
 
@@ -32,6 +38,9 @@ public static class Events
 
 
     // Stage controller section
+
+    public static event Action<int> OnSetTimer;
+    public static void SetTimer(int amount) => OnSetTimer?.Invoke(amount);
 
     public static event Action OnAugmentsEnable;
     public static void EnableAugments() => OnAugmentsEnable?.Invoke();

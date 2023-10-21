@@ -10,8 +10,11 @@ public class DataManager : MonoBehaviour
     private float movespeed;
     private int health;
 
+    private int levelProgess = 0;
+
     private void Awake()
     {
+
         if (Instance != null)
         {
             Destroy(gameObject);
@@ -25,6 +28,9 @@ public class DataManager : MonoBehaviour
         Events.OnSetHealthPerm += SetHealth;
         Events.OnGetMovespeedPerm += GetMovespeed;
         Events.OnSetMovespeedPerm += SetMovespeed;
+
+        Events.OnSetLevelProgress += SetLevelProgress;
+        Events.OnGetLevelProgress += GetLevelProgress;
     }
 
     private void OnDestroy()
@@ -33,10 +39,14 @@ public class DataManager : MonoBehaviour
         Events.OnSetHealthPerm -= SetHealth;
         Events.OnGetMovespeedPerm -= GetMovespeed;
         Events.OnSetMovespeedPerm -= SetMovespeed;
+
+        Events.OnSetLevelProgress -= SetLevelProgress;
+        Events.OnGetLevelProgress -= GetLevelProgress;
     }
 
 
-
+    public void SetLevelProgress(int amount) => levelProgess = amount;
+    public int GetLevelProgress() => levelProgess;
 
     public float GetMovespeed() => movespeed;
     public void SetMovespeed(float amount) => movespeed = amount;
