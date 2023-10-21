@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Game : MonoBehaviour
 {
     public StageData Stage;
 
-    public Canvas AugmentSelector;
+    public GameObject AugmentSelector;
 
     private float timer;
     private void Awake()
@@ -20,13 +21,14 @@ public class Game : MonoBehaviour
         Events.OnGetLootboxCount += GetLootboxCount;
         Events.OnGetTurretDropCount += GetTurretDropCount;
 
+
         Events.SetTurretCount(Stage.StartingTurretCount);
         Events.SetAmmoCount(0);
         Events.SetUpgradeCount(0);
         Events.SetHealth(Events.GetHealthPerm());
         Events.SetMovespeed(Events.GetMovespeedPerm());
 
-        AugmentSelector.gameObject.SetActive(false);
+        AugmentSelector.SetActive(false);
     }
 
     private void OnDestroy()
@@ -43,9 +45,6 @@ public class Game : MonoBehaviour
     {
         timer = Stage.Timer;
 
-        Debug.Log("Turrets: " + Events.GetTurretCount());
-        Debug.Log("Upgrades: " + Events.GetUpgradeCount());
-        Debug.Log("Ammo: " + Events.GetAmmoCount());
     }
 
 
@@ -57,6 +56,8 @@ public class Game : MonoBehaviour
             Events.EnableStairs();
         }
     }
+
+    
 
     private int GetLootboxCount() => Stage.LootboxCount;
 
@@ -73,7 +74,7 @@ public class Game : MonoBehaviour
 
     private void EnableAugments()
     {
-        AugmentSelector.gameObject.SetActive(true);
+        AugmentSelector.SetActive(true);
     }
 
     public void RestartGame()
