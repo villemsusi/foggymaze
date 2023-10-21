@@ -82,6 +82,19 @@ public class Player : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (Events.GetTurretCount() > 0 && !turretBuilder.gameObject.activeSelf)
+            {
+                turretBuilder.gameObject.SetActive(true);
+                return;
+            }
+            if (turretBuilder.gameObject.activeSelf)
+            {
+                turretBuilder.gameObject.SetActive(false);
+            }
+        }
+
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (onStairs && Events.GetStairsOpen())
@@ -96,17 +109,11 @@ public class Player : MonoBehaviour
                 SelectedTurret.Upgrade();
                 return;
             }
-                
+
 
             if (SelectedBox != null)
             {
                 SelectedBox.Open();
-                return;
-            }
-
-            if (Events.GetTurretCount() > 0)
-            {
-                turretBuilder.gameObject.SetActive(true);
                 return;
             }
             

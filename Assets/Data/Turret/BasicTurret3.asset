@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: BasicTurret3
   m_EditorClassIdentifier: 
   Name: Basic Turret 3
-  Cost: 5
-  ShotRadius: 5
   Shortcut: 
+  Type: Attack
+  ShotRadius: 5
   Texture: {fileID: 2800000, guid: a903c659f97be7840bfeeb746f3aa4eb, type: 3}
   TurretPrefab: {fileID: 0}
   NextUpgrade: {fileID: 0}

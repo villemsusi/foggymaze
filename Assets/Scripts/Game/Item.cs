@@ -28,7 +28,7 @@ public class Item : MonoBehaviour
         xOffset = Random.Range(-0.5f, 0.5f);
 
         spawnPos = transform.position;
-        upperPos = spawnPos + new Vector3(xOffset, 2, 0);
+        upperPos = spawnPos + new Vector3(xOffset, 3, 0);
         landPos = spawnPos + new Vector3(xOffset, 0, 0);
     }
 
@@ -41,15 +41,17 @@ public class Item : MonoBehaviour
     private IEnumerator DropCurve()
     {
         coroutineAllowed = false;
-
+        int rotation = Random.Range(720, 1440);
         while (t < 1)
         {
             speed = 1 - Mathf.Sin(Mathf.PI * t);
 
+            
             transform.position = Mathf.Pow(1 - t, 2) * spawnPos +
                 2 * (1 - t) * t * upperPos +
                 Mathf.Pow(t, 2) * landPos;
-            transform.rotation = Quaternion.Euler(0, 0, t * 1440);
+
+            transform.rotation = Quaternion.Euler(0, 0, t * rotation);
             yield return new WaitForEndOfFrame();
             if (speed == 0)
             {

@@ -30,7 +30,6 @@ public class TurretCard : MonoBehaviour
 
     public void Pressed()
     {
-        Debug.Log("PRESSED");
         Events.SelectTurret(TurretData);
     }
 }

@@ -7,8 +7,8 @@ public class DataManager : MonoBehaviour
 
     public static DataManager Instance;
 
-    private float movespeed = 4f;
-    private int health = 100;
+    private float movespeed;
+    private int health;
 
     private void Awake()
     {
@@ -25,6 +25,14 @@ public class DataManager : MonoBehaviour
         Events.OnSetHealthPerm += SetHealth;
         Events.OnGetMovespeedPerm += GetMovespeed;
         Events.OnSetMovespeedPerm += SetMovespeed;
+    }
+
+    private void OnDestroy()
+    {
+        Events.OnGetHealthPerm -= GetHealth;
+        Events.OnSetHealthPerm -= SetHealth;
+        Events.OnGetMovespeedPerm -= GetMovespeed;
+        Events.OnSetMovespeedPerm -= SetMovespeed;
     }
 
 

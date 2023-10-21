@@ -8,6 +8,8 @@ public class TurretData : ScriptableObject
     public string Name;
     public string Shortcut;
 
+    public string Type;
+
     public float ShotRadius;
     public Texture Texture;
     public Turret TurretPrefab;

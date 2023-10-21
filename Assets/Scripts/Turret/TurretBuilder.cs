@@ -5,11 +5,6 @@ using UnityEngine.EventSystems;
 
 public class TurretBuilder : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public TurretData CurrentTurretData;
-
-    public List<TurretData> TurretDatas;
-
     private void Awake()
     {
         Events.OnTurretSelected += TurretSelected;
@@ -22,8 +17,6 @@ public class TurretBuilder : MonoBehaviour
     }
 
 
-
-
     // Update is called once per frame
     void Update()
     {
@@ -33,11 +26,11 @@ public class TurretBuilder : MonoBehaviour
 
     private void TurretSelected(TurretData data)
     {
-        Instantiate(data.TurretPrefab, transform.position, Quaternion.identity, null);
+        Vector3 pos = transform.position;
+        pos.y -= 0.2f;
+        Instantiate(data.TurretPrefab, pos, Quaternion.identity, null);
         Events.SetTurretCount(Events.GetTurretCount() - 1);
         gameObject.SetActive(false);
     }
-
-
 
 }

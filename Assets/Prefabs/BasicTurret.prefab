@@ -104,7 +104,7 @@ MonoBehaviour:
   TurretData: {fileID: 11400000, guid: e98b6e2ced9466c48924fd84b13e8062, type: 2}
   EnemiesInRange: []
   EnemiesNotVisible: []
-  ammoDisplay: {fileID: 8881073520559256813}
+  display: {fileID: 8881073520559256813}
 --- !u!58 &-4746443489706926072
 CircleCollider2D:
   m_ObjectHideFlags: 0

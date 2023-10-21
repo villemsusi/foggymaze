@@ -13,28 +13,28 @@ public class Turret : MonoBehaviour
     
     private CircleCollider2D range;
     private AudioSource audioSource;
-    private Material material;
+    private ParticleSystem ps;
 
-    public Image ammoDisplay;
+    public Image display;
 
     private float currentCooldown = 0;
     private int currentAmmo;
 
 
+
     private void Awake()
     {
         range = GetComponent<CircleCollider2D>();
-        material = GetComponent<SpriteRenderer>().material;
         audioSource = GetComponent<AudioSource>();
-
+        if (TurretData.Type == "Heal")
+            ps = transform.Find("HealParticle").GetComponent<ParticleSystem>();
+        else ps = null;
     }
 
     private void Start()
     {
         range.radius = TurretData.ShotRadius;
         currentAmmo = TurretData.MaxAmmo;
-        
-        //ToggleSelectionShader(0);
 
     }
 
@@ -47,11 +47,31 @@ public class Turret : MonoBehaviour
         }
         else
         {
-            Attack();
+            if (TurretData.Type == "Attack")
+                Attack();
+            else if (TurretData.Type == "Heal")
+                Heal();
             currentCooldown = TurretData.ProjCooldown;
         }
+        if (TurretData.Type == "Attack")
+            CheckEnemyVisibility();
 
-        CheckEnemyVisibility();
+        if (TurretData.Type == "Heal")
+        {
+            if (ps != null)
+            {
+                if (Vector3.Distance(transform.position, Events.GetPlayerPosition()) <= range.radius)
+                {
+                    if (!ps.isPlaying)
+                        ps.Play();
+                }
+                else
+                {
+                    if (ps.isPlaying)
+                        ps.Stop();
+                }
+            }
+        }
 
     }
 
@@ -76,7 +96,7 @@ public class Turret : MonoBehaviour
     private void Shoot()
     {
         currentAmmo -= 1;
-        DrawAmmoDisplay();
+        DrawDisplay();
 
         audioSource.Play(0);
 
@@ -87,13 +107,19 @@ public class Turret : MonoBehaviour
         projectile.speed = TurretData.ProjSpeed;
     }
 
+    private void Heal()
+    {
+        if (Vector3.Distance(transform.position, Events.GetPlayerPosition()) <= range.radius)
+            Events.SetHealth(Events.GetHealth() + 5);
+    }
+
     public void Reload()
     {
         if (Events.GetAmmoCount() > 0 && currentAmmo < TurretData.MaxAmmo)
         {
             Events.SetAmmoCount(Events.GetAmmoCount() - 1);
             currentAmmo = TurretData.MaxAmmo;
-            DrawAmmoDisplay();
+            DrawDisplay();
 
         }
     }
@@ -111,25 +137,33 @@ public class Turret : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Health Enemy = collision.gameObject.GetComponent<Health>();
-        if (Enemy != null)
+        if (TurretData.Type == "Attack")
         {
-            if (CheckEnemyVisible(Enemy))
-                EnemiesInRange.Add(Enemy);
-            else
-                EnemiesNotVisible.Add(Enemy);
+            Health Enemy = collision.gameObject.GetComponent<Health>();
+            if (Enemy != null)
+            {
+                if (CheckEnemyVisible(Enemy))
+                    EnemiesInRange.Add(Enemy);
+                else
+                    EnemiesNotVisible.Add(Enemy);
+            }
         }
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Health Enemy = collision.gameObject.GetComponent<Health>();
-        if (Enemy != null)
+        if (TurretData.Type == "Attack")
         {
-            if (EnemiesInRange.Contains(Enemy))
-                EnemiesInRange.Remove(Enemy);
-            else if (EnemiesNotVisible.Contains(Enemy))
-                EnemiesNotVisible.Remove(Enemy);
+            Health Enemy = collision.gameObject.GetComponent<Health>();
+            if (Enemy != null)
+            {
+                if (EnemiesInRange.Contains(Enemy))
+                    EnemiesInRange.Remove(Enemy);
+                else if (EnemiesNotVisible.Contains(Enemy))
+                    EnemiesNotVisible.Remove(Enemy);
+            }
+
         }
     }
 
@@ -139,9 +173,9 @@ public class Turret : MonoBehaviour
         RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, enemy.transform.position - transform.position);
         foreach(RaycastHit2D hit in hits)
         {
-            if (hit.collider.tag == "Enemy")
+            if (hit.collider.CompareTag("Enemy"))
                 return true;
-            if (hit.collider.tag == "Wall")
+            if (hit.collider.CompareTag("Wall"))
                 return false;
         }
         return true;
@@ -155,13 +189,13 @@ public class Turret : MonoBehaviour
             RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, enemy.transform.position - transform.position);
             foreach (RaycastHit2D hit in hits)
             {
-                if (hit.collider.tag == "Enemy")
+                if (hit.collider.CompareTag("Enemy"))
                 {
                     EnemiesInRange.Add(enemy);
                     EnemiesNotVisible.Remove(enemy);
                     break;
                 }
-                if (hit.collider.tag == "Wall")
+                if (hit.collider.CompareTag("Wall"))
                     break;
                     
             }
@@ -172,22 +206,22 @@ public class Turret : MonoBehaviour
             RaycastHit2D[] hits = Physics2D.RaycastAll(transform.position, enemy.transform.position - transform.position);
             foreach (RaycastHit2D hit in hits)
             {
-                if (hit.collider.tag == "Wall")
+                if (hit.collider.CompareTag("Wall"))
                 {
                     EnemiesNotVisible.Add(enemy);
                     EnemiesInRange.Remove(enemy);
                     break;
                 }
-                if (hit.collider.tag == "Enemy")
+                if (hit.collider.CompareTag("Enemy"))
                     break;
 
             }
         }
     }
 
-    private void DrawAmmoDisplay()
+    private void DrawDisplay()
     {
         float newAmount = (float)currentAmmo / TurretData.MaxAmmo;
-        ammoDisplay.fillAmount = newAmount;
+        display.fillAmount = newAmount;
     }
 }
