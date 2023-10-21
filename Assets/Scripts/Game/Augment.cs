@@ -11,6 +11,9 @@ public class Augment : MonoBehaviour
     private Button Selection2;
     private Button Selection3;
 
+    private float healthMultiplier;
+    private float speedMultiplier;
+
     private void Awake()
     {
         Selections = transform.Find("Selections").gameObject;
@@ -21,16 +24,19 @@ public class Augment : MonoBehaviour
         Selection1.onClick.AddListener(SetHealth);
         Selection2.onClick.AddListener(SetMovespeed);
         Selection3.onClick.AddListener(SetSomething);
+
+        healthMultiplier = 1.1f;
+        speedMultiplier = 1.1f;
     }
 
     private void SetHealth()
     {
-        Events.SetHealthPerm(Events.GetHealthPerm() * 2);
+        Events.SetHealthPerm((int)Mathf.Round(Events.GetHealthPerm() * healthMultiplier));
         Events.NextStage();
     }
     private void SetMovespeed()
     {
-        Events.SetMovespeedPerm(Events.GetMovespeedPerm() * 2);
+        Events.SetMovespeedPerm(Events.GetMovespeedPerm() * speedMultiplier);
         Events.NextStage();
     }
     private void SetSomething()

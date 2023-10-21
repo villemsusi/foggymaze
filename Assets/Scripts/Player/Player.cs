@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
 
         Events.OnGetPlayerPosition += GetPosition;
 
-        turretBuilder.gameObject.SetActive(false);
+        //turretBuilder.gameObject.SetActive(false);
     }
     private void OnDestroy()
     {
@@ -89,9 +89,10 @@ public class Player : MonoBehaviour
                 turretBuilder.gameObject.SetActive(true);
                 return;
             }
-            if (turretBuilder.gameObject.activeSelf)
+            else if (turretBuilder.gameObject.activeSelf)
             {
                 turretBuilder.gameObject.SetActive(false);
+                return;
             }
         }
 

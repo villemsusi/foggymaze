@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78430c3412d22244c983ee8c8bb601c9, type: 3}
   m_Name: Stage 5
   m_EditorClassIdentifier: 
-  PresentedName: Stage 2
-  SceneName: Stage 2
-  LevelNr: 2
-  NextSceneName: Stage 1
+  PresentedName: Stage 5
+  SceneName: Stage 5
+  LevelNr: 5
+  NextSceneName: Stage 6
+  LootboxCount: 25
+  TurretDropCount: 10
+  StartingTurretCount: 3
   Timer: 10
-  StartingTurretCount: 2

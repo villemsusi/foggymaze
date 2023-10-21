@@ -16,5 +16,7 @@ MonoBehaviour:
   SceneName: Stage 1
   LevelNr: 1
   NextSceneName: Stage 2
-  Timer: 10
+  LootboxCount: 5
+  TurretDropCount: 2
   StartingTurretCount: 1
+  Timer: 10

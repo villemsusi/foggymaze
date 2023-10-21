@@ -17,6 +17,8 @@ public class Game : MonoBehaviour
         Events.OnAugmentsEnable += EnableAugments;
         Events.OnRestartGame += RestartGame;
         Events.OnNextStage += NextStage;
+        Events.OnGetLootboxCount += GetLootboxCount;
+        Events.OnGetTurretDropCount += GetTurretDropCount;
 
         Events.SetTurretCount(Stage.StartingTurretCount);
         Events.SetAmmoCount(0);
@@ -32,6 +34,8 @@ public class Game : MonoBehaviour
         Events.OnAugmentsEnable -= EnableAugments;
         Events.OnRestartGame -= RestartGame;
         Events.OnNextStage -= NextStage;
+        Events.OnGetLootboxCount -= GetLootboxCount;
+        Events.OnGetTurretDropCount -= GetTurretDropCount;
 
     }
 
@@ -54,10 +58,17 @@ public class Game : MonoBehaviour
         }
     }
 
+    private int GetLootboxCount() => Stage.LootboxCount;
+
+    private int GetTurretDropCount() => Stage.TurretDropCount;
+
 
     private void NextStage()
     {
-        SceneManager.LoadScene(Stage.NextSceneName);
+        if (Stage.NextSceneName != "")
+            SceneManager.LoadScene(Stage.NextSceneName);
+        else
+            SceneManager.LoadScene("Menu");
     }
 
     private void EnableAugments()

@@ -7224,6 +7224,67 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!1001 &854088870
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2433252788181608640, guid: d7b0e1e58ac7b714a994a4e1b6531702, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 260.2559
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433252788181608640, guid: d7b0e1e58ac7b714a994a4e1b6531702, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 166.02847
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433252788181608640, guid: d7b0e1e58ac7b714a994a4e1b6531702, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.884511
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433252788181608640, guid: d7b0e1e58ac7b714a994a4e1b6531702, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433252788181608640, guid: d7b0e1e58ac7b714a994a4e1b6531702, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433252788181608640, guid: d7b0e1e58ac7b714a994a4e1b6531702, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433252788181608640, guid: d7b0e1e58ac7b714a994a4e1b6531702, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433252788181608640, guid: d7b0e1e58ac7b714a994a4e1b6531702, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433252788181608640, guid: d7b0e1e58ac7b714a994a4e1b6531702, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2433252788181608640, guid: d7b0e1e58ac7b714a994a4e1b6531702, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4898860691308118783, guid: d7b0e1e58ac7b714a994a4e1b6531702, type: 3}
+      propertyPath: tilemap
+      value: 
+      objectReference: {fileID: 1425560408}
+    - target: {fileID: 8479662639918134331, guid: d7b0e1e58ac7b714a994a4e1b6531702, type: 3}
+      propertyPath: m_Name
+      value: ItemSpawner
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d7b0e1e58ac7b714a994a4e1b6531702, type: 3}
 --- !u!4 &868100170 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2539757194123991167, guid: 158c9776c7e028243909ba64e36689f4, type: 3}
@@ -7551,7 +7612,7 @@ Transform:
   m_GameObject: {fileID: 1425560405}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.09, y: 4.65, z: 0}
+  m_LocalPosition: {x: -1.0900002, y: 4.6499996, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18017,7 +18078,6 @@ GameObject:
   - component: {fileID: 7549384812966612881}
   - component: {fileID: 9178017947415087261}
   - component: {fileID: 9178017947415087262}
-  - component: {fileID: 9178017947415087263}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -18147,20 +18207,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoothSpeed: 0.09
---- !u!114 &9178017947415087263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6395590156043200370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6d8a47a375ce2c45971a1cc6377cd11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tilemap: {fileID: 1425560408}
-  LootboxPrefab: {fileID: 196657756257506742, guid: 3c03852d79404704fbdf1076619b57b3, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -18173,3 +18219,4 @@ SceneRoots:
   - {fileID: 353005177625518159}
   - {fileID: 74841581}
   - {fileID: 133151840}
+  - {fileID: 854088870}

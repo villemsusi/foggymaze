@@ -67,6 +67,12 @@ public static class Events
     public static event Action<TurretData> OnTurretSelected;
     public static void SelectTurret(TurretData data) => OnTurretSelected?.Invoke(data);
 
+    public static event Func<int> OnGetLootboxCount;
+    public static int GetLootboxCount() => OnGetLootboxCount?.Invoke() ?? 0;
+
+    public static event Func<int> OnGetTurretDropCount;
+    public static int GetTurretDropCount() => OnGetTurretDropCount?.Invoke() ?? 0;
+
 
 
     // Player stats section

@@ -1,22 +1,25 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class LootboxSpawner : MonoBehaviour
+public class ItemSpawner : MonoBehaviour
 {
 
     public Tilemap tilemap;
     private BoundsInt bounds;
     public Lootbox LootboxPrefab;
+    public GameObject TurretItemPrefab;
+
     private List<Vector3> worldLocs;
 
     private int lootboxCount;
+    private int turretDropCount;
     // Start is called before the first frame update
     void Start()
     {
-        lootboxCount = 5;
+        lootboxCount = Events.GetLootboxCount();
+        turretDropCount = Events.GetTurretDropCount();
 
         worldLocs = new List<Vector3>();
         bounds = tilemap.cellBounds;
@@ -35,13 +38,20 @@ public class LootboxSpawner : MonoBehaviour
         }
         for (int i = 0; i < lootboxCount; i++)
         {
-            int randPos = UnityEngine.Random.Range(0, worldLocs.Count-i);
+            int randPos = Random.Range(0, worldLocs.Count-i);
             Instantiate(LootboxPrefab, worldLocs[randPos], Quaternion.identity, null);
 
             worldLocs.RemoveAt(randPos);
         }
-        
-        
+
+        for (int i = 0; i < turretDropCount; i++)
+        {
+            int randPos = Random.Range(0, worldLocs.Count - i - lootboxCount);
+            Instantiate(TurretItemPrefab, worldLocs[randPos], Quaternion.identity, null);
+
+            worldLocs.RemoveAt(randPos);
+        }
+
     }
 
 }

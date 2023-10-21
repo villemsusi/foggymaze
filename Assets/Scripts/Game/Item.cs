@@ -75,11 +75,9 @@ public class Item : MonoBehaviour
             {
                 case "TurretItem":
                     Events.SetTurretCount(Events.GetTurretCount() + 1);
-                    Debug.Log(Events.GetTurretCount());
                     break;
                 case "UpgradeItem":
                     Events.SetUpgradeCount(Events.GetUpgradeCount() + 1);
-                    Debug.Log(Events.GetUpgradeCount());
                     break;
                 case "AmmoItem":
                     Events.SetAmmoCount(Events.GetAmmoCount() + 1);
