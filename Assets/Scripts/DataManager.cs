@@ -7,8 +7,8 @@ public class DataManager : MonoBehaviour
 
     public static DataManager Instance;
 
-    private float movespeed;
-    private int health;
+    private float movespeed = 4f;
+    private int health = 100;
 
     private int levelProgess = 0;
 
@@ -20,6 +20,7 @@ public class DataManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
         Instance = this;
         DontDestroyOnLoad(gameObject);
 

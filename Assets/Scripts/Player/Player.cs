@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     private int turretCount = 0;
     private int upgradeCount = 0;
     private int ammoCount = 0;
-    private int health = 0;
+    private int health;
     private float movespeed;
 
     private bool onStairs;
@@ -44,7 +44,6 @@ public class Player : MonoBehaviour
         Events.OnAddInteractable += AddInteractable;
         Events.OnRemoveInteractable += RemoveInteractable;
 
-        //turretBuilder.gameObject.SetActive(false);
     }
     private void OnDestroy()
     {

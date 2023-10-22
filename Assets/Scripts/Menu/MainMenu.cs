@@ -6,19 +6,9 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
 
-    private float movespeed = 4f;
-    private int health = 100;
-
-    private void Awake()
-    {
-        Events.SetHealthPerm(health);
-        Events.SetMovespeedPerm(movespeed);
-    }
-
-
     public void PlayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("Stage 1");
     }
    
 
