@@ -131,6 +131,9 @@ public class Turret : MonoBehaviour
             Events.SetUpgradeCount(Events.GetUpgradeCount() - 1);
             Turret newTurret = Instantiate(TurretData.NextUpgrade, transform.position, Quaternion.identity, null);
             newTurret.transform.up = transform.up;
+
+            Events.RemoveInteractable(gameObject);
+            Events.AddInteractable(newTurret.gameObject);
             Destroy(gameObject);
         }
     }

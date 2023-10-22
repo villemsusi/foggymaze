@@ -82,6 +82,15 @@ public static class Events
     public static event Func<int> OnGetTurretDropCount;
     public static int GetTurretDropCount() => OnGetTurretDropCount?.Invoke() ?? 0;
 
+    public static event Func<bool> OnGetIsItemSelected;
+    public static bool GetIsItemSelected() => OnGetIsItemSelected?.Invoke() ?? false;
+
+    public static event Action<GameObject> OnAddInteractable;
+    public static void AddInteractable(GameObject obj) => OnAddInteractable?.Invoke(obj);
+
+    public static event Action<GameObject> OnRemoveInteractable;
+    public static void RemoveInteractable(GameObject obj) => OnRemoveInteractable?.Invoke(obj);
+
 
 
     // Player stats section

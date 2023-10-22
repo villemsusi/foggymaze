@@ -15,8 +15,10 @@ public class Player : MonoBehaviour
 
     private bool onStairs;
 
-    private Lootbox SelectedBox;
-    private Turret SelectedTurret;
+    private GameObject SelectedItem;
+    private static readonly float selectionRadius = 0.7f;
+
+    public List<GameObject> Interactables;
 
     public Slider slider;
     public TurretBuilder turretBuilder;
@@ -38,6 +40,9 @@ public class Player : MonoBehaviour
 
 
         Events.OnGetPlayerPosition += GetPosition;
+        Events.OnGetIsItemSelected += IsItemSelected;
+        Events.OnAddInteractable += AddInteractable;
+        Events.OnRemoveInteractable += RemoveInteractable;
 
         //turretBuilder.gameObject.SetActive(false);
     }
@@ -58,6 +63,9 @@ public class Player : MonoBehaviour
 
 
         Events.OnGetPlayerPosition -= GetPosition;
+        Events.OnGetIsItemSelected -= IsItemSelected;
+        Events.OnAddInteractable -= AddInteractable;
+        Events.OnRemoveInteractable -= RemoveInteractable;
     }
 
     private void Start()
@@ -71,13 +79,14 @@ public class Player : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
-
+    {
+        SelectInteractable();
         if (Input.GetKeyDown(KeyCode.R))
         {
-            if (SelectedTurret != null)
+            if (SelectedItem != null)
             {
-                SelectedTurret.Reload();
+                if (SelectedItem.GetComponent<Turret>() != null)
+                    SelectedItem.GetComponent<Turret>().Reload();
                 return;
             }
         }
@@ -105,19 +114,14 @@ public class Player : MonoBehaviour
                 return;
             }
 
-            if (SelectedTurret != null)
+            if (SelectedItem != null)
             {
-                SelectedTurret.Upgrade();
+                if (SelectedItem.GetComponent<Turret>() != null)
+                    SelectedItem.GetComponent<Turret>().Upgrade();
+                else if (SelectedItem.GetComponent<Lootbox>() != null)
+                    SelectedItem.GetComponent<Lootbox>().Open();
                 return;
             }
-
-
-            if (SelectedBox != null)
-            {
-                SelectedBox.Open();
-                return;
-            }
-            
         }
     }
 
@@ -143,32 +147,16 @@ public class Player : MonoBehaviour
 
 
     public Vector3 GetPosition() => transform.position;
+    public bool IsItemSelected() => SelectedItem != null;
 
     void SetSliderMaxHealth(int amount) => slider.maxValue = amount;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        
         Stairs stairs = collision.gameObject.GetComponent<Stairs>();
         if (stairs != null)
         {
             onStairs = true;
-        }
-        Turret turret = collision.gameObject.GetComponent<Turret>();
-        if (turret != null && collision is BoxCollider2D)
-        {
-            if (SelectedTurret != null)
-                ToggleSelectionShader(0, SelectedTurret.gameObject);
-            SelectedTurret = turret;
-            ToggleSelectionShader(1, SelectedTurret.gameObject);
-        }
-        Lootbox lootbox = collision.gameObject.GetComponent<Lootbox>();
-        if (lootbox != null)
-        {
-            if (SelectedTurret != null)
-                ToggleSelectionShader(0, SelectedBox.gameObject);
-            SelectedBox = lootbox;
-            ToggleSelectionShader(1, SelectedBox.gameObject);
         }
     }
 
@@ -179,18 +167,60 @@ public class Player : MonoBehaviour
         {
             onStairs = false;
         }
-        Turret turret = collision.gameObject.GetComponent<Turret>();
-        if (turret != null)
-        {
-            ToggleSelectionShader(0, turret.gameObject);
-            SelectedTurret = null;
+    }
+
+    private void SelectInteractable()
+    {
+        if (SelectedItem != null) 
+        { 
+            if ((SelectedItem.transform.position - transform.position).sqrMagnitude > Mathf.Pow(selectionRadius, 2))
+            {
+                ToggleSelectionShader(0, SelectedItem);
+                SelectedItem = null;
+                return;
+            }
         }
-        Lootbox lootbox = collision.gameObject.GetComponent<Lootbox>();
-        if (lootbox != null)
+        Transform t = GetClosestInteractable(Interactables);
+        if (t != null)
         {
-            ToggleSelectionShader(0, lootbox.gameObject);
-            SelectedBox = null;
+            if (SelectedItem != null && SelectedItem != t.gameObject)
+            {
+                ToggleSelectionShader(0, SelectedItem);
+            }
+            SelectedItem = t.gameObject;
+            ToggleSelectionShader(1, SelectedItem);
+            return;
         }
+            
+    }
+    private void AddInteractable(GameObject inter)
+    {
+        if (!Interactables.Contains(inter))
+            Interactables.Add(inter);
+    }
+    private void RemoveInteractable(GameObject inter)
+    {
+        if (Interactables.Contains(inter))
+            Interactables.Remove(inter);
+    }
+
+    private Transform GetClosestInteractable(List<GameObject> interactables)
+    {
+        Transform tMin = null;
+        float minDist = selectionRadius;
+        minDist = Mathf.Pow(minDist, 2);
+        Vector3 currentPos = transform.position;
+        foreach (GameObject t in interactables)
+        {
+            Vector3 direction = t.transform.position - currentPos;
+            float dist = direction.sqrMagnitude;
+            if (dist < minDist)
+            {
+                tMin = t.transform;
+                minDist = dist;
+            }
+        }
+        return tMin;
     }
 
 

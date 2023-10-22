@@ -26,9 +26,12 @@ public class TurretBuilder : MonoBehaviour
 
     private void TurretSelected(TurretData data)
     {
+        if (Events.GetIsItemSelected())
+            return;
         Vector3 pos = transform.position;
         pos.y -= 0.2f;
-        Instantiate(data.TurretPrefab, pos, Quaternion.identity, null);
+        Turret turret = Instantiate(data.TurretPrefab, pos, Quaternion.identity, null);
+        Events.AddInteractable(turret.gameObject);
         Events.SetTurretCount(Events.GetTurretCount() - 1);
         gameObject.SetActive(false);
     }

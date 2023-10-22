@@ -19,6 +19,7 @@ public class Lootbox : MonoBehaviour
     public void Open()
     {
         Instantiate(SelectedItem, transform.position, Quaternion.identity, null);
+        Events.RemoveInteractable(gameObject);
         Destroy(gameObject);
     }
 }

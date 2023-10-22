@@ -39,7 +39,8 @@ public class ItemSpawner : MonoBehaviour
         for (int i = 0; i < lootboxCount; i++)
         {
             int randPos = Random.Range(0, worldLocs.Count-i);
-            Instantiate(LootboxPrefab, worldLocs[randPos], Quaternion.identity, null);
+            Lootbox box = Instantiate(LootboxPrefab, worldLocs[randPos], Quaternion.identity, null);
+            Events.AddInteractable(box.gameObject);
 
             worldLocs.RemoveAt(randPos);
         }
