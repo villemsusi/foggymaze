@@ -87,7 +87,7 @@ public class Game : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("GameOver");
     }
 
 }
