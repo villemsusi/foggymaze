@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D body;
+
     private Animator animator;
+    private string currentAnimationState;
 
 
     float horizontal;
@@ -16,6 +18,16 @@ public class PlayerMovement : MonoBehaviour
     private float moveSpeed;
     public Vector2 ForceToApply;
     public float forceDamping;
+
+
+    // ANIMATION STATES
+    const string PLAYER_IDLE = "Player_Idle";
+    const string PLAYER_MOVEUP = "Player_MoveUp";
+    const string PLAYER_MOVEDOWN = "Player_MoveDown";
+    const string PLAYER_MOVELEFT = "Player_MoveLeft";
+    const string PLAYER_MOVERIGHT = "Player_MoveRight";
+
+
 
     private void Awake()
     {
@@ -39,6 +51,17 @@ public class PlayerMovement : MonoBehaviour
         if (Mathf.Abs(ForceToApply.x) <= 0.01f && Mathf.Abs(ForceToApply.y) <= 0.01f)
             ForceToApply = Vector2.zero;
         body.velocity = MoveForce;
+
+        if (PlayerInput.y < 0)
+            ChangeAnimationState(PLAYER_MOVEDOWN);
+        else if (PlayerInput.y > 0)
+            ChangeAnimationState(PLAYER_MOVEUP);
+        else if (PlayerInput.x < 0)
+            ChangeAnimationState(PLAYER_MOVELEFT);
+        else if (PlayerInput.x > 0)
+            ChangeAnimationState(PLAYER_MOVERIGHT);
+        else
+            ChangeAnimationState(PLAYER_IDLE);
     }
 
 
@@ -48,20 +71,18 @@ public class PlayerMovement : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 
-
         Movement.x = horizontal;
         Movement.y = vertical;
+    }
 
-        if (horizontal != 0 || vertical != 0)
-        {
-            animator.SetFloat("X", horizontal);
-            animator.SetFloat("Y", vertical);
 
-            animator.SetBool("isWalking", true);
-        }
-        else
-        {
-            animator.SetBool("isWalking", false);
-        }
+
+    void ChangeAnimationState(string newState)
+    {
+        if (currentAnimationState == newState) return;
+
+        animator.Play(newState);
+
+        currentAnimationState = newState;
     }
 }

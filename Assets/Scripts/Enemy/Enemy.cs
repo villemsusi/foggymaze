@@ -8,17 +8,29 @@ public class Enemy : MonoBehaviour
 
 
     private Animator animator;
+    private string currentAnimationState;
+
     private Rigidbody2D body;
 
 
-    float teleportDelay = 4f;
-    float teleportCurrentDelay = 1f;
-    float teleportChannelDuration = 1f;
-    float teleportChannel;
+    float teleportDelay = 2f;
+    float teleportChannelDuration;
+    bool isChannelingTeleport = false;
+    bool isDelayingTeleport = false;
 
 
     Vector2 ForceToApply;
     float forceDamping = 1.2f;
+
+
+    // ANIMATION STATES
+    const string ENEMY_IDLE = "Enemy_Idle";
+    const string ENEMY_MOVEUP = "Enemy_MoveUp";
+    const string ENEMY_MOVEDOWN = "Enemy_MoveDown";
+    const string ENEMY_MOVELEFT = "Enemy_MoveLeft";
+    const string ENEMY_MOVERIGHT = "Enemy_MoveRight";
+    const string ENEMY_TELEPORTCHANNEL = "Enemy_Teleport_Channel";
+
 
     private void Awake()
     {
@@ -37,7 +49,7 @@ public class Enemy : MonoBehaviour
 
     public void Move()
     {
-
+        
         List<Spot> roadPath = GetComponent<PathFinding>().GetPath();
 
         // If there is no viable path and enemy is not immediately next to the player, don't try to draw the path
@@ -65,59 +77,70 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    private void Teleported()
+    {
+        isChannelingTeleport = false;
+
+        List<Spot> roadPath = GetComponent<PathFinding>().GetPath();
+
+        // If there is no viable path and enemy is not immediately next to the player, don't try to draw the path
+        if (roadPath == null && Vector3.Distance(transform.position, Events.GetPlayerPosition()) > 1f)
+            return;
+        var tilesize = 0.5f;
+
+        // If there is a viable path and the enemy is atleast 1 unit away from the player
+        if (Vector3.Distance(transform.position, Events.GetPlayerPosition()) > 1f && roadPath != null)
+        {
+            Vector3 nextNode;
+            if (roadPath.Count > 5)
+                nextNode = GetComponent<PathFinding>().GetTilemapCoords(roadPath[roadPath.Count-2]);
+            else
+                nextNode = GetComponent<PathFinding>().GetTilemapCoords(roadPath[1]);
+            nextNode.x += tilesize;
+            nextNode.y += tilesize;
+            transform.position = nextNode;
+        }
+
+        isDelayingTeleport = true;
+        Invoke(nameof(ReadyToTeleport), teleportDelay);
+    }
+    private void ReadyToTeleport()
+    {
+        isDelayingTeleport = false;
+    }
     public void Teleport()
     {
 
-        animator.SetBool("isTeleporting", true);
-        if (Vector3.Distance(transform.position, Events.GetPlayerPosition()) > 1f)
+        if (Vector3.Distance(transform.position, Events.GetPlayerPosition()) > 3f)
         {
-            if (teleportCurrentDelay > 0 || teleportChannel > 0)
+            if (!isChannelingTeleport && !isDelayingTeleport)
             {
-                if (teleportChannel > 0)
-                {
-                    teleportChannel -= teleportChannelDuration * Time.deltaTime;
-                    if (teleportChannel <= 0)
-                    {
-                        List<Spot> roadPath = GetComponent<PathFinding>().GetPath();
-
-                        // If there is no viable path and enemy is not immediately next to the player, don't try to draw the path
-                        if (roadPath == null && Vector3.Distance(transform.position, Events.GetPlayerPosition()) > 1f)
-                            return;
-                        var tilesize = 0.5f;
-
-                        // If there is a viable path and the enemy is atleast 1 unit away from the player
-                        // Draw the path and move the enemy towards the next node in the path
-                        if (Vector3.Distance(transform.position, Events.GetPlayerPosition()) > 1f && roadPath != null)
-                        {
-                            Vector3 nextNode;
-                            if (roadPath.Capacity > 5)
-                                nextNode = GetComponent<PathFinding>().GetTilemapCoords(roadPath[3]);
-                            else
-                                nextNode = GetComponent<PathFinding>().GetTilemapCoords(roadPath[1]);
-                            nextNode.x += tilesize;
-                            nextNode.y += tilesize;
-                            transform.position = nextNode;
-                        }
-                        // If the enemy is closer than 1 unit to the player
-                        // Move the enemy directly towards the player position
-                        else
-                        {
-                            Step(Events.GetPlayerPosition());
-                        }
-                        teleportCurrentDelay = teleportDelay;
-                    }
-                }
-                else
-                    teleportCurrentDelay -= teleportDelay * Time.deltaTime;
+                isChannelingTeleport = true;
+                return;
+            } 
+            else if (isChannelingTeleport && !isDelayingTeleport)
+            {
+                isDelayingTeleport = true;
+                ChangeAnimationState(ENEMY_TELEPORTCHANNEL);
+                teleportChannelDuration = animator.GetCurrentAnimatorStateInfo(0).length;
+                Invoke(nameof(Teleported), teleportChannelDuration);
+                return;
+            }
+            else if (isChannelingTeleport && isDelayingTeleport)
+            {
+                // Do nothing
             }
             else
             {
-                teleportChannel = teleportChannelDuration;
+                Move();
+                return;
             }
-            return;
+            
         }
-
-        Move();
+        else
+        {
+            Step(Events.GetPlayerPosition());
+        }
 
     }
 
@@ -135,9 +158,16 @@ public class Enemy : MonoBehaviour
             ForceToApply = Vector2.zero;
         body.velocity = MoveForce;
 
-        animator.SetFloat("X", xInput);
-        animator.SetFloat("Y", yInput);
-        animator.SetBool("isWalking", true);
+        if (MoveInput.y < 0 && Mathf.Abs(yInput) > 1)
+            ChangeAnimationState(ENEMY_MOVEDOWN);
+        else if (MoveInput.y > 0 && Mathf.Abs(yInput) > 1)
+            ChangeAnimationState(ENEMY_MOVEUP);
+        else if (MoveInput.x < 0)
+            ChangeAnimationState(ENEMY_MOVELEFT);
+        else if (MoveInput.x > 0)
+            ChangeAnimationState(ENEMY_MOVERIGHT);
+        else
+            ChangeAnimationState(ENEMY_IDLE);
     }
     
     private void OnTriggerEnter2D(Collider2D collision)
@@ -152,5 +182,14 @@ public class Enemy : MonoBehaviour
         }
     }
 
+
+    void ChangeAnimationState(string newState)
+    {
+        if (currentAnimationState == newState) return;
+
+        animator.Play(newState);
+
+        currentAnimationState = newState;
+    }
 
 }

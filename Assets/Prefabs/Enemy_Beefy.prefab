@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5629998773500790083}
   - component: {fileID: 8929848847252182668}
   - component: {fileID: 8113134303028345308}
+  - component: {fileID: 6494159406074701478}
   m_Layer: 0
   m_Name: Enemy_Beefy
   m_TagString: Enemy
@@ -149,7 +150,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.16994575}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.3}
@@ -160,7 +161,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.375, y: 0.875}
+  m_Size: {x: 0.375, y: 0.8652908}
   m_EdgeRadius: 0
 --- !u!114 &1682135878166744424
 MonoBehaviour:
@@ -174,8 +175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f70242db6d48ed343816242ba532f1b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyData: {fileID: 0}
-  body: {fileID: 0}
+  EnemyData: {fileID: 11400000, guid: f073fb6a69f12d44bac593e24d2baef5, type: 2}
 --- !u!114 &5629998773500790083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,3 +227,38 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthPoints: 10
+--- !u!70 &6494159406074701478
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571588167766083240}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.0016222398}
+  m_Size: {x: 0.34116745, y: 0.45489025}
+  m_Direction: 0

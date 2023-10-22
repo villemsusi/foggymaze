@@ -7,10 +7,10 @@ public class DataManager : MonoBehaviour
 
     public static DataManager Instance;
 
-    private float movespeed = 4f;
-    private int health = 100;
+    private float movespeed;
+    private int health;
 
-    private int levelProgess = 0;
+    private int levelProgess;
 
     private void Awake()
     {
@@ -20,7 +20,7 @@ public class DataManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-
+        SetInitialStats();
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
@@ -43,6 +43,13 @@ public class DataManager : MonoBehaviour
 
         Events.OnSetLevelProgress -= SetLevelProgress;
         Events.OnGetLevelProgress -= GetLevelProgress;
+    }
+
+    public void SetInitialStats()
+    {
+        movespeed = 4f;
+        health = 100;
+        levelProgess = 0;
     }
 
 

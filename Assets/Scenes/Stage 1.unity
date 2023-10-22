@@ -131,30 +131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1288182344}
     m_Modifications:
-    - target: {fileID: -4180610078260450451, guid: 158c9776c7e028243909ba64e36689f4, type: 3}
-      propertyPath: m_Size.y
-      value: 0.46494174
-      objectReference: {fileID: 0}
-    - target: {fileID: -4180610078260450451, guid: 158c9776c7e028243909ba64e36689f4, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.20502913
-      objectReference: {fileID: 0}
-    - target: {fileID: -4180610078260450451, guid: 158c9776c7e028243909ba64e36689f4, type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 0.375
-      objectReference: {fileID: 0}
-    - target: {fileID: -4180610078260450451, guid: 158c9776c7e028243909ba64e36689f4, type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 0.875
-      objectReference: {fileID: 0}
     - target: {fileID: 571588167766083240, guid: 158c9776c7e028243909ba64e36689f4, type: 3}
       propertyPath: m_Name
       value: Enemy_Fat
       objectReference: {fileID: 0}
-    - target: {fileID: 1682135878166744424, guid: 158c9776c7e028243909ba64e36689f4, type: 3}
-      propertyPath: EnemyData
-      value: 
-      objectReference: {fileID: 11400000, guid: f073fb6a69f12d44bac593e24d2baef5, type: 2}
     - target: {fileID: 2539757194123991167, guid: 158c9776c7e028243909ba64e36689f4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 18.358683
@@ -194,22 +174,6 @@ PrefabInstance:
     - target: {fileID: 2539757194123991167, guid: 158c9776c7e028243909ba64e36689f4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269012135080633299, guid: 158c9776c7e028243909ba64e36689f4, type: 3}
-      propertyPath: m_Size.x
-      value: 0.375
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269012135080633299, guid: 158c9776c7e028243909ba64e36689f4, type: 3}
-      propertyPath: m_Size.y
-      value: 0.875
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269012135080633299, guid: 158c9776c7e028243909ba64e36689f4, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -2067868354, guid: d6c5201097bc10b4aa8a19555c914f2a, type: 3}
-    - target: {fileID: 5269012135080633299, guid: 158c9776c7e028243909ba64e36689f4, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5629998773500790083, guid: 158c9776c7e028243909ba64e36689f4, type: 3}
       propertyPath: tilemap
@@ -7105,29 +7069,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1288182344}
     m_Modifications:
-    - target: {fileID: -4180610078260450451, guid: 18ec48b63042f4b488fc2e7ffce98682, type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 0.375
-      objectReference: {fileID: 0}
-    - target: {fileID: -4180610078260450451, guid: 18ec48b63042f4b488fc2e7ffce98682, type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 0.875
-      objectReference: {fileID: 0}
     - target: {fileID: 571588167766083240, guid: 18ec48b63042f4b488fc2e7ffce98682, type: 3}
       propertyPath: m_Name
       value: Enemy_Teleport
       objectReference: {fileID: 0}
-    - target: {fileID: 1682135878166744424, guid: 18ec48b63042f4b488fc2e7ffce98682, type: 3}
-      propertyPath: EnemyData
-      value: 
-      objectReference: {fileID: 11400000, guid: 4efc95c208487f74a8edbba9dfa97036, type: 2}
     - target: {fileID: 2539757194123991167, guid: 18ec48b63042f4b488fc2e7ffce98682, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.31
+      value: 0.91
       objectReference: {fileID: 0}
     - target: {fileID: 2539757194123991167, guid: 18ec48b63042f4b488fc2e7ffce98682, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.62
+      value: -7.52
       objectReference: {fileID: 0}
     - target: {fileID: 2539757194123991167, guid: 18ec48b63042f4b488fc2e7ffce98682, type: 3}
       propertyPath: m_LocalPosition.z
@@ -7160,22 +7112,6 @@ PrefabInstance:
     - target: {fileID: 2539757194123991167, guid: 18ec48b63042f4b488fc2e7ffce98682, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269012135080633299, guid: 18ec48b63042f4b488fc2e7ffce98682, type: 3}
-      propertyPath: m_Size.x
-      value: 0.375
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269012135080633299, guid: 18ec48b63042f4b488fc2e7ffce98682, type: 3}
-      propertyPath: m_Size.y
-      value: 0.875
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269012135080633299, guid: 18ec48b63042f4b488fc2e7ffce98682, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -2067868354, guid: d6c5201097bc10b4aa8a19555c914f2a, type: 3}
-    - target: {fileID: 5269012135080633299, guid: 18ec48b63042f4b488fc2e7ffce98682, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5629998773500790083, guid: 18ec48b63042f4b488fc2e7ffce98682, type: 3}
       propertyPath: tilemap
@@ -15219,10 +15155,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_Regular
       objectReference: {fileID: 0}
-    - target: {fileID: 1682135878166744424, guid: 364884f22e04e6749a4784453c20f072, type: 3}
-      propertyPath: EnemyData
-      value: 
-      objectReference: {fileID: 11400000, guid: 09857709bdcb28d49beca5350a800c20, type: 2}
     - target: {fileID: 2539757194123991167, guid: 364884f22e04e6749a4784453c20f072, type: 3}
       propertyPath: m_LocalPosition.x
       value: -16.45293
@@ -15262,22 +15194,6 @@ PrefabInstance:
     - target: {fileID: 2539757194123991167, guid: 364884f22e04e6749a4784453c20f072, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269012135080633299, guid: 364884f22e04e6749a4784453c20f072, type: 3}
-      propertyPath: m_Size.x
-      value: 0.375
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269012135080633299, guid: 364884f22e04e6749a4784453c20f072, type: 3}
-      propertyPath: m_Size.y
-      value: 0.875
-      objectReference: {fileID: 0}
-    - target: {fileID: 5269012135080633299, guid: 364884f22e04e6749a4784453c20f072, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -2067868354, guid: d6c5201097bc10b4aa8a19555c914f2a, type: 3}
-    - target: {fileID: 5269012135080633299, guid: 364884f22e04e6749a4784453c20f072, type: 3}
-      propertyPath: m_WasSpriteAssigned
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5629998773500790083, guid: 364884f22e04e6749a4784453c20f072, type: 3}
       propertyPath: tilemap
