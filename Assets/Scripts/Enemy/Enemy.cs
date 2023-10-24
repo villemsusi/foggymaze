@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     private string currentAnimationState;
 
     private Rigidbody2D body;
+    private Health health;
 
 
     float teleportDelay = 2f;
@@ -36,6 +37,12 @@ public class Enemy : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         body = GetComponent<Rigidbody2D>();
+        health = GetComponent<Health>();
+    }
+
+    private void Start()
+    {
+        health.SetHealth(EnemyData.Health);
     }
 
 

@@ -112,5 +112,17 @@ public static class Events
 
 
 
+    // Cosmetics section
 
+    public static event Action<Color> OnSetAuraColor;
+    public static void SetAuraColor(Color color) => OnSetAuraColor?.Invoke(color);
+
+    public static event Func<Color> OnGetAuraColor;
+    public static Color GetAuraColor() => OnGetAuraColor?.Invoke() ?? new Color();
+
+    public static event Action<Color> OnSetProjectileColor;
+    public static void SetProjectileColor(Color color) => OnSetProjectileColor?.Invoke(color);
+
+    public static event Func<Color> OnGetProjectileColor;
+    public static Color GetProjectileColor() => OnGetProjectileColor?.Invoke() ?? new Color();
 }

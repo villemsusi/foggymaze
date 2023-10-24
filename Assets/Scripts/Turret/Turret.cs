@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Rendering.Universal;
 
 public class Turret : MonoBehaviour
 {
@@ -15,11 +16,14 @@ public class Turret : MonoBehaviour
     private AudioSource audioSource;
     private ParticleSystem ps;
 
+    private Light2D aura;
+    private Light2D barrel;
+
     public Image display;
+    public Image display2;
 
     private float currentCooldown = 0;
     private int currentAmmo;
-
 
 
     private void Awake()
@@ -29,6 +33,10 @@ public class Turret : MonoBehaviour
         if (TurretData.Type == "Heal")
             ps = transform.Find("HealParticle").GetComponent<ParticleSystem>();
         else ps = null;
+
+
+        aura = transform.Find("AuraLight").GetComponent<Light2D>();
+        barrel = transform.Find("BarrelLight")?.GetComponent<Light2D>() ?? null;
     }
 
     private void Start()
@@ -36,6 +44,23 @@ public class Turret : MonoBehaviour
         range.radius = TurretData.ShotRadius;
         currentAmmo = TurretData.MaxAmmo;
 
+        if (aura != null)
+        {
+            aura.color = Events.GetAuraColor();
+            aura.intensity = 4f;
+            aura.pointLightOuterRadius = 3;
+        }
+        if (barrel != null)
+        {
+            barrel.color = Events.GetProjectileColor();
+            barrel.intensity = 7f;
+            barrel.pointLightOuterRadius = 3;
+        }
+        
+        if (display != null)
+            display.color = Events.GetProjectileColor();
+        if (display2 != null)
+            display2.color = Events.GetProjectileColor();
     }
 
     // Update is called once per frame
@@ -99,18 +124,35 @@ public class Turret : MonoBehaviour
         DrawDisplay();
 
         audioSource.Play(0);
+        
+        Vector3 upDir = EnemiesInRange[0].transform.position - transform.position;
+        upDir.z = 0;
+        transform.up = upDir;
 
-        transform.up = (EnemiesInRange[0].transform.position - transform.position);
+
+        Recoil();
+
         Projectile projectile = Instantiate(TurretData.ProjectilePrefab, transform.position, Quaternion.identity, transform);
         projectile.target = EnemiesInRange[0].transform;
         projectile.damage = TurretData.ProjDamage;
         projectile.speed = TurretData.ProjSpeed;
+        
+    }
+
+    private void Recoil()
+    {
+        transform.position += -transform.up * TurretData.Kickback;
+        Invoke(nameof(ResetRecoil), TurretData.ProjCooldown * 0.6f);
+    }
+    private void ResetRecoil()
+    {
+        transform.position += transform.up * TurretData.Kickback;
     }
 
     private void Heal()
     {
         if (Vector3.Distance(transform.position, Events.GetPlayerPosition()) <= range.radius)
-            Events.SetHealth(Events.GetHealth() + 5);
+            Events.SetHealth(Events.GetHealth() + TurretData.ProjDamage);
     }
 
     public void Reload()
@@ -226,5 +268,8 @@ public class Turret : MonoBehaviour
     {
         float newAmount = (float)currentAmmo / TurretData.MaxAmmo;
         display.fillAmount = newAmount;
+        if (display2 != null)
+            display2.fillAmount = newAmount;
     }
+
 }

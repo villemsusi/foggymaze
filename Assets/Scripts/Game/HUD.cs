@@ -48,8 +48,26 @@ public class HUD : MonoBehaviour
 
     private void SetTimer(int amount)
     {
+        if (amount == 0)
+        {
+            Timer.color = Color.red;
+            Timer.text = "ESCAPE!";
+            Invoke(nameof(TimerFlash), 1f);
+            return;
+        }
         Timer.text = amount.ToString();
     }
+    private void TimerFlash()
+    {
+        if (Timer.color == Color.red)
+            Timer.color = new Color(0.3867925f, 0.03831435f, 0.03831435f);
+        else
+            Timer.color = Color.red;
+
+
+        Invoke(nameof(TimerFlash), 1f);
+    }
+
 
     private void SetLevel(int amount)
     {

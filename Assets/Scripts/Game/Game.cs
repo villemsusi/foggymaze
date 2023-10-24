@@ -23,7 +23,7 @@ public class Game : MonoBehaviour
 
         Events.SetTurretCount(Stage.StartingTurretCount);
         Events.SetAmmoCount(0);
-        Events.SetUpgradeCount(0);
+        Events.SetUpgradeCount(5);
         Events.SetHealth(Events.GetHealthPerm());
         Events.SetMovespeed(Events.GetMovespeedPerm());
 

@@ -19,6 +19,7 @@ public class TurretData : ScriptableObject
     public int ProjDamage;
     public float ProjCooldown;
     public float ProjSpeed;
+    public float Kickback;
 
     public int MaxAmmo;
     public int ReloadCost;

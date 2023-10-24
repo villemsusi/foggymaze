@@ -12,6 +12,10 @@ public class DataManager : MonoBehaviour
 
     private int levelProgess;
 
+
+    public Color auraColor;
+    private Color projectileColor;
+
     private void Awake()
     {
 
@@ -32,6 +36,18 @@ public class DataManager : MonoBehaviour
 
         Events.OnSetLevelProgress += SetLevelProgress;
         Events.OnGetLevelProgress += GetLevelProgress;
+
+        Events.OnSetProjectileColor += SetProjectileColor;
+        Events.OnGetProjectileColor += GetProjectileColor;
+        Events.OnSetAuraColor += SetAuraColor;
+        Events.OnGetAuraColor += GetAuraColor;
+    }
+
+    private void Start()
+    {
+        auraColor = Color.cyan;
+
+        projectileColor = Color.yellow;
     }
 
     private void OnDestroy()
@@ -43,6 +59,12 @@ public class DataManager : MonoBehaviour
 
         Events.OnSetLevelProgress -= SetLevelProgress;
         Events.OnGetLevelProgress -= GetLevelProgress;
+
+
+        Events.OnGetProjectileColor -= GetProjectileColor;
+        Events.OnSetProjectileColor -= SetProjectileColor;
+        Events.OnGetAuraColor -= GetAuraColor;
+        Events.OnSetAuraColor -= SetAuraColor;
     }
 
     public void SetInitialStats()
@@ -60,4 +82,13 @@ public class DataManager : MonoBehaviour
     public void SetMovespeed(float amount) => movespeed = amount;
     public int GetHealth() => health;
     public void SetHealth(int amount) => health = amount;
+
+
+    private Color GetProjectileColor() => projectileColor;
+    private void SetProjectileColor(Color col) => projectileColor = col;
+    private Color GetAuraColor() => auraColor;
+    private void SetAuraColor(Color col)
+    {
+        auraColor = col;
+    }
 }

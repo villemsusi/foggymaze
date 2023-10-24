@@ -23,5 +23,6 @@ MonoBehaviour:
   ProjDamage: 1
   ProjCooldown: 1
   ProjSpeed: 10
-  MaxAmmo: 5
+  Kickback: 0.1
+  MaxAmmo: 5000
   ReloadCost: 1
