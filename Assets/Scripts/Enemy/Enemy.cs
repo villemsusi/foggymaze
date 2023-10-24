@@ -198,5 +198,8 @@ public class Enemy : MonoBehaviour
 
         currentAnimationState = newState;
     }
-
+    public void SetForce(Vector3 force)
+    {
+        ForceToApply += new Vector2(force.x, force.y);
+    }
 }

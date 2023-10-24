@@ -21,9 +21,13 @@ public class Health : MonoBehaviour
         healthPoints -= damageAmount;
         direction = direction.normalized;
         float deg = Mathf.Atan2(direction.y, direction.x) * 180 / Mathf.PI;
-        
-        ps.gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, deg));
-        ps.Play();
+        if (ps != null)
+        {
+            ps.gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, deg));
+            ps.Play();
+        }
+        //transform.position += direction * 0.1f;
+        gameObject.GetComponent<Enemy>().SetForce(direction*2);
         
         
 
