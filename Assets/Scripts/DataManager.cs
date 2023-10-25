@@ -48,7 +48,7 @@ public class DataManager : MonoBehaviour
     public void SetInitialStats()
     {
         movespeed = 4f;
-        health = 100;
+        health = 10000;
         levelProgess = 0;
     }
 

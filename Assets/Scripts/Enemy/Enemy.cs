@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Enemy : MonoBehaviour
 {
@@ -18,9 +19,16 @@ public class Enemy : MonoBehaviour
     bool isChannelingTeleport = false;
     bool isDelayingTeleport = false;
 
+    private List<Spot> roadPath;
+    private Vector3 nextNode;
 
     Vector2 ForceToApply;
     float forceDamping = 1.2f;
+
+    Vector2 MoveForce;
+    Vector2 MoveInput;
+
+    bool inWall = false;
 
 
     // ANIMATION STATES
@@ -41,65 +49,78 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (EnemyData.Teleporting)
-            Teleport();
+        if (Vector3.Distance(transform.position, Events.GetPlayerPosition()) > 1f)
+        {
+            if (EnemyData.Teleporting)
+                Teleport();
+            else
+                Move();
+        }
         else
-            Move();
+            Step(Events.GetPlayerPosition());
+        
+    }
+
+    private void GetRoadPath()
+    {
+        roadPath = GetComponent<PathFinding>().GetPath();
     }
 
     public void Move()
     {
-        
-        List<Spot> roadPath = GetComponent<PathFinding>().GetPath();
+
+        if (roadPath == null)
+            GetRoadPath();
+        if (nextNode != null)
+        {
+            if (!IsDistanceLonger(transform.position, nextNode, 0.05f))
+            {
+                GetRoadPath();
+            }
+        }
+
 
         // If there is no viable path and enemy is not immediately next to the player, don't try to draw the path
-        if (roadPath == null && Vector3.Distance(transform.position, Events.GetPlayerPosition()) > 1f)
+        if (roadPath == null && IsDistanceLonger(transform.position, Events.GetPlayerPosition(), 1f))
             return;
+
         var tilesize = 0.5f;
 
-        // If there is a viable path and the enemy is atleast 1 unit away from the player
-        // Move the enemy towards the next node in the path
-        if (Vector3.Distance(transform.position, Events.GetPlayerPosition()) > 1f && roadPath != null)
-        {
-            Vector3 nextNode;
-            nextNode = GetComponent<PathFinding>().GetTilemapCoords(roadPath[1]);
-            nextNode.x += tilesize;
-            nextNode.y += tilesize;
+        nextNode = GetComponent<PathFinding>().GetTilemapCoords(roadPath[1]);
+        nextNode.x += tilesize;
+        nextNode.y += tilesize;
 
-            Step(nextNode);
+        Step(nextNode);
 
-        }
-        // If the enemy is closer than 1 unit to the player
-        // Move the enemy directly towards the player position
-        else
-        {
-            Step(Events.GetPlayerPosition());
-        }
     }
 
     private void Teleported()
     {
         isChannelingTeleport = false;
 
-        List<Spot> roadPath = GetComponent<PathFinding>().GetPath();
+        if (roadPath == null)
+            GetRoadPath();
+        if (nextNode != null)
+        {
+            if (!IsDistanceLonger(transform.position, nextNode, 0.1f))
+            {
+                GetRoadPath();
+            }
+        }
 
         // If there is no viable path and enemy is not immediately next to the player, don't try to draw the path
-        if (roadPath == null && Vector3.Distance(transform.position, Events.GetPlayerPosition()) > 1f)
+        if (roadPath == null && IsDistanceLonger(transform.position, Events.GetPlayerPosition(), 1f))
             return;
         var tilesize = 0.5f;
 
-        // If there is a viable path and the enemy is atleast 1 unit away from the player
-        if (Vector3.Distance(transform.position, Events.GetPlayerPosition()) > 1f && roadPath != null)
-        {
-            Vector3 nextNode;
-            if (roadPath.Count > 5)
-                nextNode = GetComponent<PathFinding>().GetTilemapCoords(roadPath[roadPath.Count-2]);
-            else
-                nextNode = GetComponent<PathFinding>().GetTilemapCoords(roadPath[1]);
-            nextNode.x += tilesize;
-            nextNode.y += tilesize;
-            transform.position = nextNode;
-        }
+        if (roadPath.Count > 5)
+            nextNode = GetComponent<PathFinding>().GetTilemapCoords(roadPath[roadPath.Count - 2]);
+        else
+            nextNode = GetComponent<PathFinding>().GetTilemapCoords(roadPath[1]);
+        nextNode.x += tilesize;
+        nextNode.y += tilesize;
+        transform.position = nextNode;
+
 
         isDelayingTeleport = true;
         Invoke(nameof(ReadyToTeleport), teleportDelay);
@@ -111,13 +132,13 @@ public class Enemy : MonoBehaviour
     public void Teleport()
     {
 
-        if (Vector3.Distance(transform.position, Events.GetPlayerPosition()) > 3f)
+        if (IsDistanceLonger(transform.position, Events.GetPlayerPosition(), 3f))
         {
             if (!isChannelingTeleport && !isDelayingTeleport)
             {
                 isChannelingTeleport = true;
                 return;
-            } 
+            }
             else if (isChannelingTeleport && !isDelayingTeleport)
             {
                 isDelayingTeleport = true;
@@ -135,7 +156,7 @@ public class Enemy : MonoBehaviour
                 Move();
                 return;
             }
-            
+
         }
         else
         {
@@ -149,9 +170,15 @@ public class Enemy : MonoBehaviour
     {
         float xInput = targetPos.x - transform.position.x;
         float yInput = targetPos.y - transform.position.y;
-        Vector2 MoveInput = new Vector2(xInput, yInput).normalized;
-        Vector2 MoveForce = MoveInput * EnemyData.Speed;
-        MoveForce += ForceToApply;
+        MoveInput = new Vector2(xInput, yInput).normalized;
+
+
+        MoveForce = MoveInput * EnemyData.Speed;
+        if (!inWall)
+            MoveForce += ForceToApply;
+
+
+            
         ForceToApply /= forceDamping;
 
         if (Mathf.Abs(ForceToApply.x) <= 0.01f && Mathf.Abs(ForceToApply.y) <= 0.01f)
@@ -169,7 +196,7 @@ public class Enemy : MonoBehaviour
         else
             ChangeAnimationState(ENEMY_IDLE);
     }
-    
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Player player = collision.gameObject.GetComponent<Player>();
@@ -177,8 +204,22 @@ public class Enemy : MonoBehaviour
         {
             Events.SetHealth(Events.GetHealth() - EnemyData.Damage);
             Vector2 difference = transform.position - Events.GetPlayerPosition();
-            difference = difference.normalized * EnemyData.KnockbackAmount; ;
+            difference = difference.normalized * EnemyData.KnockbackAmount;
             ForceToApply = difference;
+        }
+        if (collision.gameObject.GetComponent<Tilemap>() != null)
+        {
+            inWall = true;
+            ForceToApply = Vector2.zero;
+        }
+
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<Tilemap>() != null)
+        {
+            inWall = false;
         }
     }
 
@@ -190,6 +231,15 @@ public class Enemy : MonoBehaviour
         animator.Play(newState);
 
         currentAnimationState = newState;
+    }
+
+    bool IsDistanceLonger(Vector3 pos1, Vector3 pos2, float distanceCompare)
+    {
+        Vector3 offset = pos2 - pos1;
+        if (offset.sqrMagnitude > Mathf.Pow(distanceCompare, 2))
+            return true;
+        else
+            return false;
     }
 
 }

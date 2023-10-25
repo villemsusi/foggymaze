@@ -23,8 +23,6 @@ public class AStar
     }
     public List<Spot> CreatePath(Vector3Int[,] grid, Vector2Int start, Vector2Int end, int length)
     {
-        //if (!IsValidPath(grid, start, end))
-        //     return null;
 
         Spot End = null;
         Spot Start = null;

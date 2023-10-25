@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
     Vector2 Movement;
 
     // Set movement speed of player
-    private float moveSpeed;
+    private float movespeed;
     public Vector2 ForceToApply;
     public float forceDamping;
 
@@ -33,18 +33,27 @@ public class PlayerMovement : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+
+        Events.OnGetMovespeed += GetMovespeed;
+        Events.OnSetMovespeed += SetMovespeed;
+    }
+
+    private void OnDestroy()
+    {
+        Events.OnGetMovespeed -= GetMovespeed;
+        Events.OnSetMovespeed -= SetMovespeed;
     }
 
     private void Start()
     {
-        moveSpeed = Events.GetMovespeed();
+        SetMovespeed(Events.GetMovespeedPerm());
     }
 
     private void FixedUpdate()
     {
         // Velocity based on input and movespeed
         Vector2 PlayerInput = new Vector2(horizontal, vertical).normalized;
-        Vector2 MoveForce = PlayerInput * moveSpeed;
+        Vector2 MoveForce = PlayerInput * movespeed;
         MoveForce += ForceToApply;
         ForceToApply /= forceDamping;
 
@@ -71,6 +80,7 @@ public class PlayerMovement : MonoBehaviour
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
 
+
         Movement.x = horizontal;
         Movement.y = vertical;
     }
@@ -85,4 +95,7 @@ public class PlayerMovement : MonoBehaviour
 
         currentAnimationState = newState;
     }
+
+    float GetMovespeed() => movespeed;
+    void SetMovespeed(float amount) => movespeed = amount;
 }

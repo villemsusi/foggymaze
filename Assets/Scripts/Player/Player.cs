@@ -27,8 +27,6 @@ public class Player : MonoBehaviour
     {
         Events.OnGetHealth += GetHealth;
         Events.OnSetHealth += SetHealth;
-        Events.OnGetMovespeed += GetMovespeed;
-        Events.OnSetMovespeed += SetMovespeed;
 
 
         Events.OnGetAmmoCount += GetAmmo;
@@ -49,8 +47,6 @@ public class Player : MonoBehaviour
     {
         Events.OnGetHealth -= GetHealth;
         Events.OnSetHealth -= SetHealth;
-        Events.OnGetMovespeed -= GetMovespeed;
-        Events.OnSetMovespeed -= SetMovespeed;
 
 
         Events.OnGetAmmoCount -= GetAmmo;
@@ -133,8 +129,6 @@ public class Player : MonoBehaviour
     public void SetAmmo(int amount) => ammoCount = amount;
 
 
-    public float GetMovespeed() => movespeed;
-    public void SetMovespeed(float amount) => movespeed = amount;
     public int GetHealth() => health;
     public void SetHealth(int amount)
     {

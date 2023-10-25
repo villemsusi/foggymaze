@@ -99,7 +99,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 571588167766083240}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -150,7 +150,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.16994575}
+  m_Offset: {x: 0, y: -0.032111354}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.3}
@@ -161,7 +161,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.375, y: 0.8652908}
+  m_Size: {x: 0.375, y: 0.46117663}
   m_EdgeRadius: 0
 --- !u!114 &1682135878166744424
 MonoBehaviour:
@@ -189,8 +189,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilemap: {fileID: 0}
-  roadTile: {fileID: 11400000, guid: e6d84b9f2c245f5468a7e5264fe3fd07, type: 2}
-  groundTile: {fileID: 11400000, guid: dfc4e8f76d9e47547883b8b7c16e3034, type: 2}
   start: {x: 0, y: 0}
   end: {x: 0, y: 0}
 --- !u!95 &8929848847252182668

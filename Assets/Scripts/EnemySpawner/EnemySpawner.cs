@@ -11,6 +11,7 @@ public class EnemySpawner : MonoBehaviour
     public int SpawnDelay;
 
     private float _nextSpawnTime;
+    private int counter = 0;
 
     void Start()
     {
@@ -25,6 +26,8 @@ public class EnemySpawner : MonoBehaviour
         if (Time.time >= _nextSpawnTime)
         {
             Instantiate(EnemyPrefab, transform.position, transform.rotation);
+            counter += 1;
+            Debug.Log(counter);
             _nextSpawnTime += SpawnDelay;
         }
     }
