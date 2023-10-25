@@ -98,4 +98,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyPrefab: {fileID: 571588167766083240, guid: 364884f22e04e6749a4784453c20f072, type: 3}
+  Tilemap: {fileID: 0}
   SpawnDelay: 3

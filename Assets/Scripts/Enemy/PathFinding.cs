@@ -5,38 +5,47 @@ using UnityEngine.Tilemaps;
 
 public class PathFinding : MonoBehaviour
 {
-    
-    private Vector3Int[,] grid;
+    private Tilemap tilemap;
 
+
+
+    private Vector3Int[,] grid;
     AStar AStar;
     List<Spot> roadPath = new List<Spot>();
     BoundsInt bounds;
+    private Vector2Int start;
+    private Vector2Int end;
 
-    public Tilemap tilemap;
 
-   
+    private int callCounter = 0;
+
+
     void Start()
     {
+        tilemap = GameObject.Find("Ground").GetComponent<Tilemap>();
+
         tilemap.CompressBounds();
         bounds = tilemap.cellBounds;
 
 
         CreateGrid();
         AStar = new AStar(grid, bounds.size.x, bounds.size.y);
+        LogCalls();
     }
-    // Function for mapping out the grid for A*
-    
-
-    
-    public Vector2Int start;
-    public Vector2Int end;
 
 
-    public List<Spot> GetPath()
+
+    void LogCalls()
     {
-        Debug.Log("ROADPATH");
+        Debug.Log(callCounter / Time.time / GameObject.FindGameObjectsWithTag("Enemy").Length);
+        Invoke(nameof(LogCalls), 5);
+    }
+
+    public List<Spot> GetPath(Vector3 startPos)
+    {
+        callCounter += 1;
         // Get path start coordinates
-        Vector3 worldStart = transform.position;
+        Vector3 worldStart = startPos;
         Vector3Int gridPosStart = tilemap.WorldToCell(worldStart);
         start = new Vector2Int(gridPosStart.x, gridPosStart.y);
 

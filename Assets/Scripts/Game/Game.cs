@@ -7,7 +7,7 @@ public class Game : MonoBehaviour
 {
     public StageData Stage;
 
-    public GameObject AugmentSelector;
+    private GameObject AugmentSelector;
 
     private float timer;
     private void Awake()
@@ -17,17 +17,9 @@ public class Game : MonoBehaviour
         Events.OnAugmentsEnable += EnableAugments;
         Events.OnRestartGame += RestartGame;
         Events.OnNextStage += NextStage;
-        Events.OnGetLootboxCount += GetLootboxCount;
-        Events.OnGetTurretDropCount += GetTurretDropCount;
 
 
-        Events.SetTurretCount(Stage.StartingTurretCount);
-        Events.SetAmmoCount(0);
-        Events.SetUpgradeCount(0);
-
-
-
-        AugmentSelector.SetActive(false);
+        Events.SetLevelProgress(Events.GetLevelProgress() + 1);
     }
 
     private void OnDestroy()
@@ -35,17 +27,20 @@ public class Game : MonoBehaviour
         Events.OnAugmentsEnable -= EnableAugments;
         Events.OnRestartGame -= RestartGame;
         Events.OnNextStage -= NextStage;
-        Events.OnGetLootboxCount -= GetLootboxCount;
-        Events.OnGetTurretDropCount -= GetTurretDropCount;
 
     }
 
     private void Start()
     {
-        timer = Stage.Timer;
-        Events.SetTimer((int) timer);
+        AugmentSelector = GameObject.Find("Augments");
+        AugmentSelector.SetActive(false);
 
-        Events.SetLevelProgress(Events.GetLevelProgress() + 1);
+        Events.SetTurretCount(Events.GetStartingTurretCount());
+        Events.SetAmmoCount(0);
+        Events.SetUpgradeCount(0);
+        timer = Events.GetStageTimer();
+
+        Events.SetTimer((int)timer);
 
     }
 
@@ -62,13 +57,8 @@ public class Game : MonoBehaviour
         {
             Events.SetTimer((int)Mathf.Round(timer));
         }
-}
+    }
 
-    
-
-    private int GetLootboxCount() => Stage.LootboxCount;
-
-    private int GetTurretDropCount() => Stage.TurretDropCount;
 
 
     private void NextStage()

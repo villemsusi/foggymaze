@@ -100,17 +100,30 @@ public class Turret : MonoBehaviour
 
         audioSource.Play(0);
 
-        transform.up = (EnemiesInRange[0].transform.position - transform.position);
+        Vector3 upDir = EnemiesInRange[0].transform.position - transform.position;
+        upDir.z = 0;
+        transform.up = upDir;
         Projectile projectile = Instantiate(TurretData.ProjectilePrefab, transform.position, Quaternion.identity, transform);
         projectile.target = EnemiesInRange[0].transform;
         projectile.damage = TurretData.ProjDamage;
         projectile.speed = TurretData.ProjSpeed;
+
+        Recoil();
+    }
+    private void Recoil()
+    {
+        transform.position += -transform.up * TurretData.Kickback;
+        Invoke(nameof(ResetRecoil), TurretData.ProjCooldown * 0.6f);
+    }
+    private void ResetRecoil()
+    {
+        transform.position += transform.up * TurretData.Kickback;
     }
 
     private void Heal()
     {
         if (Vector3.Distance(transform.position, Events.GetPlayerPosition()) <= range.radius)
-            Events.SetHealth(Events.GetHealth() + 5);
+            Events.SetHealth(Events.GetHealth() + TurretData.ProjDamage);
     }
 
     public void Reload()

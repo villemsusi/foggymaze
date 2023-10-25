@@ -5,8 +5,9 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
 
-    public int healthPoints;
+    private int healthPoints;
 
+    public void SetHealth(int amount) => healthPoints = amount;
     public void Damage(int damageAmount)
     {
         healthPoints -= damageAmount;

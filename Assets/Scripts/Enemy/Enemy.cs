@@ -7,11 +7,13 @@ public class Enemy : MonoBehaviour
 {
     public EnemyData EnemyData;
 
+    private GameObject PathFinder;
 
     private Animator animator;
     private string currentAnimationState;
 
     private Rigidbody2D body;
+    private Health health;
 
 
     float teleportDelay = 2f;
@@ -44,8 +46,16 @@ public class Enemy : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         body = GetComponent<Rigidbody2D>();
+        health = GetComponent<Health>();
+
+        PathFinder = GameObject.Find("Pathfinder");
     }
 
+    private void Start()
+    {
+        if (health != null)
+            health.SetHealth(EnemyData.Health);
+    }
 
     private void FixedUpdate()
     {
@@ -63,7 +73,7 @@ public class Enemy : MonoBehaviour
 
     private void GetRoadPath()
     {
-        roadPath = GetComponent<PathFinding>().GetPath();
+        roadPath = PathFinder.GetComponent<PathFinding>().GetPath(transform.position);
     }
 
     public void Move()
@@ -86,7 +96,7 @@ public class Enemy : MonoBehaviour
 
         var tilesize = 0.5f;
 
-        nextNode = GetComponent<PathFinding>().GetTilemapCoords(roadPath[1]);
+        nextNode = PathFinder.GetComponent<PathFinding>().GetTilemapCoords(roadPath[1]);
         nextNode.x += tilesize;
         nextNode.y += tilesize;
 
@@ -114,9 +124,9 @@ public class Enemy : MonoBehaviour
         var tilesize = 0.5f;
 
         if (roadPath.Count > 5)
-            nextNode = GetComponent<PathFinding>().GetTilemapCoords(roadPath[roadPath.Count - 2]);
+            nextNode = PathFinder.GetComponent<PathFinding>().GetTilemapCoords(roadPath[roadPath.Count - 2]);
         else
-            nextNode = GetComponent<PathFinding>().GetTilemapCoords(roadPath[1]);
+            nextNode = PathFinder.GetComponent<PathFinding>().GetTilemapCoords(roadPath[1]);
         nextNode.x += tilesize;
         nextNode.y += tilesize;
         transform.position = nextNode;
