@@ -51,15 +51,10 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        if (health != null)
         health.SetHealth(EnemyData.Health);
 
         PathFinder = GameObject.Find("Pathfinder");
-    }
-
-    private void Start()
-    {
-        if (health != null)
-            health.SetHealth(EnemyData.Health);
     }
 
     private void FixedUpdate()
