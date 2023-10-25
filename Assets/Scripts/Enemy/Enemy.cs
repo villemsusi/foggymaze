@@ -59,7 +59,7 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Vector3.Distance(transform.position, Events.GetPlayerPosition()) > 1f)
+        if (IsDistanceLonger(transform.position, Events.GetPlayerPosition(), 1f))
         {
             if (EnemyData.Teleporting)
                 Teleport();
@@ -83,7 +83,7 @@ public class Enemy : MonoBehaviour
             GetRoadPath();
         if (nextNode != null)
         {
-            if (!IsDistanceLonger(transform.position, nextNode, 0.05f))
+            if (!IsDistanceLonger(transform.position, nextNode, 0.5f))
             {
                 GetRoadPath();
             }
@@ -95,11 +95,9 @@ public class Enemy : MonoBehaviour
             return;
 
         var tilesize = 0.5f;
-
         nextNode = PathFinder.GetComponent<PathFinding>().GetTilemapCoords(roadPath[1]);
         nextNode.x += tilesize;
         nextNode.y += tilesize;
-
         Step(nextNode);
 
     }

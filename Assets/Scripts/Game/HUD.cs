@@ -10,6 +10,7 @@ public class HUD : MonoBehaviour
     public TextMeshProUGUI ReloadCountText;
 
     public TextMeshProUGUI Timer;
+    public TextMeshProUGUI Alert;
     public TextMeshProUGUI Level;
 
     private void Awake()
@@ -20,6 +21,7 @@ public class HUD : MonoBehaviour
 
         Events.OnSetTimer += SetTimer;
         Events.OnSetLevelProgress += SetLevel;
+        Alert.gameObject.SetActive(false);
     }
 
     private void OnDestroy()
@@ -50,22 +52,45 @@ public class HUD : MonoBehaviour
     {
         if (amount == 0)
         {
-            Timer.color = Color.red;
-            Timer.text = "ESCAPE!";
-            Invoke(nameof(TimerFlash), 1f);
+            if (!Alert.gameObject.activeSelf)
+                Alert.gameObject.SetActive(true);
+            else
+                return;
+            Timer.text = "";
+            Alert.transform.position += new Vector3(0, 260, 0);
+            Alert.color = Color.red;
+            Alert.text = "ESCAPE!";
+            InvokeRepeating(nameof(AlertFlash), 0.5f, 0.5f);
             return;
         }
+        else if (Events.GetStageTimer() - amount < 5f)
+        {
+            if (!Alert.gameObject.activeSelf)
+                Alert.gameObject.SetActive(true);
+            Alert.color = Color.red;
+            Alert.text = "SURVIVE!";
+            InvokeRepeating(nameof(AlertFlash), 1f, 1f);            
+            
+        }
+        else
+        {
+            if (Alert.gameObject.activeSelf)
+            {
+                CancelInvoke();
+                Alert.gameObject.SetActive(false);
+            }
+            
+        }
+            
         Timer.text = amount.ToString();
     }
-    private void TimerFlash()
+    private void AlertFlash()
     {
-        if (Timer.color == Color.red)
-            Timer.color = new Color(0.3867925f, 0.03831435f, 0.03831435f);
+        Debug.Log("CALL");
+        if (Alert.color == Color.red)
+            Alert.color = new Color(0.3867925f, 0.03831435f, 0.03831435f);
         else
-            Timer.color = Color.red;
-
-
-        Invoke(nameof(TimerFlash), 1f);
+            Alert.color = Color.red;
     }
 
 

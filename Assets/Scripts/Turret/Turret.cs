@@ -47,7 +47,7 @@ public class Turret : MonoBehaviour
         if (aura != null)
         {
             aura.color = Events.GetAuraColor();
-            aura.intensity = 4f;
+            aura.intensity = 7f;
             aura.pointLightOuterRadius = 3;
         }
         if (barrel != null)

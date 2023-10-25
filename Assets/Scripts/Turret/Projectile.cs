@@ -13,16 +13,18 @@ public class Projectile : MonoBehaviour
 
     private Material material;
 
+
     private void Awake()
     {
         material = GetComponent<SpriteRenderer>().material;
+        
     }
 
     private void Start()
     {
-
         Color col = Events.GetProjectileColor() * 2.7f;
         material.SetColor("_Color", col);
+
     }
 
     // Update is called once per frame

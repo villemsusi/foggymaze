@@ -62,6 +62,12 @@
         },
         {
             "m_Id": "7f9cedbcc1b84f23b7e705e7b03bb38d"
+        },
+        {
+            "m_Id": "ac8b1d7205dc4a0bbf026ba68ee22883"
+        },
+        {
+            "m_Id": "91f23a8ad7dc482ba6b2bc2ac2989202"
         }
     ],
     "m_GroupDatas": [],
@@ -264,6 +270,12 @@
             },
             {
                 "m_Id": "8dc589681f79423eb6ce84f152c0569c"
+            },
+            {
+                "m_Id": "ac8b1d7205dc4a0bbf026ba68ee22883"
+            },
+            {
+                "m_Id": "91f23a8ad7dc482ba6b2bc2ac2989202"
             }
         ]
     },
@@ -366,12 +378,6 @@
         "e32": 0.0,
         "e33": 1.0
     }
-}
-
-{
-    "m_SGVersion": 0,
-    "m_Type": "UnityEditor.Rendering.Universal.ShaderGraph.UniversalSpriteUnlitSubTarget",
-    "m_ObjectId": "1a9e736c0b7c4f51830b75de4e4a2b86"
 }
 
 {
@@ -729,6 +735,12 @@
     "m_Property": {
         "m_Id": "f7e4e0f0dd5d4363a7d3a82b8640158d"
     }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.Rendering.Universal.ShaderGraph.UniversalSpriteLitSubTarget",
+    "m_ObjectId": "3102d235ede948308853c8e7af619488"
 }
 
 {
@@ -1409,6 +1421,40 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.BlockNode",
+    "m_ObjectId": "91f23a8ad7dc482ba6b2bc2ac2989202",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "SurfaceDescription.NormalTS",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": 0.0,
+            "y": 0.0,
+            "width": 0.0,
+            "height": 0.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "c898085a34494364ba6b4abe98e819e5"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_SerializedDescriptor": "SurfaceDescription.NormalTS"
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.TangentMaterialSlot",
     "m_ObjectId": "991f1f740c7446758a46abb8a1569548",
     "m_Id": 0,
@@ -1487,6 +1533,40 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.BlockNode",
+    "m_ObjectId": "ac8b1d7205dc4a0bbf026ba68ee22883",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "SurfaceDescription.SpriteMask",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": 0.0,
+            "y": 0.0,
+            "width": 0.0,
+            "height": 0.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "f42032da61574e42be757224b20af021"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_SerializedDescriptor": "SurfaceDescription.SpriteMask"
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.UVMaterialSlot",
     "m_ObjectId": "b056727722f8468ab1968ca2680c8544",
     "m_Id": 2,
@@ -1513,7 +1593,7 @@
     "m_ObjectId": "b79702d6786642f5865f580a12f56722",
     "m_Datas": [],
     "m_ActiveSubTarget": {
-        "m_Id": "1a9e736c0b7c4f51830b75de4e4a2b86"
+        "m_Id": "3102d235ede948308853c8e7af619488"
     },
     "m_AllowMaterialOverride": false,
     "m_SurfaceType": 0,
@@ -1611,6 +1691,30 @@
     "m_Property": {
         "m_Id": "4114c3d81a1946668e9438e5e8e945e3"
     }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.NormalMaterialSlot",
+    "m_ObjectId": "c898085a34494364ba6b4abe98e819e5",
+    "m_Id": 0,
+    "m_DisplayName": "Normal (Tangent Space)",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "NormalTS",
+    "m_StageCapability": 2,
+    "m_Value": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0
+    },
+    "m_Labels": [],
+    "m_Space": 3
 }
 
 {
@@ -1810,6 +1914,31 @@
         "e32": 0.0,
         "e33": 1.0
     }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.ColorRGBAMaterialSlot",
+    "m_ObjectId": "f42032da61574e42be757224b20af021",
+    "m_Id": 0,
+    "m_DisplayName": "Sprite Mask",
+    "m_SlotType": 0,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "SpriteMask",
+    "m_StageCapability": 2,
+    "m_Value": {
+        "x": 1.0,
+        "y": 1.0,
+        "z": 1.0,
+        "w": 1.0
+    },
+    "m_DefaultValue": {
+        "x": 0.0,
+        "y": 0.0,
+        "z": 0.0,
+        "w": 0.0
+    },
+    "m_Labels": []
 }
 
 {

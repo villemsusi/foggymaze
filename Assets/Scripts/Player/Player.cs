@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
         onStairs = false;
 
         aura.color = Events.GetAuraColor();
-        aura.intensity = 5f;
+        aura.intensity = 7f;
         aura.pointLightOuterRadius = 3;
     }
 

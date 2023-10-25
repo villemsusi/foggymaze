@@ -95,7 +95,7 @@ public class DataManager : MonoBehaviour
         movespeed = 4f;
         health = 10000;
         levelProgess = 0;
-        timer = 1;
+        timer = 15;
     }
 
 
