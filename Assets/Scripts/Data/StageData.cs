@@ -8,14 +8,5 @@ public class StageData : ScriptableObject
     public string SceneName;
 
     public string NextSceneName;
-
-    public int LootboxCount;
-    public int TurretDropCount;
-
-    public int StartingTurretCount;
-    public float Timer;
-    
-    //public List<(Enemy, int)> Enemies;
-    
-
+  
 }

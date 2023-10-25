@@ -5,21 +5,25 @@ using UnityEngine.Tilemaps;
 
 public class ItemSpawner : MonoBehaviour
 {
-
-    public Tilemap tilemap;
-    private BoundsInt bounds;
     public Lootbox LootboxPrefab;
     public GameObject TurretItemPrefab;
+
+    private Tilemap tilemap;
+    private BoundsInt bounds;
 
     private List<Vector3> worldLocs;
 
     private int lootboxCount;
     private int turretDropCount;
+
+
     // Start is called before the first frame update
     void Start()
     {
-        lootboxCount = Events.GetLootboxCount();
-        turretDropCount = Events.GetTurretDropCount();
+        tilemap = GameObject.Find("Ground").GetComponent<Tilemap>();
+
+        lootboxCount = Events.GetStartingLootboxCount();
+        turretDropCount = Events.GetStartingTurretDropCount();
 
         worldLocs = new List<Vector3>();
         bounds = tilemap.cellBounds;

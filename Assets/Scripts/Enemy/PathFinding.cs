@@ -5,30 +5,68 @@ using UnityEngine.Tilemaps;
 
 public class PathFinding : MonoBehaviour
 {
-    
-    private Vector3Int[,] grid;
+    private Tilemap tilemap;
 
+
+
+    private Vector3Int[,] grid;
     AStar AStar;
     List<Spot> roadPath = new List<Spot>();
     BoundsInt bounds;
+    private Vector2Int start;
+    private Vector2Int end;
 
-    public Tilemap tilemap;
-    public TileBase roadTile;
-    public TileBase groundTile;
 
-    private static bool canDraw = false;
+    private int callCounter = 0;
 
-   
+
     void Start()
     {
+        tilemap = GameObject.Find("Ground").GetComponent<Tilemap>();
+
         tilemap.CompressBounds();
         bounds = tilemap.cellBounds;
 
 
         CreateGrid();
         AStar = new AStar(grid, bounds.size.x, bounds.size.y);
+        LogCalls();
     }
-    // Function for mapping out the grid for A*
+
+
+
+    void LogCalls()
+    {
+        Debug.Log(callCounter / Time.time / GameObject.FindGameObjectsWithTag("Enemy").Length);
+        Invoke(nameof(LogCalls), 5);
+    }
+
+    public List<Spot> GetPath(Vector3 startPos)
+    {
+        callCounter += 1;
+        // Get path start coordinates
+        Vector3 worldStart = startPos;
+        Vector3Int gridPosStart = tilemap.WorldToCell(worldStart);
+        start = new Vector2Int(gridPosStart.x, gridPosStart.y);
+
+        // Get path end coordinates
+        Vector3 worldEnd = Events.GetPlayerPosition();
+        Vector3Int gridPosEnd = tilemap.WorldToCell(worldEnd);
+        end = new Vector2Int(gridPosEnd.x, gridPosEnd.y);
+
+        // A* algorithm
+        roadPath = AStar.CreatePath(grid, end, start, 1000);
+
+        return roadPath;
+    }
+
+    public Vector3 GetTilemapCoords(Spot nextNode)
+    {
+        return tilemap.CellToWorld(nextNode.SpotToVector());
+    }
+
+
+
     private void CreateGrid()
     {
         grid = new Vector3Int[bounds.size.x, bounds.size.y];
@@ -52,59 +90,4 @@ public class PathFinding : MonoBehaviour
         }
     }
 
-    
-    public Vector2Int start;
-    public Vector2Int end;
-
-
-    public List<Spot> GetPath()
-    {
-        // Get path start coordinates
-        Vector3 worldStart = transform.position;
-        Vector3Int gridPosStart = tilemap.WorldToCell(worldStart);
-        start = new Vector2Int(gridPosStart.x, gridPosStart.y);
-
-        // Get path end coordinates
-        Vector3 worldEnd = Events.GetPlayerPosition();
-        Vector3Int gridPosEnd = tilemap.WorldToCell(worldEnd);
-        end = new Vector2Int(gridPosEnd.x, gridPosEnd.y);
-
-        // If a path is drawn, erase it
-        // Development aiding function - should be deleted for production
-        if (roadPath != null && canDraw)
-        {
-            ClearRoad();
-        }
-        // A* algorithm
-        roadPath = AStar.CreatePath(grid, end, start, 1000);
-
-        if (roadPath != null && canDraw)
-            DrawRoad();
-        return roadPath;
-    }
-
-    public Vector3 GetTilemapCoords(Spot nextNode)
-    {
-        return tilemap.CellToWorld(nextNode.SpotToVector());
-    }
-
-    // Place road tiles based on the current path
-    // Development aiding function - should be deleted for production
-    private void DrawRoad()
-    {
-        for (int i = 0; i < roadPath.Count; i++)
-        {
-            tilemap.SetTile(new Vector3Int(roadPath[i].X, roadPath[i].Y, 0), roadTile);
-        }
-    }
-
-    // Place ground tiles on the previous path
-    // Development aiding function - should be deleted for production
-    private void ClearRoad()
-    {
-        for (int i = 0; i < roadPath.Count; i++)
-        {
-            tilemap.SetTile(new Vector3Int(roadPath[i].X, roadPath[i].Y, 0), groundTile);
-        }
-    }
 }

@@ -136,9 +136,8 @@ public class Turret : MonoBehaviour
         projectile.target = EnemiesInRange[0].transform;
         projectile.damage = TurretData.ProjDamage;
         projectile.speed = TurretData.ProjSpeed;
-        
-    }
 
+    }
     private void Recoil()
     {
         transform.position += -transform.up * TurretData.Kickback;

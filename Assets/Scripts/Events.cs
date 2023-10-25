@@ -51,6 +51,18 @@ public static class Events
     public static event Func<bool> OnGetStairsOpen;
     public static bool GetStairsOpen() => OnGetStairsOpen?.Invoke() ?? false;
 
+    public static event Func<int> OnGetStartingTurretCount;
+    public static int GetStartingTurretCount() => OnGetStartingTurretCount?.Invoke() ?? 0;
+    
+    public static event Func<int> OnGetStartingLootboxCount;
+    public static int GetStartingLootboxCount() => OnGetStartingLootboxCount?.Invoke() ?? 0;
+
+    public static event Func<int> OnGetStartingTurretDropCount;
+    public static int GetStartingTurretDropCount() => OnGetStartingTurretDropCount?.Invoke() ?? 0;
+
+    public static event Func<float> OnGetStageTimer;
+    public static float GetStageTimer() => OnGetStageTimer?.Invoke() ?? 0f;
+
 
 
     // Player items section
