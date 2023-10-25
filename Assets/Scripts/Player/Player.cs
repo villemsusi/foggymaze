@@ -1,7 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Rendering.Universal;
 
 
 public class Player : MonoBehaviour
@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     public Slider slider;
     public TurretBuilder turretBuilder;
 
+    private Light2D aura;
+
     private void Awake()
     {
         Events.OnGetHealth += GetHealth;
@@ -41,6 +43,9 @@ public class Player : MonoBehaviour
         Events.OnGetIsItemSelected += IsItemSelected;
         Events.OnAddInteractable += AddInteractable;
         Events.OnRemoveInteractable += RemoveInteractable;
+
+
+        aura = transform.Find("AuraLight").GetComponent<Light2D>();
 
     }
     private void OnDestroy()
@@ -63,12 +68,17 @@ public class Player : MonoBehaviour
         Events.OnRemoveInteractable -= RemoveInteractable;
     }
 
+
     private void Start()
     {
         SetSliderMaxHealth(Events.GetHealthPerm());
         SetHealth(Events.GetHealthPerm());
 
         onStairs = false;
+
+        aura.color = Events.GetAuraColor();
+        aura.intensity = 5f;
+        aura.pointLightOuterRadius = 3;
     }
 
 

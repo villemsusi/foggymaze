@@ -47,6 +47,11 @@ public class Enemy : MonoBehaviour
         animator = GetComponent<Animator>();
         body = GetComponent<Rigidbody2D>();
         health = GetComponent<Health>();
+    }
+
+    private void Start()
+    {
+        health.SetHealth(EnemyData.Health);
 
         PathFinder = GameObject.Find("Pathfinder");
     }
@@ -242,6 +247,12 @@ public class Enemy : MonoBehaviour
 
         currentAnimationState = newState;
     }
+
+    public void SetForce(Vector3 force)
+    {
+        ForceToApply += new Vector2(force.x, force.y);
+    }
+
 
     bool IsDistanceLonger(Vector3 pos1, Vector3 pos2, float distanceCompare)
     {

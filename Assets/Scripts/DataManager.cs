@@ -13,6 +13,9 @@ public class DataManager : MonoBehaviour
     private int levelProgess;
 
 
+    public Color auraColor;
+    private Color projectileColor;
+
 
     private int lootboxCount;
     private int turretDropCount;
@@ -21,6 +24,7 @@ public class DataManager : MonoBehaviour
     private float timer;
 
     private List<(Enemy, int)> Enemies;
+
 
     private void Awake()
     {
@@ -43,11 +47,24 @@ public class DataManager : MonoBehaviour
         Events.OnSetLevelProgress += SetLevelProgress;
         Events.OnGetLevelProgress += GetLevelProgress;
 
+        Events.OnSetProjectileColor += SetProjectileColor;
+        Events.OnGetProjectileColor += GetProjectileColor;
+        Events.OnSetAuraColor += SetAuraColor;
+        Events.OnGetAuraColor += GetAuraColor;
+    }
+
+    private void Start()
+    {
+        auraColor = Color.cyan;
+
+        projectileColor = Color.yellow;
+
         Events.OnGetStartingTurretCount += GetStartingTurretCount;
         Events.OnGetStartingLootboxCount += GetStartingLootboxCount;
         Events.OnGetStartingTurretDropCount += GetStartingTurretDropCount;
 
         Events.OnGetStageTimer += GetStageTimer;
+
     }
 
     private void OnDestroy()
@@ -59,6 +76,12 @@ public class DataManager : MonoBehaviour
 
         Events.OnSetLevelProgress -= SetLevelProgress;
         Events.OnGetLevelProgress -= GetLevelProgress;
+
+
+        Events.OnGetProjectileColor -= GetProjectileColor;
+        Events.OnSetProjectileColor -= SetProjectileColor;
+        Events.OnGetAuraColor -= GetAuraColor;
+        Events.OnSetAuraColor -= SetAuraColor;
 
         Events.OnGetStartingTurretCount -= GetStartingTurretCount;
         Events.OnGetStartingLootboxCount -= GetStartingLootboxCount;
@@ -95,4 +118,13 @@ public class DataManager : MonoBehaviour
     public void SetMovespeed(float amount) => movespeed = amount;
     public int GetHealth() => health;
     public void SetHealth(int amount) => health = amount;
+
+
+    private Color GetProjectileColor() => projectileColor;
+    private void SetProjectileColor(Color col) => projectileColor = col;
+    private Color GetAuraColor() => auraColor;
+    private void SetAuraColor(Color col)
+    {
+        auraColor = col;
+    }
 }
