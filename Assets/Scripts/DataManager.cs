@@ -132,6 +132,8 @@ public class DataManager : MonoBehaviour
         lootboxCount = amount;
         startingTurretCount = amount;
 
+        timer = InitialStats.timer + (amount-1) * 5;
+
         enemySpawnCap = Mathf.Min(50, enemySpawnCap + amount);
         enemySpawnDelay = Mathf.Max(1.5f, enemySpawnDelay - 0.1f);
 

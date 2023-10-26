@@ -15,6 +15,10 @@ public class ColorPicker : MonoBehaviour
     {
         Rect = GetComponent<RectTransform>();
         ColorPickerTexture = GetComponent<Image>().mainTexture as Texture2D;
+        if (transform.name == "AuraColorPicker")
+            PickerPreview.color = Events.GetAuraColor();
+        else
+            PickerPreview.color = Events.GetProjectileColor();
     }
 
     private void Update()
