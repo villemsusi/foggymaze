@@ -86,7 +86,6 @@ public class HUD : MonoBehaviour
     }
     private void AlertFlash()
     {
-        Debug.Log("CALL");
         if (Alert.color == Color.red)
             Alert.color = new Color(0.3867925f, 0.03831435f, 0.03831435f);
         else

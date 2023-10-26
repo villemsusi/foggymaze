@@ -1365,6 +1365,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 781102406609401867, guid: 0b08234cef7d8ac408ddd430442890b5, type: 3}
+      propertyPath: auraColor.b
+      value: 0.9433962
+      objectReference: {fileID: 0}
+    - target: {fileID: 781102406609401867, guid: 0b08234cef7d8ac408ddd430442890b5, type: 3}
+      propertyPath: auraColor.g
+      value: 0.6282924
+      objectReference: {fileID: 0}
+    - target: {fileID: 781102406609401867, guid: 0b08234cef7d8ac408ddd430442890b5, type: 3}
+      propertyPath: auraColor.r
+      value: 0.048949808
+      objectReference: {fileID: 0}
+    - target: {fileID: 781102406609401867, guid: 0b08234cef7d8ac408ddd430442890b5, type: 3}
+      propertyPath: InitialStats
+      value: 
+      objectReference: {fileID: 11400000, guid: 5fbaed34f4070ed47beeddd823ab98cb, type: 2}
     - target: {fileID: 3092021028575737037, guid: 0b08234cef7d8ac408ddd430442890b5, type: 3}
       propertyPath: m_Name
       value: DataManager

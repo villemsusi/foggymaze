@@ -52,7 +52,8 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         if (health != null)
-        health.SetHealth(EnemyData.Health);
+            health.SetHealth((int)(EnemyData.Health * Events.GetEnemyHealthFactor()));
+        Debug.Log("Health: " + (int)(EnemyData.Health * Events.GetEnemyHealthFactor()));
 
         PathFinder = GameObject.Find("Pathfinder");
     }
@@ -181,7 +182,8 @@ public class Enemy : MonoBehaviour
         MoveInput = new Vector2(xInput, yInput).normalized;
 
 
-        MoveForce = MoveInput * EnemyData.Speed;
+        MoveForce = MoveInput * EnemyData.Speed * Events.GetEnemyMovespeedFactor();
+        Debug.Log("Speed: " + EnemyData.Speed * Events.GetEnemyMovespeedFactor());
         if (!inWall)
             MoveForce += ForceToApply;
 

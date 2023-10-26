@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Barrel
-  m_Shader: {fileID: -6465566751694194690, guid: 7b201bfd7a07fb9479fd2c6c3f48ae97, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: fe4c61e03dadf9a45a6939fd030d529a, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []

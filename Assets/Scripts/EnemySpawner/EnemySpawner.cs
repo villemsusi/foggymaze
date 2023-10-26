@@ -4,22 +4,19 @@ public class EnemySpawner : MonoBehaviour
 {
     public Object EnemyPrefab;
     
-    public int SpawnDelay;
+    private float SpawnDelay;
 
-    private float _nextSpawnTime;
+    private int EnemySpawnCap;
 
     void Start()
     {
-        _nextSpawnTime = Time.time + SpawnDelay;
+        EnemySpawnCap = Events.GetEnemySpawnCap();
+        InvokeRepeating(nameof(SpawnEnemy), Events.GetInitialSpawnDelay(), Events.GetEnemySpawnDelay());
     }
 
-
-    void Update()
+    void SpawnEnemy()
     {
-        if (Time.time >= _nextSpawnTime)
-        {
+        if (GameObject.FindGameObjectsWithTag("Enemy").Length < EnemySpawnCap)
             Instantiate(EnemyPrefab, transform.position, transform.rotation, transform.parent);
-            _nextSpawnTime += SpawnDelay;
-        }
     }
 }

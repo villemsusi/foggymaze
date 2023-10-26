@@ -63,6 +63,21 @@ public static class Events
     public static event Func<float> OnGetStageTimer;
     public static float GetStageTimer() => OnGetStageTimer?.Invoke() ?? 0f;
 
+    public static event Func<int> OnGetEnemySpawnCap;
+    public static int GetEnemySpawnCap() => OnGetEnemySpawnCap?.Invoke() ?? 0;
+
+    public static event Func<float> OnGetEnemySpawnDelay;
+    public static float GetEnemySpawnDelay() => OnGetEnemySpawnDelay?.Invoke() ?? 0f;
+
+    public static event Func<float> OnGetInitialSpawnDelay;
+    public static float GetInitialSpawnDelay() => OnGetInitialSpawnDelay?.Invoke() ?? 0f;
+
+    public static event Func<float> OnGetEnemyMovespeedFactor;
+    public static float GetEnemyMovespeedFactor() => OnGetEnemyMovespeedFactor?.Invoke() ?? 0f;
+
+    public static event Func<float> OnGetEnemyHealthFactor;
+    public static float GetEnemyHealthFactor() => OnGetEnemyHealthFactor?.Invoke() ?? 1f;
+
 
 
     // Player items section
