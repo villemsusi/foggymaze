@@ -20,8 +20,12 @@ public class HUD : MonoBehaviour
         Events.OnSetAmmoCount += SetReloadText;
 
         Events.OnSetTimer += SetTimer;
-        Events.OnSetLevelProgress += SetLevel;
         Alert.gameObject.SetActive(false);
+    }
+
+    private void Start()
+    {
+        SetLevel(Events.GetLevelProgress());
     }
 
     private void OnDestroy()
@@ -31,7 +35,6 @@ public class HUD : MonoBehaviour
         Events.OnSetAmmoCount -= SetReloadText;
 
         Events.OnSetTimer -= SetTimer;
-        Events.OnSetLevelProgress -= SetLevel;
     }
 
 

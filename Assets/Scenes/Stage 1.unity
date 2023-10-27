@@ -11582,26 +11582,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5723075361847070536, guid: deaf2e0c574ba2e45ac19d27f41ceb82, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5723075361847070536, guid: deaf2e0c574ba2e45ac19d27f41ceb82, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5723075361847070536, guid: deaf2e0c574ba2e45ac19d27f41ceb82, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 126.20001
-      objectReference: {fileID: 0}
-    - target: {fileID: 5723075361847070536, guid: deaf2e0c574ba2e45ac19d27f41ceb82, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5723075361847070536, guid: deaf2e0c574ba2e45ac19d27f41ceb82, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -261.8
-      objectReference: {fileID: 0}
     - target: {fileID: 5875922404818082376, guid: deaf2e0c574ba2e45ac19d27f41ceb82, type: 3}
       propertyPath: m_Name
       value: GameController

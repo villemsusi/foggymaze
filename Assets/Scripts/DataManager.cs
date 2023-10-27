@@ -114,19 +114,23 @@ public class DataManager : MonoBehaviour
     {
         movespeed = InitialStats.movespeed;
         health = InitialStats.health;
-        
-        timer = InitialStats.timer;
 
-        enemySpawnCap = 5;
+        enemySpawnCap = 10;
         enemySpawnDelay = 3f;
-        initialSpawnDelay = 1f;
+        initialSpawnDelay = 5f;
 
-        levelProgess = 0;
+        enemyHealthFactor = 1;
+        enemyMoveSpeedFactor = 1;
+
+        levelProgess = 1;
+
+        timer = 5;
     }
 
     
     public void SetLevelProgress(int amount)
     {
+        
         levelProgess = amount;
         turretDropCount = amount + 3;
         lootboxCount = amount + 10;
@@ -164,8 +168,5 @@ public class DataManager : MonoBehaviour
     private Color GetProjectileColor() => projectileColor;
     private void SetProjectileColor(Color col) => projectileColor = col;
     private Color GetAuraColor() => auraColor;
-    private void SetAuraColor(Color col)
-    {
-        auraColor = col;
-    }
+    private void SetAuraColor(Color col) => auraColor = col;
 }

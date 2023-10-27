@@ -18,8 +18,6 @@ public class Game : MonoBehaviour
         Events.OnRestartGame += RestartGame;
         Events.OnNextStage += NextStage;
 
-
-        Events.SetLevelProgress(Events.GetLevelProgress() + 1);
     }
 
     private void OnDestroy()
@@ -42,6 +40,8 @@ public class Game : MonoBehaviour
 
         Events.SetTimer((int)timer);
 
+        Debug.Log("Level - " + Events.GetLevelProgress());
+
     }
 
 
@@ -63,8 +63,13 @@ public class Game : MonoBehaviour
 
     private void NextStage()
     {
+        
         if (Stage.NextSceneName != "")
+        {
+            Events.SetLevelProgress(Events.GetLevelProgress() + 1);
             SceneManager.LoadScene(Stage.NextSceneName);
+        }
+            
         else
             SceneManager.LoadScene("Menu");
     }
