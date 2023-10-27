@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1f6d4f2e99cdb748a322c729c29b9bb, type: 3}
   m_Name: Beefy_Enemy
   m_EditorClassIdentifier: 
-  Health: 1000
+  Health: 200
   Damage: 40
   Speed: 1
-  KnockbackAmount: 5
+  KnockbackAmount: 8
   EnemyPrefab: {fileID: 1682135878166744424, guid: 158c9776c7e028243909ba64e36689f4, type: 3}
   Teleporting: 0

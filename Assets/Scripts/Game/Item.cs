@@ -6,8 +6,8 @@ public class Item : MonoBehaviour
 {
     private bool coroutineAllowed;
     private bool canPickup;
+    private bool colliding = false;
     private float t;
-    private float speed;
 
     private Vector3 spawnPos;
     private Vector3 upperPos;
@@ -36,42 +36,10 @@ public class Item : MonoBehaviour
     {
         if (coroutineAllowed && !transform.CompareTag("TurretItem"))
             StartCoroutine(DropCurve());
-    }
 
-    private IEnumerator DropCurve()
-    {
-        coroutineAllowed = false;
-        int rotation = Random.Range(720, 1440);
-        while (t < 1)
+        if (colliding && canPickup)
         {
-            speed = 1 - Mathf.Sin(Mathf.PI * t);
-
-            
-            transform.position = Mathf.Pow(1 - t, 2) * spawnPos +
-                2 * (1 - t) * t * upperPos +
-                Mathf.Pow(t, 2) * landPos;
-
-            transform.rotation = Quaternion.Euler(0, 0, t * rotation);
-            yield return new WaitForEndOfFrame();
-            if (speed == 0)
-            {
-                t += Time.deltaTime * 0.1f;
-                speed = 0.1f;
-            }
-            else
-                t += Mathf.Lerp(0, 1, Time.deltaTime);
-        }
-
-        t = 0f;
-        canPickup = true;
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        Player player = collision.gameObject.GetComponent<Player>();
-        if (player != null && canPickup)
-        {
-            switch(transform.tag)
+            switch (transform.tag)
             {
                 case "TurretItem":
                     Events.SetTurretCount(Events.GetTurretCount() + 1);
@@ -92,5 +60,41 @@ public class Item : MonoBehaviour
             }
             Destroy(gameObject);
         }
+    }
+
+    private IEnumerator DropCurve()
+    {
+        coroutineAllowed = false;
+        int rotation = Random.Range(540, 900);
+        while (t < 1)
+        {
+
+            transform.position = Mathf.Pow(1 - t, 2) * spawnPos +
+                2 * (1 - t) * t * upperPos +
+                Mathf.Pow(t, 2) * landPos;
+
+            transform.rotation = Quaternion.Euler(0, 0, t * rotation);
+            yield return new WaitForEndOfFrame();
+
+            t += Mathf.Lerp(0, 1, 2f * Time.deltaTime * Mathf.Max(0.7f, (1 - Mathf.Sin(Mathf.PI * t))));
+        }
+
+        t = 0f;
+        canPickup = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Player player = collision.gameObject.GetComponent<Player>();
+        if (player != null)
+            colliding = true;
+
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Player player = collision.gameObject.GetComponent<Player>();
+        if (player != null)
+            colliding = false;
     }
 }

@@ -98,10 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 422c9ac98f9b5f14db929212f8a979bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Items:
-  - {fileID: 15702641913395557, guid: 98cc4f8363175b842b025f1749c5047d, type: 3}
-  - {fileID: 107165988799770336, guid: bd4afec8f7dcd35479186c3007834de9, type: 3}
-  - {fileID: 8054187833701947320, guid: 1d16a20e52d1f144b80d7cf1b2967626, type: 3}
+  UpgradePrefab: {fileID: 15702641913395557, guid: 98cc4f8363175b842b025f1749c5047d, type: 3}
+  HealthOrbPrefab: {fileID: 107165988799770336, guid: bd4afec8f7dcd35479186c3007834de9, type: 3}
+  AmmoPrefab: {fileID: 8054187833701947320, guid: 1d16a20e52d1f144b80d7cf1b2967626, type: 3}
 --- !u!61 &-1564586986166249140
 BoxCollider2D:
   m_ObjectHideFlags: 0

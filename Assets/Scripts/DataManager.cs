@@ -128,8 +128,8 @@ public class DataManager : MonoBehaviour
     public void SetLevelProgress(int amount)
     {
         levelProgess = amount;
-        turretDropCount = amount+2;
-        lootboxCount = amount;
+        turretDropCount = amount + 3;
+        lootboxCount = amount + 10;
         startingTurretCount = amount;
 
         timer = InitialStats.timer + (amount-1) * 5;

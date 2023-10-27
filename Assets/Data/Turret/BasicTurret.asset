@@ -13,16 +13,16 @@ MonoBehaviour:
   m_Name: BasicTurret
   m_EditorClassIdentifier: 
   Name: Basic Turret
-  Shortcut: 1
+  Shortcut: g
   Type: Attack
-  ShotRadius: 5
+  ShotRadius: 4
   Texture: {fileID: 2800000, guid: 34f972740dbfd4a41987fd72b8b55a12, type: 3}
   TurretPrefab: {fileID: 5899442377747358072, guid: 98f0d81bb8112624aa1b8f4dda1850ed, type: 3}
   NextUpgrade: {fileID: 5899442377747358072, guid: d1bf343eb1cd9654b96bebaff979b83a, type: 3}
   ProjectilePrefab: {fileID: 5345155349098639341, guid: b32ff8f6affea8f4e9f3406c69f7407f, type: 3}
-  ProjDamage: 1
+  ProjDamage: 25
   ProjCooldown: 1
-  ProjSpeed: 10
+  ProjSpeed: 5
   Kickback: 0.1
-  MaxAmmo: 5000
+  MaxAmmo: 15
   ReloadCost: 1

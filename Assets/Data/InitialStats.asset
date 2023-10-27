@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: InitialStats
   m_EditorClassIdentifier: 
   health: 100
-  movespeed: 4
-  timer: 10
+  movespeed: 2.5
+  timer: 60
