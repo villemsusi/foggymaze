@@ -25,8 +25,8 @@ public class Augment : MonoBehaviour
         Selection2.onClick.AddListener(SetMovespeed);
         Selection3.onClick.AddListener(SetSomething);
 
-        healthMultiplier = 1.1f;
-        speedMultiplier = 1.1f;
+        healthMultiplier = 1.2f;
+        speedMultiplier = 1.06f;
     }
 
     private void SetHealth()

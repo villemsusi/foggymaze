@@ -22,7 +22,7 @@ MonoBehaviour:
   ProjectilePrefab: {fileID: 5345155349098639341, guid: b32ff8f6affea8f4e9f3406c69f7407f, type: 3}
   ProjDamage: 25
   ProjCooldown: 1
-  ProjSpeed: 5
+  ProjSpeed: 8
   Kickback: 0.1
   MaxAmmo: 15
   ReloadCost: 1
