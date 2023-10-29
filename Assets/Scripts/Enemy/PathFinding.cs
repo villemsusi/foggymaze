@@ -38,6 +38,7 @@ public class PathFinding : MonoBehaviour
     void LogCalls()
     {
         Debug.Log("AVG pathfind calls per enemy per second: " + callCounter / Time.time / GameObject.FindGameObjectsWithTag("Enemy").Length);
+        Debug.Log(GameObject.FindGameObjectsWithTag("Enemy").Length);
         Invoke(nameof(LogCalls), 5);
     }
 

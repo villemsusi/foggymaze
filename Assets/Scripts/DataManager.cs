@@ -115,7 +115,10 @@ public class DataManager : MonoBehaviour
         movespeed = InitialStats.movespeed;
         health = InitialStats.health;
 
-        enemySpawnCap = 10;
+        enemySpawnCap = 3;
+        startingTurretCount = 2;
+        turretDropCount = 2;
+        lootboxCount = 8;
         enemySpawnDelay = 3f;
         initialSpawnDelay = 5f;
 
@@ -136,13 +139,13 @@ public class DataManager : MonoBehaviour
         lootboxCount = amount + 10;
         startingTurretCount = amount;
 
-        timer = InitialStats.timer + (amount-1) * 5;
+        timer += 5;
 
         enemySpawnCap = Mathf.Min(50, enemySpawnCap + amount);
         enemySpawnDelay = Mathf.Max(1.5f, enemySpawnDelay - 0.1f);
 
-        enemyHealthFactor = amount * 1.0f;
-        enemyMoveSpeedFactor = amount * 1.0f;
+        enemyHealthFactor *= 1.05f;
+        enemyMoveSpeedFactor *= 1.05f;
     }
     public int GetLevelProgress() => levelProgess;
 
