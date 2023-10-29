@@ -127,7 +127,7 @@ public class DataManager : MonoBehaviour
 
         levelProgess = 1;
 
-        timer = 5;
+        timer = InitialStats.timer;
     }
 
     
