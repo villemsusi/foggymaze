@@ -52,7 +52,7 @@ public class Item : MonoBehaviour
                     Debug.Log(Events.GetAmmoCount());
                     break;
                 case "HealthOrb":
-                    Events.SetHealth(Events.GetHealth() + 20);
+                    Events.SetHealth(Events.GetHealth() + 65);
                     break;
                 default:
                     return;

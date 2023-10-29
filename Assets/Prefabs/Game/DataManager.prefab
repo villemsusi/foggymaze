@@ -44,3 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48de684f2b17e5a4db892c3f4bf77a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InitialStats: {fileID: 11400000, guid: 5fbaed34f4070ed47beeddd823ab98cb, type: 2}
+  auraColor: {r: 0, g: 0, b: 0, a: 0}

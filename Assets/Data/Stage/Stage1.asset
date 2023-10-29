@@ -10,13 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 78430c3412d22244c983ee8c8bb601c9, type: 3}
-  m_Name: Stage 1
+  m_Name: Stage1
   m_EditorClassIdentifier: 
-  PresentedName: Stage 1
-  SceneName: Stage 1
-  LevelNr: 1
-  NextSceneName: Stage 2
-  LootboxCount: 5
-  TurretDropCount: 2
-  StartingTurretCount: 1
-  Timer: 10
+  SceneName: Stage1
+  NextSceneName: Stage2

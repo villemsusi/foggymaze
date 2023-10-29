@@ -141,8 +141,8 @@ public class DataManager : MonoBehaviour
         enemySpawnCap = Mathf.Min(50, enemySpawnCap + amount);
         enemySpawnDelay = Mathf.Max(1.5f, enemySpawnDelay - 0.1f);
 
-        enemyHealthFactor = amount * 1.05f;
-        enemyMoveSpeedFactor = amount * 1.05f;
+        enemyHealthFactor = amount * 1.0f;
+        enemyMoveSpeedFactor = amount * 1.0f;
     }
     public int GetLevelProgress() => levelProgess;
 
