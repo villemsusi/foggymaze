@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - Wall
+  - UpgradeItem
+  - TurretItem
+  - AmmoItem
+  - Lootbox
+  - HealthOrb
   layers:
   - Default
   - TransparentFX
@@ -13,7 +20,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Environment
   - 
   - 
   - 
@@ -40,4 +47,25 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Environment
+    uniqueID: 897083321
+    locked: 0
+  - name: Projectiles
+    uniqueID: 32744473
+    locked: 0
+  - name: Interactable
+    uniqueID: 2820117919
+    locked: 0
+  - name: Pickup
+    uniqueID: 605473069
+    locked: 0
+  - name: Enemy
+    uniqueID: 2457844557
+    locked: 0
+  - name: Player
+    uniqueID: 1927989789
+    locked: 0
+  - name: Visuals
+    uniqueID: 2242195935
     locked: 0

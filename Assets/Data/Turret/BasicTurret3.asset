@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 944b72dc82c6951488094976cd5d7fda, type: 3}
+  m_Name: BasicTurret3
+  m_EditorClassIdentifier: 
+  Name: Basic Turret 3
+  Shortcut: 
+  Type: Attack
+  ShotRadius: 4
+  Texture: {fileID: 2800000, guid: a903c659f97be7840bfeeb746f3aa4eb, type: 3}
+  TurretPrefab: {fileID: 0}
+  NextUpgrade: {fileID: 0}
+  ProjectilePrefab: {fileID: 5345155349098639341, guid: b32ff8f6affea8f4e9f3406c69f7407f, type: 3}
+  ProjDamage: 35
+  ProjCooldown: 0.5
+  ProjSpeed: 12
+  Kickback: 0.2
+  MaxAmmo: 35
+  ReloadCost: 5
