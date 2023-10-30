@@ -129,7 +129,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1288182344}
     m_Modifications:
     - target: {fileID: 90856489818020316, guid: 12a03404f0fddfc4c90018924333b7b0, type: 3}
       propertyPath: m_LocalPosition.x
@@ -184,6 +184,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12a03404f0fddfc4c90018924333b7b0, type: 3}
+--- !u!4 &536723513 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 90856489818020316, guid: 12a03404f0fddfc4c90018924333b7b0, type: 3}
+  m_PrefabInstance: {fileID: 536723512}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &618732613
 GameObject:
   m_ObjectHideFlags: 0
@@ -11582,6 +11587,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4639314159330428795, guid: deaf2e0c574ba2e45ac19d27f41ceb82, type: 3}
+      propertyPath: Stage
+      value: 
+      objectReference: {fileID: 11400000, guid: 37fbb1b18f001c24d81bc2582da29ef4, type: 2}
     - target: {fileID: 5875922404818082376, guid: deaf2e0c574ba2e45ac19d27f41ceb82, type: 3}
       propertyPath: m_Name
       value: GameController
@@ -11732,6 +11741,7 @@ Transform:
   m_Children:
   - {fileID: 2134860449}
   - {fileID: 1512555644}
+  - {fileID: 536723513}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1314293126
@@ -20192,4 +20202,3 @@ SceneRoots:
   - {fileID: 1724013074}
   - {fileID: 1753665882}
   - {fileID: 927455407}
-  - {fileID: 536723512}
