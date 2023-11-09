@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1682135878166744424}
   - component: {fileID: 8929848847252182668}
   - component: {fileID: -2879956830634787194}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemy_Teleport
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -219,7 +219,7 @@ GameObject:
   - component: {fileID: 5820837956852563063}
   - component: {fileID: 2827116134510601458}
   - component: {fileID: 2793574510132291740}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HitParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

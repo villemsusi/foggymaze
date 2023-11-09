@@ -10,4 +10,14 @@ public class InitialStatData : ScriptableObject
     public float movespeed;
     public float timer;
 
+    public int enemySpawnCap;
+    public int startingTurretCount;
+    public int turretDropCount;
+    public int lootboxCount;
+    public float enemySpawnDelay;
+    public float initialSpawnDelay;
+    public float enemyHealthFactor;
+    public float enemySpeedFactor;
+
+
 }

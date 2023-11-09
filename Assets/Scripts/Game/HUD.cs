@@ -13,6 +13,8 @@ public class HUD : MonoBehaviour
     public TextMeshProUGUI Alert;
     public TextMeshProUGUI Level;
 
+    private int textChangeScale = 5;
+
     private void Awake()
     {
         Events.OnSetTurretCount += SetTurretText;
@@ -41,14 +43,17 @@ public class HUD : MonoBehaviour
     private void SetTurretText(int amount)
     {
         TurretCountText.text = amount.ToString();
+        StartCoroutine(TextChange(TurretCountText));
     }
     private void SetUpgradeText(int amount)
     {
         UpgradeCountText.text = amount.ToString();
+        StartCoroutine(TextChange(UpgradeCountText));
     }
     private void SetReloadText(int amount)
     {
         ReloadCountText.text = amount.ToString();
+        StartCoroutine(TextChange(ReloadCountText));
     }
 
     private void SetTimer(int amount)
@@ -100,6 +105,24 @@ public class HUD : MonoBehaviour
     {
         Level.text = ToRoman(amount);
     }
+
+
+    private IEnumerator TextChange(TextMeshProUGUI text)
+    {
+        float t = 0;
+        while (t < 1)
+        {
+            t += Time.deltaTime;
+            if (t > 1) t = 1;
+
+            float scale = -4 * (textChangeScale - 1) * Mathf.Pow(t, 2) + (4 * (textChangeScale - 1) * t) + 1;
+            text.transform.localScale = new Vector3(scale, scale, 1);
+
+            yield return new WaitForEndOfFrame();
+            
+        }
+    }
+
 
     public static string ToRoman(int number)
     {

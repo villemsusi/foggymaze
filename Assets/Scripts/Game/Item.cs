@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    private bool coroutineAllowed;
-    private bool canPickup;
-    private bool colliding = false;
+
     private float t;
 
     private Vector3 spawnPos;
@@ -15,14 +13,12 @@ public class Item : MonoBehaviour
 
     private float xOffset;
 
+    SpriteRenderer rend;
 
     private void Start()
     {
-        coroutineAllowed = true;
-        if (transform.CompareTag("TurretItem"))
-            canPickup = true;
-        else
-            canPickup = false;
+        rend = GetComponent<SpriteRenderer>();
+
         t = 0;
 
         xOffset = Random.Range(-0.5f, 0.5f);
@@ -30,41 +26,14 @@ public class Item : MonoBehaviour
         spawnPos = transform.position;
         upperPos = spawnPos + new Vector3(xOffset, 3, 0);
         landPos = spawnPos + new Vector3(xOffset, 0, 0);
-    }
 
-    private void Update()
-    {
-        if (coroutineAllowed && !transform.CompareTag("TurretItem"))
+        if (!transform.CompareTag("TurretItem"))
             StartCoroutine(DropCurve());
-
-        if (colliding && canPickup)
-        {
-            switch (transform.tag)
-            {
-                case "TurretItem":
-                    Events.SetTurretCount(Events.GetTurretCount() + 1);
-                    break;
-                case "UpgradeItem":
-                    Events.SetUpgradeCount(Events.GetUpgradeCount() + 1);
-                    break;
-                case "AmmoItem":
-                    Events.SetAmmoCount(Events.GetAmmoCount() + 1);
-                    Debug.Log(Events.GetAmmoCount());
-                    break;
-                case "HealthOrb":
-                    Events.SetHealth(Events.GetHealth() + 65);
-                    break;
-                default:
-                    return;
-
-            }
-            Destroy(gameObject);
-        }
     }
 
     private IEnumerator DropCurve()
     {
-        coroutineAllowed = false;
+
         int rotation = Random.Range(540, 900);
         while (t < 1)
         {
@@ -74,27 +43,43 @@ public class Item : MonoBehaviour
                 Mathf.Pow(t, 2) * landPos;
 
             transform.rotation = Quaternion.Euler(0, 0, t * rotation);
+
+            var col = rend.color;
+            col.a = 1 / t - 0.7f;
+            rend.color = col;
+
             yield return new WaitForEndOfFrame();
 
             t += Mathf.Lerp(0, 1, 2f * Time.deltaTime * Mathf.Max(0.7f, (1 - Mathf.Sin(Mathf.PI * t))));
         }
 
         t = 0f;
-        canPickup = true;
+
+        switch (transform.tag)
+        {
+            case "UpgradeItem":
+                Events.SetUpgradeCount(Events.GetUpgradeCount() + 1);
+                break;
+            case "AmmoItem":
+                Events.SetAmmoCount(Events.GetAmmoCount() + 1);
+                break;
+            case "HealthOrb":
+                Events.SetHealth(Events.GetHealth() + 65);
+                break;
+        }
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Player player = collision.gameObject.GetComponent<Player>();
         if (player != null)
-            colliding = true;
+            if (transform.tag == "TurretItem")
+            {
+                Events.SetTurretCount(Events.GetTurretCount() + 1);
+                Destroy(gameObject);
+            }
+                
 
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        Player player = collision.gameObject.GetComponent<Player>();
-        if (player != null)
-            colliding = false;
     }
 }

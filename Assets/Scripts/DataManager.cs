@@ -112,20 +112,21 @@ public class DataManager : MonoBehaviour
 
     public void SetInitialStats()
     {
+        levelProgess = 1;
+
         movespeed = InitialStats.movespeed;
         health = InitialStats.health;
+        
+        startingTurretCount = InitialStats.startingTurretCount;
+        turretDropCount = InitialStats.turretDropCount;
+        lootboxCount = InitialStats.lootboxCount;
 
-        enemySpawnCap = 3;
-        startingTurretCount = 2;
-        turretDropCount = 2;
-        lootboxCount = 8;
-        enemySpawnDelay = 3f;
-        initialSpawnDelay = 5f;
-
-        enemyHealthFactor = 1;
-        enemyMoveSpeedFactor = 1;
-
-        levelProgess = 1;
+        initialSpawnDelay = InitialStats.initialSpawnDelay;
+        enemySpawnDelay = InitialStats.enemySpawnDelay;
+        enemySpawnCap = InitialStats.enemySpawnCap;
+        
+        enemyHealthFactor = InitialStats.enemyHealthFactor;
+        enemyMoveSpeedFactor = InitialStats.enemySpeedFactor;
 
         timer = InitialStats.timer;
     }

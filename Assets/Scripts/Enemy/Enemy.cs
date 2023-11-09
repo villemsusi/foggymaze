@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
     public EnemyData EnemyData;
-
-    private GameObject PathFinder;
 
     private Animator animator;
     private string currentAnimationState;
@@ -21,8 +20,6 @@ public class Enemy : MonoBehaviour
     bool isChannelingTeleport = false;
     bool isDelayingTeleport = false;
 
-    private List<Spot> roadPath;
-    private Vector3 nextNode;
 
     Vector2 ForceToApply;
     float forceDamping = 1.2f;
@@ -42,11 +39,18 @@ public class Enemy : MonoBehaviour
     const string ENEMY_TELEPORTCHANNEL = "Enemy_Teleport_Channel";
 
 
+
+    public NavMeshAgent agent;
+    NavMeshPath path;
+
+
+
     private void Awake()
     {
         animator = GetComponent<Animator>();
         body = GetComponent<Rigidbody2D>();
         health = GetComponent<Health>();
+
     }
 
     private void Start()
@@ -54,123 +58,31 @@ public class Enemy : MonoBehaviour
         if (health != null)
             health.SetHealth((int)(EnemyData.Health * Events.GetEnemyHealthFactor()));
 
-        PathFinder = GameObject.Find("Pathfinder");
+        path = new NavMeshPath();
+
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+
+        agent.CalculatePath(Events.GetPlayerPosition(), path);
     }
 
     private void FixedUpdate()
     {
-        if (IsDistanceLonger(transform.position, Events.GetPlayerPosition(), 1f))
-        {
-            if (EnemyData.Teleporting)
-                Teleport();
-            else
-                Move();
-        }
-        else
-            Step(Events.GetPlayerPosition());
-        
-    }
-
-    private void GetRoadPath()
-    {
-        roadPath = PathFinder.GetComponent<PathFinding>().GetPath(transform.position);
-    }
-
-    public void Move()
-    {
-
-        if (roadPath == null)
-            GetRoadPath();
-        if (nextNode != null)
-        {
-            if (!IsDistanceLonger(transform.position, nextNode, 0.5f))
-            {
-                GetRoadPath();
-            }
-        }
-
-
-        // If there is no viable path and enemy is not immediately next to the player, don't try to draw the path
-        if (roadPath == null && IsDistanceLonger(transform.position, Events.GetPlayerPosition(), 1f))
-            return;
-
-        var tilesize = 0.5f;
-        nextNode = PathFinder.GetComponent<PathFinding>().GetTilemapCoords(roadPath[1]);
-        nextNode.x += tilesize;
-        nextNode.y += tilesize;
-        Step(nextNode);
-
-    }
-
-    private void Teleported()
-    {
-        isChannelingTeleport = false;
-
-        if (roadPath == null)
-            GetRoadPath();
-        if (nextNode != null)
-        {
-            if (!IsDistanceLonger(transform.position, nextNode, 0.1f))
-            {
-                GetRoadPath();
-            }
-        }
-
-        // If there is no viable path and enemy is not immediately next to the player, don't try to draw the path
-        if (roadPath == null && IsDistanceLonger(transform.position, Events.GetPlayerPosition(), 1f))
-            return;
-        var tilesize = 0.5f;
-
-        if (roadPath.Count > 5)
-            nextNode = PathFinder.GetComponent<PathFinding>().GetTilemapCoords(roadPath[roadPath.Count - 2]);
-        else
-            nextNode = PathFinder.GetComponent<PathFinding>().GetTilemapCoords(roadPath[1]);
-        nextNode.x += tilesize;
-        nextNode.y += tilesize;
-        transform.position = nextNode;
-
-
-        isDelayingTeleport = true;
-        Invoke(nameof(ReadyToTeleport), teleportDelay);
-    }
-    private void ReadyToTeleport()
-    {
-        isDelayingTeleport = false;
-    }
-    public void Teleport()
-    {
-
-        if (IsDistanceLonger(transform.position, Events.GetPlayerPosition(), 3f))
-        {
-            if (!isChannelingTeleport && !isDelayingTeleport)
-            {
-                isChannelingTeleport = true;
-                return;
-            }
-            else if (isChannelingTeleport && !isDelayingTeleport)
-            {
-                isDelayingTeleport = true;
-                ChangeAnimationState(ENEMY_TELEPORTCHANNEL);
-                teleportChannelDuration = animator.GetCurrentAnimatorStateInfo(0).length;
-                Invoke(nameof(Teleported), teleportChannelDuration);
-                return;
-            }
-            else if (isChannelingTeleport && isDelayingTeleport)
-            {
-                // Do nothing
-            }
-            else
-            {
-                Move();
-                return;
-            }
-
-        }
-        else
+        // Is closer to player than 2 tiles?
+        if (!IsDistanceToPosLonger(Events.GetPlayerPosition(), 1f))
         {
             Step(Events.GetPlayerPosition());
         }
-
+        else if (!IsDistanceToPosLonger(Events.GetPlayerPosition(), 16f))
+            agent.CalculatePath(Events.GetPlayerPosition(), path);
+        else
+        {
+            if (!IsDistanceToPosLonger(agent.pathEndPosition, 4f))
+                agent.CalculatePath(Events.GetPlayerPosition(), path);
+        }
+        if (path.corners.Length != 0) Step(path.corners[1]);
+        else Step(Events.GetPlayerPosition());
     }
 
     // Steps towards the next position
@@ -186,7 +98,7 @@ public class Enemy : MonoBehaviour
             MoveForce += ForceToApply;
 
 
-            
+
         ForceToApply /= forceDamping;
 
         if (Mathf.Abs(ForceToApply.x) <= 0.01f && Mathf.Abs(ForceToApply.y) <= 0.01f)
@@ -204,6 +116,76 @@ public class Enemy : MonoBehaviour
         else
             ChangeAnimationState(ENEMY_IDLE);
     }
+
+
+    private void Teleported()
+    {
+        isChannelingTeleport = false;
+
+
+        isDelayingTeleport = true;
+        Invoke(nameof(ReadyToTeleport), teleportDelay);
+    }
+    private void ReadyToTeleport()
+    {
+        isDelayingTeleport = false;
+    }
+    public void Teleport()
+    {
+
+        if (IsDistanceToPosLonger(Events.GetPlayerPosition(), 3f))
+        {
+            if (!isChannelingTeleport && !isDelayingTeleport)
+            {
+                isChannelingTeleport = true;
+                return;
+            }
+            else if (isChannelingTeleport && !isDelayingTeleport)
+            {
+                isDelayingTeleport = true;
+                ChangeAnimationState(ENEMY_TELEPORTCHANNEL);
+                teleportChannelDuration = animator.GetCurrentAnimatorStateInfo(0).length;
+                Invoke(nameof(Teleported), teleportChannelDuration);
+                return;
+            }
+
+        }
+        else
+        {
+            Step(Events.GetPlayerPosition());
+        }
+
+    }
+
+
+
+    void ChangeAnimationState(string newState)
+    {
+        if (currentAnimationState == newState) return;
+
+        animator.Play(newState);
+
+        currentAnimationState = newState;
+    }
+
+    public void SetForce(Vector3 force)
+    {
+        ForceToApply += new Vector2(force.x, force.y);
+    }
+
+
+    bool IsDistanceToPosLonger(Vector3 target, float distanceCompare)
+    {
+        Vector3 offset = target - transform.position;
+        if (offset.sqrMagnitude > Mathf.Pow(distanceCompare, 2))
+            return true;
+        else
+            return false;
+    }
+
+
+
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -229,31 +211,6 @@ public class Enemy : MonoBehaviour
         {
             inWall = false;
         }
-    }
-
-
-    void ChangeAnimationState(string newState)
-    {
-        if (currentAnimationState == newState) return;
-
-        animator.Play(newState);
-
-        currentAnimationState = newState;
-    }
-
-    public void SetForce(Vector3 force)
-    {
-        ForceToApply += new Vector2(force.x, force.y);
-    }
-
-
-    bool IsDistanceLonger(Vector3 pos1, Vector3 pos2, float distanceCompare)
-    {
-        Vector3 offset = pos2 - pos1;
-        if (offset.sqrMagnitude > Mathf.Pow(distanceCompare, 2))
-            return true;
-        else
-            return false;
     }
 
 }

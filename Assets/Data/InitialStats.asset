@@ -12,6 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8084f6c23b2878848b45bbab233c3780, type: 3}
   m_Name: InitialStats
   m_EditorClassIdentifier: 
-  health: 500
+  health: 20000
   movespeed: 4
   timer: 60
+  enemySpawnCap: 100
+  startingTurretCount: 2
+  turretDropCount: 2
+  lootboxCount: 8
+  enemySpawnDelay: 1
+  initialSpawnDelay: 5
+  enemyHealthFactor: 1
+  enemySpeedFactor: 1

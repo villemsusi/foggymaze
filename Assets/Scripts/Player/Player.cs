@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     private bool onStairs;
 
     private GameObject SelectedItem;
-    private static readonly float selectionRadius = 0.7f;
+    private static readonly float selectionRadius = 1f;
 
     public List<GameObject> Interactables;
 
