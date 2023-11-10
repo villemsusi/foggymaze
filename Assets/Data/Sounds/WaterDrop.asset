@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a30a5c8c15d9145b4811af2d469bff, type: 3}
   m_Name: WaterDrop
   m_EditorClassIdentifier: 
-  VolumeMin: 2
-  VolumeMax: 2
-  PitchMin: 1
+  VolumeMin: 0.35
+  VolumeMax: 0.43
+  PitchMin: 0.75
   PitchMax: 1.17
   Loop: 0
   Cooldown: 0.1
