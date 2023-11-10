@@ -11,7 +11,6 @@ public class Player : MonoBehaviour
     private int upgradeCount = 0;
     private int ammoCount = 0;
     private int health;
-    private float movespeed;
 
     private bool onStairs;
 

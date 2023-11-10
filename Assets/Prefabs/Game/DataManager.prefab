@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialStats: {fileID: 11400000, guid: 5fbaed34f4070ed47beeddd823ab98cb, type: 2}
-  auraColor: {r: 0.8490566, g: 0.25231397, b: 0.25231397, a: 1}
+  auraColor: {r: 0.048949808, g: 0.6282924, b: 0.9433962, a: 1}
   BckgrMusic: {fileID: 11400000, guid: 860307951ef269e4c99d593c327f1709, type: 2}
 --- !u!114 &9112068084950470380
 MonoBehaviour:

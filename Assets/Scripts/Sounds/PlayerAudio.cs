@@ -8,6 +8,7 @@ public class PlayerAudio : MonoBehaviour
 
     public void PlayWalkSound()
     {
+        Debug.Log("PLAYCALL");
         WalkAudio.Play();
     }
 }

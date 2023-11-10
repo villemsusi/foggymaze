@@ -46,7 +46,7 @@ public class Health : MonoBehaviour
     public void Die()
     {
         DeathAudio.Play(transform.position);
-        Instantiate(DeadEnemyPrefab, transform.position, Quaternion.identity, null);
+        Instantiate(DeadEnemyPrefab, transform.position, Quaternion.identity, transform.parent);
         Destroy(gameObject);
     }
 }

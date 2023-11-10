@@ -33,9 +33,11 @@ public class AudioClipGroup : ScriptableObject
 
     public void Play()
     {
+        Debug.Log("PLAY");
         if (AudioSourcePool.Instance == null) return;
         if (Clips.Count <= 0) return;
         Play(AudioSourcePool.Instance.GetSource());
+        
 
     }
 

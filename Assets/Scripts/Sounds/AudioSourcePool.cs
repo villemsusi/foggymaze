@@ -12,8 +12,18 @@ public class AudioSourcePool : MonoBehaviour
 
     public void Awake()
     {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+
         Instance = this;
         audioSources = new List<AudioSource>();
+        DontDestroyOnLoad(gameObject);
+
+
     }
 
     public AudioSource GetSource()

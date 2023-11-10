@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
@@ -13,7 +14,12 @@ public class HUD : MonoBehaviour
     public TextMeshProUGUI Alert;
     public TextMeshProUGUI Level;
 
+    public GameObject PauseScreen;
+    
+    
     private int textChangeScale = 5;
+
+
 
     private void Awake()
     {
@@ -37,6 +43,14 @@ public class HUD : MonoBehaviour
         Events.OnSetAmmoCount -= SetReloadText;
 
         Events.OnSetTimer -= SetTimer;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePause();
+        }
     }
 
 
@@ -121,6 +135,23 @@ public class HUD : MonoBehaviour
             yield return new WaitForEndOfFrame();
             
         }
+    }
+
+    private void TogglePause()
+    {
+        if (PauseScreen.activeSelf)
+        {
+            PauseScreen.SetActive(false);
+            Time.timeScale = 1;
+            return;
+        }
+        if (!(Time.timeScale == 0))
+        {
+
+            PauseScreen.SetActive(true);
+            Time.timeScale = 0;
+        }
+            
     }
 
 
