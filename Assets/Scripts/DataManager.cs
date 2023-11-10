@@ -32,6 +32,8 @@ public class DataManager : MonoBehaviour
     private float enemyMoveSpeedFactor;
     private float enemyHealthFactor;
 
+    public AudioClipGroup BckgrMusic;
+
 
     private void Awake()
     {
@@ -107,6 +109,8 @@ public class DataManager : MonoBehaviour
     {
         auraColor = Color.blue;
         projectileColor = Color.red;
+
+        BckgrMusic.Play();
 
     }
 

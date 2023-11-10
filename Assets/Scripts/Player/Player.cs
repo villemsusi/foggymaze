@@ -25,6 +25,8 @@ public class Player : MonoBehaviour
 
     private Light2D aura;
 
+    
+
     private void Awake()
     {
         Events.OnGetHealth += GetHealth;
@@ -231,4 +233,7 @@ public class Player : MonoBehaviour
     {
         obj.GetComponent<SpriteRenderer>().material.SetInt("_ShowShader", state);
     }
+
+
+
 }

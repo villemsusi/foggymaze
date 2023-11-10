@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 20000
   movespeed: 4
-  timer: 60
+  timer: 5
   enemySpawnCap: 100
   startingTurretCount: 2
   turretDropCount: 2

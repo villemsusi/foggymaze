@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3794086738525784517}
   - component: {fileID: 781102406609401867}
+  - component: {fileID: 9112068084950470380}
   m_Layer: 0
   m_Name: DataManager
   m_TagString: Untagged
@@ -45,4 +46,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialStats: {fileID: 11400000, guid: 5fbaed34f4070ed47beeddd823ab98cb, type: 2}
-  auraColor: {r: 0, g: 0, b: 0, a: 0}
+  auraColor: {r: 0.8490566, g: 0.25231397, b: 0.25231397, a: 1}
+  BckgrMusic: {fileID: 11400000, guid: 860307951ef269e4c99d593c327f1709, type: 2}
+--- !u!114 &9112068084950470380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3092021028575737037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d5b38fd2057c8847bec3cfb308a7e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioSourcePrefab: {fileID: 4678299525482316020, guid: 25d70ded0b45581428ed00317f9dc4f5, type: 3}

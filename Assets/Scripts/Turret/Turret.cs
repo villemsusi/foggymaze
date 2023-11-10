@@ -26,6 +26,10 @@ public class Turret : MonoBehaviour
     private int currentAmmo;
 
 
+    public AudioClipGroup ShotAudio;
+
+
+
     private void Awake()
     {
         range = GetComponent<CircleCollider2D>();
@@ -123,7 +127,7 @@ public class Turret : MonoBehaviour
         currentAmmo -= 1;
         DrawDisplay();
 
-        audioSource.Play(0);
+        ShotAudio.Play(transform.position);
         
         Vector3 upDir = EnemiesInRange[0].transform.position - transform.position;
         upDir.z = 0;
