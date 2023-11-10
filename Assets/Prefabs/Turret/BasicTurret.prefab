@@ -272,6 +272,7 @@ MonoBehaviour:
   display: {fileID: 8881073520559256813}
   display2: {fileID: 0}
   ShotAudio: {fileID: 11400000, guid: c4d9d3803357f144490fb6fada21ab75, type: 2}
+  UpgradeAudio: {fileID: 11400000, guid: 87f47501be17dd145a98fdcd74867473, type: 2}
 --- !u!58 &-4746443489706926072
 CircleCollider2D:
   m_ObjectHideFlags: 0

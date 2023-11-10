@@ -97,6 +97,6 @@ public class AudioClipGroup : ScriptableObject
             lastClip = currClip;
         }
 
-        source.Play();
+        AudioSource.PlayClipAtPoint(source.clip, pos, 1.0f);
     }
 }

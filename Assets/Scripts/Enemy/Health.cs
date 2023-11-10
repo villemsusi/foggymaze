@@ -9,6 +9,11 @@ public class Health : MonoBehaviour
 
     private ParticleSystem ps;
 
+
+    public GameObject DeadEnemyPrefab;
+
+    public AudioClipGroup DeathAudio;
+
     private void Awake()
     {
         ps = transform.Find("HitParticle").GetComponent<ParticleSystem>();
@@ -34,7 +39,14 @@ public class Health : MonoBehaviour
         transform.GetComponent<SpriteRenderer>().color = Color.white;
         if (healthPoints <= 0)
         {
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    public void Die()
+    {
+        DeathAudio.Play(transform.position);
+        Instantiate(DeadEnemyPrefab, transform.position, Quaternion.identity, null);
+        Destroy(gameObject);
     }
 }

@@ -15,7 +15,7 @@ MonoBehaviour:
   health: 20000
   movespeed: 4
   timer: 5
-  enemySpawnCap: 100
+  enemySpawnCap: 3
   startingTurretCount: 2
   turretDropCount: 2
   lootboxCount: 8

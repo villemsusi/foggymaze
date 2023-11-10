@@ -27,6 +27,7 @@ public class Turret : MonoBehaviour
 
 
     public AudioClipGroup ShotAudio;
+    public AudioClipGroup UpgradeAudio;
 
 
 
@@ -173,6 +174,8 @@ public class Turret : MonoBehaviour
     {
         if (Events.GetUpgradeCount() > 0 && TurretData.NextUpgrade != null)
         {
+            UpgradeAudio.Play();
+
             Events.SetUpgradeCount(Events.GetUpgradeCount() - 1);
             Turret newTurret = Instantiate(TurretData.NextUpgrade, transform.position, Quaternion.identity, null);
             newTurret.transform.up = transform.up;

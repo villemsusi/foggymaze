@@ -34,8 +34,8 @@ public class Game : MonoBehaviour
         AugmentSelector.SetActive(false);
 
         Events.SetTurretCount(Events.GetStartingTurretCount());
-        Events.SetAmmoCount(0);
-        Events.SetUpgradeCount(0);
+        Events.SetAmmoCount(50);
+        Events.SetUpgradeCount(50);
         timer = Events.GetStageTimer();
 
         Events.SetTimer((int)timer);
