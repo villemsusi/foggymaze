@@ -55,7 +55,6 @@ public class ColorPicker : MonoBehaviour
         else if (transform.name == "AuraColorPicker")
         {
             Events.SetAuraColor(color);
-            Debug.Log("AURA");
         }
             
     }

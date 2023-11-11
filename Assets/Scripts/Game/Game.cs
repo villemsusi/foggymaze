@@ -60,7 +60,7 @@ public class Game : MonoBehaviour
 
     private void NextStage()
     {
-        if (Stage.SceneName == "TEST")
+        if (Stage.SceneName == "MainStage")
         {
             Events.SetLevelProgress(Events.GetLevelProgress() + 1);
             SceneManager.LoadScene(Stage.SceneName);

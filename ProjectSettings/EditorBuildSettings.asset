@@ -9,20 +9,23 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 735fbc6e855a86b4881f7b1c1529cbf0
   - enabled: 1
-    path: Assets/Scenes/Stage1.unity
-    guid: 676b44e74ee7d144a8c0007d071861ed
-  - enabled: 1
-    path: Assets/Scenes/Stage2.unity
-    guid: 4a43f1e712309524490539ef130db30e
-  - enabled: 1
-    path: Assets/Scenes/Stage3.unity
-    guid: 872f700e1fb33b842b5a4a71a1c9306c
-  - enabled: 1
-    path: Assets/Scenes/Stage4.unity
-    guid: 57f7deb40b8a9c745a35b776084fc77a
-  - enabled: 1
-    path: Assets/Scenes/Stage5.unity
-    guid: 77ed6d244c37ac54ea7bb055e92ac6fd
+    path: Assets/Scenes/MainStage.unity
+    guid: a1b346e46f830534c838486a27088091
+  - enabled: 0
+    path: Assets/Scenes/Legacy Scenes/Stage1.unity
+    guid: 956868c3440ebb349b6541a364baec32
+  - enabled: 0
+    path: Assets/Scenes/Legacy Scenes/Stage2.unity
+    guid: fe069d222bda21d41ace33397df59be5
+  - enabled: 0
+    path: Assets/Scenes/Legacy Scenes/Stage3.unity
+    guid: a9ed890cb15de7d4190556e648a887cd
+  - enabled: 0
+    path: Assets/Scenes/Legacy Scenes/Stage4.unity
+    guid: 5a127a5ad9e8186479db46d827da0017
+  - enabled: 0
+    path: Assets/Scenes/Legacy Scenes/Stage5.unity
+    guid: 559fd7a4414fd624a8c22aff7ce037cf
   - enabled: 0
     path: Assets/Scenes/Stage 6.unity
     guid: a2d314895b2223e4d901ca751cb234b2

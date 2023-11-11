@@ -1627,7 +1627,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7057434808765265803}
   - {fileID: 8951752365536817591}
   - {fileID: 1457128792240171321}
   m_Father: {fileID: 0}
@@ -1644,7 +1643,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feb1f545593b8264f8fc629b0f988206, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Stage: {fileID: 11400000, guid: 37fbb1b18f001c24d81bc2582da29ef4, type: 2}
+  Stage: {fileID: 11400000, guid: d1a9ee6943f550e4f9b2bdcf6a5cf09e, type: 2}
 --- !u!114 &8883447715448065673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2761,53 +2760,6 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!1 &8080260090189270324
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7057434808765265803}
-  - component: {fileID: 8604104248482536975}
-  m_Layer: 0
-  m_Name: ItemSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7057434808765265803
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8080260090189270324}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -310.89017, y: -153.82645, z: -3.226015}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 496599764425594762}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8604104248482536975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8080260090189270324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6d8a47a375ce2c45971a1cc6377cd11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StairsPrefab: {fileID: 6508878639646645844, guid: 38161e8dcb90dfd488d14bab57502817, type: 3}
-  LootboxPrefab: {fileID: 196657756257506742, guid: 3c03852d79404704fbdf1076619b57b3, type: 3}
-  TurretItemPrefab: {fileID: 7548633902485900914, guid: 876a09b0daeec7e4b885a4d67aebdb74, type: 3}
 --- !u!1 &8539897980513589552
 GameObject:
   m_ObjectHideFlags: 0
