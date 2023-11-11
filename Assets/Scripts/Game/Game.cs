@@ -39,9 +39,6 @@ public class Game : MonoBehaviour
         timer = Events.GetStageTimer();
 
         Events.SetTimer((int)timer);
-
-        Debug.Log("Level - " + Events.GetLevelProgress());
-
     }
 
 

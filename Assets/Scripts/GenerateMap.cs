@@ -13,32 +13,101 @@ public class GenerateMap : MonoBehaviour
 
     private BoundsInt bounds;
 
+    public int Width = 30;
+    public int Height = 30;
+    private int xMin;
+    private int yMin;
+
     public Player PlayerPrefab;
 
-    private int xMin = -25;
-    private int yMin = -25;
+    
+
+    Vector2Int[] dirs = { new Vector2Int(-1, 0), new Vector2Int(0, -1), new Vector2Int(0, 1), new Vector2Int(1, 0) };
 
     private void Awake()
     {
-        bounds = new BoundsInt(new Vector3Int(xMin, yMin, 0), new Vector3Int(Mathf.Abs(2*xMin), Mathf.Abs(2 * yMin), 1));
+        xMin = -1 * Width / 2;
+        yMin = -1 * Height / 2;
 
-        List<Vector3Int> positions = new List<Vector3Int>();
+        bounds = new BoundsInt(new Vector3Int(xMin, yMin, 0), new Vector3Int(-2*xMin, -2 * yMin, 1));
+
+
+        GenMaze(Vector3Int.zero);
         foreach (var pos in bounds.allPositionsWithin)
         {
-            positions.Add(pos);
-        }
-
-        reshuffle(positions);
-
-        foreach (var pos in positions)
-        {
-            Vector3Int localLoc = new Vector3Int(pos.x, pos.y, pos.z);
-
-            SetTile(localLoc);
+            // If pos at edge of maze, set wall
+            if (pos.x == xMin || pos.x == -1 * xMin - 1 || pos.y == yMin || pos.y == -1 * yMin - 1)
+            {
+                SetWallTile(pos);
+                continue;
+            }
+            if (!Walls.HasTile(pos) && !Ground.HasTile(pos))
+            {
+                float rand = Random.value;
+                if (rand <= 0.8)
+                    SetWallTile(pos);
+                else
+                    SetGroundTile(pos);
+                    
+            }
+                
         }
 
         Instantiate(PlayerPrefab, new Vector3(0.5f, 0.5f, 0), Quaternion.identity, null);
 
+    }
+
+
+
+
+    void GenMaze(Vector3Int pos)
+    {
+
+        reshuffle(dirs);
+
+        foreach (Vector2Int dir in dirs)
+        {
+            Vector3Int newPos = new(pos.x + dir.x, pos.y + dir.y, pos.z);
+
+            if (newPos.x == 0 && newPos.y == 0)
+            {
+                SetGroundTile(newPos);
+                GenMaze(newPos);
+                
+            }
+            else if (IsGoodPath(newPos)) {
+                SetGroundTile(newPos);
+                GenMaze(newPos);
+            }
+        }
+    }
+
+    bool IsGoodPath(Vector3Int pos)
+    {
+        if (pos.x <= xMin || pos.x >= -1 * xMin - 1 || pos.y <= yMin || pos.y >= -1 * yMin - 1)
+            return false;
+        if (Ground.HasTile(pos))
+            return false;
+
+        int count = 0;
+        foreach (Vector2Int dir in dirs)
+        {
+            Vector3Int newPos = new(pos.x + dir.x, pos.y + dir.y, pos.z);
+            if (Ground.HasTile(newPos))
+                count++;
+        }
+
+        if (count > 1)
+            return false;
+
+
+        return true;
+    }
+
+
+    private void SetWallTile(Vector3Int pos)
+    {
+        Walls.SetTile(pos, WallTile);
     }
 
     private void SetGroundTile(Vector3Int pos)
@@ -52,63 +121,12 @@ public class GenerateMap : MonoBehaviour
             Ground.SetTile(pos, GroundTiles[2]);
     }
 
-    private void SetTile(Vector3Int pos)
+    void reshuffle(Vector2Int[] positions)
     {
-        if (pos.x == 0 && pos.y == 0)
+        for (int t = 0; t < positions.Length; t++)
         {
-            SetGroundTile(pos);
-            return;
-        }
-        if (pos.x == xMin || pos.x == Mathf.Abs(xMin) - 1 || pos.y == yMin || pos.y == Mathf.Abs(yMin) - 1)
-        {
-            Walls.SetTile(pos, WallTile);
-            return;
-        }
-
-        int adj = CheckAdjacent(pos);
-        float cutoff;
-
-        if (adj == 0)
-            cutoff = 0.55f;
-        else if (adj == 1)
-            cutoff = 0.4f;
-        else
-            cutoff = 0.3f;
-
-        float rand = Random.value;
-        if (rand <= cutoff)
-        {
-            Walls.SetTile(pos, WallTile);
-            return;
-        }
-        SetGroundTile(pos);
-    }
-
-
-    private int CheckAdjacent(Vector3Int pos)
-    {
-        int nr = 0;
-        for (int i = -1; i < 2; i++)
-        {
-            for (int j = -1; j < 2; j++)
-            {
-                if (Walls.HasTile(pos + new Vector3Int(i, j, 0)))
-                {
-                    nr += 1;
-                }
-            }
-        }
-
-        return nr;
-    }
-
-
-    void reshuffle(List<Vector3Int> positions)
-    {
-        for (int t = 0; t < positions.Count; t++)
-        {
-            Vector3Int tmp = positions[t];
-            int r = Random.Range(t, positions.Count);
+            Vector2Int tmp = positions[t];
+            int r = Random.Range(t, positions.Length);
             positions[t] = positions[r];
             positions[r] = tmp;
         }
