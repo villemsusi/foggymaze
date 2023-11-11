@@ -34,8 +34,8 @@ public class Game : MonoBehaviour
         AugmentSelector.SetActive(false);
 
         Events.SetTurretCount(Events.GetStartingTurretCount());
-        Events.SetAmmoCount(50);
-        Events.SetUpgradeCount(50);
+        Events.SetAmmoCount(0);
+        Events.SetUpgradeCount(0);
         timer = Events.GetStageTimer();
 
         Events.SetTimer((int)timer);
@@ -63,8 +63,12 @@ public class Game : MonoBehaviour
 
     private void NextStage()
     {
-        
-        if (Stage.NextSceneName != "")
+        if (Stage.SceneName == "TEST")
+        {
+            Events.SetLevelProgress(Events.GetLevelProgress() + 1);
+            SceneManager.LoadScene(Stage.SceneName);
+        }
+        else if (Stage.NextSceneName != "")
         {
             Events.SetLevelProgress(Events.GetLevelProgress() + 1);
             SceneManager.LoadScene(Stage.NextSceneName);

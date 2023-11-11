@@ -2805,6 +2805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6d8a47a375ce2c45971a1cc6377cd11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StairsPrefab: {fileID: 6508878639646645844, guid: 38161e8dcb90dfd488d14bab57502817, type: 3}
   LootboxPrefab: {fileID: 196657756257506742, guid: 3c03852d79404704fbdf1076619b57b3, type: 3}
   TurretItemPrefab: {fileID: 7548633902485900914, guid: 876a09b0daeec7e4b885a4d67aebdb74, type: 3}
 --- !u!1 &8539897980513589552

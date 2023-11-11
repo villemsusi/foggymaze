@@ -5,6 +5,7 @@ using UnityEngine.Tilemaps;
 
 public class ItemSpawner : MonoBehaviour
 {
+    public Stairs StairsPrefab;
     public Lootbox LootboxPrefab;
     public GameObject TurretItemPrefab;
 
@@ -40,9 +41,12 @@ public class ItemSpawner : MonoBehaviour
             }
                 
         }
+        int randPos = Random.Range(0, worldLocs.Count);
+        Instantiate(StairsPrefab, worldLocs[randPos] + new Vector3(0, 0.3f, 0), Quaternion.identity, null);
+        worldLocs.RemoveAt(randPos);
         for (int i = 0; i < lootboxCount; i++)
         {
-            int randPos = Random.Range(0, worldLocs.Count-i);
+            randPos = Random.Range(0, worldLocs.Count-i);
             Lootbox box = Instantiate(LootboxPrefab, worldLocs[randPos], Quaternion.identity, null);
             Events.AddInteractable(box.gameObject);
 
@@ -51,7 +55,7 @@ public class ItemSpawner : MonoBehaviour
 
         for (int i = 0; i < turretDropCount; i++)
         {
-            int randPos = Random.Range(0, worldLocs.Count - i - lootboxCount);
+            randPos = Random.Range(0, worldLocs.Count - i - lootboxCount);
             Instantiate(TurretItemPrefab, worldLocs[randPos], Quaternion.identity, null);
 
             worldLocs.RemoveAt(randPos);
