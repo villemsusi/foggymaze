@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
 
     private Light2D aura;
 
+    private PlayerAudio audioPlayer;
+
     
 
     private void Awake()
@@ -47,7 +49,7 @@ public class Player : MonoBehaviour
 
 
         aura = transform.Find("AuraLight").GetComponent<Light2D>();
-
+        audioPlayer = GetComponent<PlayerAudio>();
     }
     private void OnDestroy()
     {
@@ -87,15 +89,6 @@ public class Player : MonoBehaviour
     void Update()
     {
         SelectInteractable();
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            if (SelectedItem != null)
-            {
-                if (SelectedItem.GetComponent<Turret>() != null)
-                    SelectedItem.GetComponent<Turret>().Reload();
-                return;
-            }
-        }
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
@@ -126,6 +119,18 @@ public class Player : MonoBehaviour
                     SelectedItem.GetComponent<Turret>().Upgrade();
                 else if (SelectedItem.GetComponent<Lootbox>() != null)
                     SelectedItem.GetComponent<Lootbox>().Open();
+                else if (SelectedItem.GetComponent<LootboxTutorial>() != null)
+                    SelectedItem.GetComponent<LootboxTutorial>().Open();
+                return;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (SelectedItem != null)
+            {
+                if (SelectedItem.GetComponent<Turret>() != null) { }
+                    SelectedItem.GetComponent<Turret>().Reload();
                 return;
             }
         }
@@ -185,6 +190,7 @@ public class Player : MonoBehaviour
             }
         }
         Transform t = GetClosestInteractable(Interactables);
+        
         if (t != null)
         {
             if (SelectedItem != null && SelectedItem != t.gameObject)

@@ -52,7 +52,7 @@ public class GenerateMap : MonoBehaviour
 
         bounds = new BoundsInt(new Vector3Int(xMin, yMin, 0), new Vector3Int(-2*xMin, -2 * yMin, 1));
 
-
+        SetGroundTile(Vector3Int.zero);
         GenMaze(Vector3Int.zero);
         foreach (var pos in bounds.allPositionsWithin)
         {

@@ -11,6 +11,7 @@ TagManager:
   - AmmoItem
   - Lootbox
   - HealthOrb
+  - Trigger
   layers:
   - Default
   - TransparentFX
@@ -68,4 +69,7 @@ TagManager:
     locked: 0
   - name: Visuals
     uniqueID: 2242195935
+    locked: 0
+  - name: UI
+    uniqueID: 1174239675
     locked: 0

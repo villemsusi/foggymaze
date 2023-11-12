@@ -30,4 +30,10 @@ public class Lootbox : MonoBehaviour
         Events.RemoveInteractable(gameObject);
         Destroy(gameObject);
     }
+
+
+    public void SetSelectedItem(Item item)
+    {
+        SelectedItem = item;
+    }
 }

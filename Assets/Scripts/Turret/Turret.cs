@@ -28,8 +28,7 @@ public class Turret : MonoBehaviour
 
     public AudioClipGroup ShotAudio;
     public AudioClipGroup UpgradeAudio;
-
-
+    public AudioClipGroup ReloadAudio;
 
     private void Awake()
     {
@@ -163,6 +162,8 @@ public class Turret : MonoBehaviour
     {
         if (Events.GetAmmoCount() > 0 && currentAmmo < TurretData.MaxAmmo)
         {
+            ReloadAudio.Play();
+
             Events.SetAmmoCount(Events.GetAmmoCount() - 1);
             currentAmmo = TurretData.MaxAmmo;
             DrawDisplay();

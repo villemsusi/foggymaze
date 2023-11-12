@@ -5,6 +5,9 @@ using UnityEngine.EventSystems;
 
 public class TurretBuilder : MonoBehaviour
 {
+
+    public AudioClipGroup BuildAudio;
+
     private void Awake()
     {
         Events.OnTurretSelected += TurretSelected;
@@ -28,6 +31,9 @@ public class TurretBuilder : MonoBehaviour
     {
         if (Events.GetIsItemSelected())
             return;
+
+        BuildAudio.Play();
+
         Vector3 pos = transform.position;
         pos.y -= 0.2f;
         Turret turret = Instantiate(data.TurretPrefab, pos, Quaternion.identity, null);
