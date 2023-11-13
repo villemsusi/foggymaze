@@ -40,7 +40,10 @@ public class Tutorial : MonoBehaviour
     }
 
     void Start()
-    {      
+    {
+        Events.SetHealthPerm(100000);
+        Events.SetHealth(100000);
+
         LootboxTutorial ammoDrop = Instantiate(LootboxPrefab, new Vector3(-7.5f, -9.8f, 0), Quaternion.identity, null);
         Events.AddInteractable(ammoDrop.gameObject);
         ammoDrop.SetSelectedItem(AmmoPrefab);

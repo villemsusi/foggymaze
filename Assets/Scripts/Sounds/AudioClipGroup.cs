@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(menuName = "FoggyMaze/AudioClipGroup")]
 public class AudioClipGroup : ScriptableObject
@@ -18,6 +19,9 @@ public class AudioClipGroup : ScriptableObject
 
     public float Cooldown = 0.1f;
 
+    public bool MX;
+    public bool SFX;
+
     public List<AudioClip> Clips;
 
 
@@ -31,11 +35,13 @@ public class AudioClipGroup : ScriptableObject
         lastClip = 0;
     }
 
-    public void Play()
+    public AudioSource Play()
     {
-        if (AudioSourcePool.Instance == null) return;
-        if (Clips.Count <= 0) return;
-        Play(AudioSourcePool.Instance.GetSource());
+        if (AudioSourcePool.Instance == null) return null;
+        if (Clips.Count <= 0) return null;
+        AudioSource source = AudioSourcePool.Instance.GetSource();
+        Play(source);
+        return source;
         
 
     }
@@ -46,7 +52,12 @@ public class AudioClipGroup : ScriptableObject
         if (timestamp > Time.time) return;
         timestamp = Time.time + Cooldown;
 
-        source.volume = Random.Range(VolumeMin, VolumeMax);
+        if (MX)
+            source.volume = Random.Range(VolumeMin, VolumeMax) * Events.GetMX();
+        else if (SFX)
+            source.volume = Random.Range(VolumeMin, VolumeMax) * Events.GetSFX();
+        else
+            source.volume = Random.Range(VolumeMin, VolumeMax);
         source.pitch = Random.Range(PitchMin, PitchMax);
         source.loop = Loop;
 
@@ -80,7 +91,12 @@ public class AudioClipGroup : ScriptableObject
         if (timestamp > Time.time) return;
         timestamp = Time.time + Cooldown;
 
-        source.volume = Random.Range(VolumeMin, VolumeMax);
+        if (SFX)
+            source.volume = Random.Range(VolumeMin, VolumeMax) * Events.GetSFX();
+        else if (MX)
+            source.volume = Random.Range(VolumeMin, VolumeMax) * Events.GetMX();
+        else
+            source.volume = Random.Range(VolumeMin, VolumeMax);
         source.pitch = Random.Range(PitchMin, PitchMax);
         source.loop = Loop;
         source.transform.position = pos;
@@ -98,6 +114,6 @@ public class AudioClipGroup : ScriptableObject
             lastClip = currClip;
         }
 
-        AudioSource.PlayClipAtPoint(source.clip, pos, 1.0f);
+        AudioSource.PlayClipAtPoint(source.clip, pos, Events.GetSFX());
     }
 }

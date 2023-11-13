@@ -1372,8 +1372,8 @@ MonoBehaviour:
 
     Press ESC to pause'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8fbc106503031b04f9981890442ad0de, type: 2}
+  m_sharedMaterial: {fileID: -3458326213620134027, guid: 8fbc106503031b04f9981890442ad0de, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1388,7 +1388,7 @@ MonoBehaviour:
     topRight: {r: 1, g: 1, b: 1, a: 1}
     bottomLeft: {r: 1, g: 1, b: 1, a: 1}
     bottomRight: {r: 1, g: 1, b: 1, a: 1}
-  m_fontColorGradientPreset: {fileID: 11400000, guid: a587cbd34be49954f9281d3afe3b46db, type: 2}
+  m_fontColorGradientPreset: {fileID: 11400000, guid: adabc549554417b4b982dff993fa7375, type: 2}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
   m_StyleSheet: {fileID: 0}
@@ -3048,7 +3048,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c467cc5a10f903438581ccd127c8028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WaterDrop: {fileID: 11400000, guid: 9803ef70aebb8e944b7e2de0d4c5231f, type: 2}
 --- !u!1 &3122612807595847528
 GameObject:
   m_ObjectHideFlags: 0
@@ -3400,6 +3399,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 8883447714618549622}
+        m_TargetAssemblyTypeName: MenuAudio, Assembly-CSharp
+        m_MethodName: PlayClickAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 5960660284647610914}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: GoMenu
@@ -3531,7 +3542,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4daff43b197e1a7459958ac7a7a89eb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  WalkAudio: {fileID: 11400000, guid: 8cfaba3a667198c44ac547d9e29e7c12, type: 2}
 --- !u!114 &3825634804853660053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11316,7 +11326,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81ca3375c7fa51f4e8d1e2635f452cd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BuildAudio: {fileID: 11400000, guid: b232794d234413f47bf589f95cef3bb2, type: 2}
 --- !u!114 &4678247128123277148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15876,7 +15885,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1debb484b3f6d4e42a02dd56c11c1835, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ClickAudio: {fileID: 11400000, guid: bca08e0fb01810640b36b2ba008452b0, type: 2}
 --- !u!114 &8907140563549396790
 MonoBehaviour:
   m_ObjectHideFlags: 0

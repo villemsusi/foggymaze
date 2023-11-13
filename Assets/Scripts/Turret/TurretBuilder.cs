@@ -26,9 +26,7 @@ public class TurretBuilder : MonoBehaviour
 
     private void TurretSelected(TurretData data)
     {
-        if (Events.GetIsItemSelected())
-            return;
-        if (Events.GetTurretCount() == 0)
+        if (Events.GetTurretCount() == 0 || Events.GetIsItemSelected())
         {
             DataManager.Instance.DenyAudio.Play();
             return;

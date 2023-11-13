@@ -2,13 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OptionsMenu : MonoBehaviour
+public class GraphicsMenu : MonoBehaviour
 {
-    public void SetVolume (float volume)
-    {
-        Debug.Log(volume);
-    }
-
     public void SetFullscreen(bool isFullscreen)
     {
         Screen.fullScreen = isFullscreen;

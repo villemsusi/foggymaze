@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class MenuAudio : MonoBehaviour
 {
-
-    public AudioClipGroup ClickAudio;
-
-
     public void PlayClickAudio()
     {
-        ClickAudio.Play();
+        DataManager.Instance.ClickAudio.Play();
+    }
+
+    public void PlayAugmentSelectAudio()
+    {
+        DataManager.Instance.ClickAudio.Play();
     }
 
 }

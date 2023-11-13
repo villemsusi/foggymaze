@@ -152,4 +152,20 @@ public static class Events
 
     public static event Func<Color> OnGetProjectileColor;
     public static Color GetProjectileColor() => OnGetProjectileColor?.Invoke() ?? new Color();
+
+
+
+    // Sound section
+
+    public static event Action<float> OnSetSFX;
+    public static void SetSFX(float amount) => OnSetSFX?.Invoke(amount);
+
+    public static event Func<float> OnGetSFX;
+    public static float GetSFX() => OnGetSFX?.Invoke() ?? 0f;
+
+    public static event Action<float> OnSetMX;
+    public static void SetMX(float amount) => OnSetMX?.Invoke(amount);
+
+    public static event Func<float> OnGetMX;
+    public static float GetMX() => OnGetMX?.Invoke() ?? 0f;
 }

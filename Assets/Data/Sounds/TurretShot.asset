@@ -18,5 +18,7 @@ MonoBehaviour:
   PitchMax: 0.82
   Loop: 0
   Cooldown: 0
+  MX: 0
+  SFX: 1
   Clips:
   - {fileID: 8300000, guid: a7effa9eb6030fb49b32a5b76c391186, type: 3}
