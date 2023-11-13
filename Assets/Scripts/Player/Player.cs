@@ -24,7 +24,6 @@ public class Player : MonoBehaviour
 
     private Light2D aura;
 
-    private PlayerAudio audioPlayer;
 
     
 
@@ -49,7 +48,6 @@ public class Player : MonoBehaviour
 
 
         aura = transform.Find("AuraLight").GetComponent<Light2D>();
-        audioPlayer = GetComponent<PlayerAudio>();
     }
     private void OnDestroy()
     {
@@ -92,7 +90,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            if (Events.GetTurretCount() > 0 && !turretBuilder.gameObject.activeSelf)
+            if (!turretBuilder.gameObject.activeSelf)
             {
                 turretBuilder.gameObject.SetActive(true);
                 return;
@@ -240,5 +238,8 @@ public class Player : MonoBehaviour
     }
 
 
-
+    public void PlayWalkSound()
+    {
+        DataManager.Instance.WalkAudio.Play();
+    }
 }

@@ -48,6 +48,15 @@ MonoBehaviour:
   InitialStats: {fileID: 11400000, guid: 5fbaed34f4070ed47beeddd823ab98cb, type: 2}
   auraColor: {r: 0.048949808, g: 0.6282924, b: 0.9433962, a: 1}
   BckgrMusic: {fileID: 11400000, guid: 860307951ef269e4c99d593c327f1709, type: 2}
+  BuildAudio: {fileID: 11400000, guid: b232794d234413f47bf589f95cef3bb2, type: 2}
+  UpgradeAudio: {fileID: 11400000, guid: 87f47501be17dd145a98fdcd74867473, type: 2}
+  ReloadAudio: {fileID: 11400000, guid: 8359719bfd88e394884d084782fd49fe, type: 2}
+  ShootAudio: {fileID: 11400000, guid: c4d9d3803357f144490fb6fada21ab75, type: 2}
+  DenyAudio: {fileID: 11400000, guid: 3ca7d993bfb3580498a2b9bcd4ada72a, type: 2}
+  EnemyDeathAudio: {fileID: 11400000, guid: 01908a2a381a00c47ad663e56d8e67e7, type: 2}
+  WaterDropAudio: {fileID: 11400000, guid: 9803ef70aebb8e944b7e2de0d4c5231f, type: 2}
+  WalkAudio: {fileID: 11400000, guid: 8cfaba3a667198c44ac547d9e29e7c12, type: 2}
+  OpenBoxAudio: {fileID: 11400000, guid: 929bc6e5434e3274eba9e2de213b4288, type: 2}
 --- !u!114 &9112068084950470380
 MonoBehaviour:
   m_ObjectHideFlags: 0

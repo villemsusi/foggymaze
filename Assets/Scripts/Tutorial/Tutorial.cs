@@ -104,6 +104,10 @@ public class Tutorial : MonoBehaviour
                     Instantiate(EnemyPrefab, new(10.5f, -3.5f, 0), Quaternion.identity, null);
                     initialEnemiesSpawned = true;
                 }
+                if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0)
+                {
+                    TutorialText.text = "";
+                }
                 break;
             case 9:
                 if (GameObject.FindGameObjectsWithTag("Enemy").Length == 0 && !endStarted)

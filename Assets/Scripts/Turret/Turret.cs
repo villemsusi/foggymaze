@@ -26,10 +26,6 @@ public class Turret : MonoBehaviour
     private int currentAmmo;
 
 
-    public AudioClipGroup ShotAudio;
-    public AudioClipGroup UpgradeAudio;
-    public AudioClipGroup ReloadAudio;
-
     private void Awake()
     {
         range = GetComponent<CircleCollider2D>();
@@ -127,7 +123,7 @@ public class Turret : MonoBehaviour
         currentAmmo -= 1;
         DrawDisplay();
 
-        ShotAudio.Play(transform.position);
+        DataManager.Instance.ShootAudio.Play(transform.position);
         
         Vector3 upDir = EnemiesInRange[0].transform.position - transform.position;
         upDir.z = 0;
@@ -162,20 +158,22 @@ public class Turret : MonoBehaviour
     {
         if (Events.GetAmmoCount() > 0 && currentAmmo < TurretData.MaxAmmo)
         {
-            ReloadAudio.Play();
+            DataManager.Instance.ReloadAudio.Play();
 
             Events.SetAmmoCount(Events.GetAmmoCount() - 1);
             currentAmmo = TurretData.MaxAmmo;
             DrawDisplay();
 
         }
+        else
+            DataManager.Instance.DenyAudio.Play();
     }
 
     public void Upgrade()
     {
         if (Events.GetUpgradeCount() > 0 && TurretData.NextUpgrade != null)
         {
-            UpgradeAudio.Play();
+            DataManager.Instance.UpgradeAudio.Play();
 
             Events.SetUpgradeCount(Events.GetUpgradeCount() - 1);
             Turret newTurret = Instantiate(TurretData.NextUpgrade, transform.position, Quaternion.identity, null);
@@ -184,6 +182,10 @@ public class Turret : MonoBehaviour
             Events.RemoveInteractable(gameObject);
             Events.AddInteractable(newTurret.gameObject);
             Destroy(gameObject);
+        }
+        else
+        {
+            DataManager.Instance.DenyAudio.Play();
         }
     }
 

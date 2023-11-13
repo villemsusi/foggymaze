@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GameAudio : MonoBehaviour
 {
-    public AudioClipGroup WaterDrop;
 
     private List<AudioClipGroup> ambientSounds;
 
@@ -12,13 +11,13 @@ public class GameAudio : MonoBehaviour
     void Start()
     {
         ambientSounds = new List<AudioClipGroup>();
-        ambientSounds.Add(WaterDrop);
+        ambientSounds.Add(DataManager.Instance.WaterDropAudio);
 
-        Invoke(nameof(PlaySound), Random.Range(3, 7));
+        Invoke(nameof(PlayAmbientSound), Random.Range(3, 7));
     }
 
 
-    void PlaySound()
+    void PlayAmbientSound()
     {
         // Selects a random Vector which has either -1 or 1 as x and y
         Vector3 offset = new(Random.Range(0, 2)*2-1, Random.Range(0, 2)*2-1, 0);
@@ -28,6 +27,6 @@ public class GameAudio : MonoBehaviour
         ambientSounds[sound].Play(Events.GetPlayerPosition() + offset);
 
         // Call this function again at a random time interval
-        Invoke(nameof(PlaySound), Random.Range(3, 7));
+        Invoke(nameof(PlayAmbientSound), Random.Range(3, 7));
     }
 }

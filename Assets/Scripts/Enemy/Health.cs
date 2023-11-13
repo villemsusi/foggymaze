@@ -12,7 +12,6 @@ public class Health : MonoBehaviour
 
     public GameObject DeadEnemyPrefab;
 
-    public AudioClipGroup DeathAudio;
 
     private void Awake()
     {
@@ -45,7 +44,7 @@ public class Health : MonoBehaviour
 
     public void Die()
     {
-        DeathAudio.Play(transform.position);
+        DataManager.Instance.EnemyDeathAudio.Play(transform.position);
         Instantiate(DeadEnemyPrefab, transform.position, Quaternion.identity, transform.parent);
         Destroy(gameObject);
     }

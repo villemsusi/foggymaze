@@ -79,7 +79,6 @@ public class HUD : MonoBehaviour
             else
                 return;
             Timer.text = "";
-            Alert.transform.position += new Vector3(0, 150, 0);
             Alert.color = Color.red;
             Alert.text = "ESCAPE!";
             InvokeRepeating(nameof(AlertFlash), 0.5f, 0.5f);

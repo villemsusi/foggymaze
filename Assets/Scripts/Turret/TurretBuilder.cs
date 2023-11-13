@@ -6,8 +6,6 @@ using UnityEngine.EventSystems;
 public class TurretBuilder : MonoBehaviour
 {
 
-    public AudioClipGroup BuildAudio;
-
     private void Awake()
     {
         Events.OnTurretSelected += TurretSelected;
@@ -20,7 +18,6 @@ public class TurretBuilder : MonoBehaviour
     }
 
 
-    // Update is called once per frame
     void Update()
     {
         transform.position = Events.GetPlayerPosition();
@@ -31,8 +28,14 @@ public class TurretBuilder : MonoBehaviour
     {
         if (Events.GetIsItemSelected())
             return;
+        if (Events.GetTurretCount() == 0)
+        {
+            DataManager.Instance.DenyAudio.Play();
+            return;
+        }
 
-        BuildAudio.Play();
+
+        DataManager.Instance.BuildAudio.Play();
 
         Vector3 pos = transform.position;
         pos.y -= 0.2f;

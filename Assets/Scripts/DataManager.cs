@@ -33,6 +33,15 @@ public class DataManager : MonoBehaviour
     private float enemyHealthFactor;
 
     public AudioClipGroup BckgrMusic;
+    public AudioClipGroup BuildAudio;
+    public AudioClipGroup UpgradeAudio;
+    public AudioClipGroup ReloadAudio;
+    public AudioClipGroup ShootAudio;
+    public AudioClipGroup DenyAudio;
+    public AudioClipGroup EnemyDeathAudio;
+    public AudioClipGroup WaterDropAudio;
+    public AudioClipGroup WalkAudio;
+    public AudioClipGroup OpenBoxAudio;
 
 
     private void Awake()

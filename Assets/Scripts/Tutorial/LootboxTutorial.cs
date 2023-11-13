@@ -10,6 +10,8 @@ public class LootboxTutorial : MonoBehaviour
     
     public void Open()
     {
+        DataManager.Instance.OpenBoxAudio.Play();
+
         Instantiate(SelectedItem, transform.position, Quaternion.identity, null);
         Events.RemoveInteractable(gameObject);
         Destroy(gameObject);
