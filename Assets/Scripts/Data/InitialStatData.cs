@@ -9,6 +9,7 @@ public class InitialStatData : ScriptableObject
     public int health;
     public float movespeed;
     public float timer;
+    public float fogScale;
 
     public int enemySpawnCap;
     public int startingTurretCount;

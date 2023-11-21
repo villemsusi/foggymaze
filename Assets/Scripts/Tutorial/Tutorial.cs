@@ -44,15 +44,15 @@ public class Tutorial : MonoBehaviour
         Events.SetHealthPerm(100000);
         Events.SetHealth(100000);
 
-        LootboxTutorial ammoDrop = Instantiate(LootboxPrefab, new Vector3(-7.5f, -9.8f, 0), Quaternion.identity, null);
+        LootboxTutorial ammoDrop = Instantiate(LootboxPrefab, new Vector3(-7.5f, -13.8f, 0), Quaternion.identity, null);
         Events.AddInteractable(ammoDrop.gameObject);
         ammoDrop.SetSelectedItem(AmmoPrefab);
 
-        LootboxTutorial upgradeDrop = Instantiate(LootboxPrefab, new Vector3(-5.5f, -9.8f, 0), Quaternion.identity, null);
+        LootboxTutorial upgradeDrop = Instantiate(LootboxPrefab, new Vector3(-5.5f, -13.8f, 0), Quaternion.identity, null);
         Events.AddInteractable(upgradeDrop.gameObject);
         upgradeDrop.SetSelectedItem(UpgradePrefab);
 
-        LootboxTutorial healthDrop = Instantiate(LootboxPrefab, new Vector3(-9.5f, -9.8f, 0), Quaternion.identity, null);
+        LootboxTutorial healthDrop = Instantiate(LootboxPrefab, new Vector3(-9.5f, -13.8f, 0), Quaternion.identity, null);
         Events.AddInteractable(healthDrop.gameObject);
         healthDrop.SetSelectedItem(HealthOrbPrefab);
 

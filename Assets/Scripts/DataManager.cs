@@ -14,6 +14,7 @@ public class DataManager : MonoBehaviour
 
     private int levelProgess;
 
+    private float fogScale;
 
     public Color auraColor;
     private Color projectileColor;
@@ -68,6 +69,9 @@ public class DataManager : MonoBehaviour
         Events.OnGetMovespeedPerm += GetMovespeed;
         Events.OnSetMovespeedPerm += SetMovespeed;
 
+        Events.OnGetFogScalePerm += GetFogScale;
+        Events.OnSetFogScalePerm += SetFogScale;
+
         Events.OnSetLevelProgress += SetLevelProgress;
         Events.OnGetLevelProgress += GetLevelProgress;
 
@@ -102,6 +106,9 @@ public class DataManager : MonoBehaviour
         Events.OnSetHealthPerm -= SetHealth;
         Events.OnGetMovespeedPerm -= GetMovespeed;
         Events.OnSetMovespeedPerm -= SetMovespeed;
+
+        Events.OnGetFogScalePerm -= GetFogScale;
+        Events.OnSetFogScalePerm -= SetFogScale;
 
         Events.OnSetLevelProgress -= SetLevelProgress;
         Events.OnGetLevelProgress -= GetLevelProgress;
@@ -160,6 +167,8 @@ public class DataManager : MonoBehaviour
         enemyMoveSpeedFactor = InitialStats.enemySpeedFactor;
 
         timer = InitialStats.timer;
+
+        fogScale = InitialStats.fogScale;
     }
 
     
@@ -211,6 +220,13 @@ public class DataManager : MonoBehaviour
     public void SetMovespeed(float amount) => movespeed = amount;
     public int GetHealth() => health;
     public void SetHealth(int amount) => health = amount;
+
+
+    private float GetFogScale() => fogScale;
+    private void SetFogScale(float scale)
+    {
+        fogScale = scale;
+    }
 
 
     private Color GetProjectileColor() => projectileColor;

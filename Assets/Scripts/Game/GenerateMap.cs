@@ -208,8 +208,4 @@ public class GenerateMap : MonoBehaviour
         }
     }
 
-
-
-
-
 }

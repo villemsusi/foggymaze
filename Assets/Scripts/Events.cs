@@ -19,6 +19,12 @@ public static class Events
     public static event Func<float> OnGetMovespeedPerm;
     public static float GetMovespeedPerm() => OnGetMovespeedPerm?.Invoke() ?? 0;
 
+    public static event Action<float> OnSetFogScalePerm;
+    public static void SetFogScalePerm(float scale) => OnSetFogScalePerm?.Invoke(scale);
+
+    public static event Func<float> OnGetFogScalePerm;
+    public static float GetFogScalePerm() => OnGetFogScalePerm?.Invoke() ?? 0f;
+
 
 
     // Game controller section
@@ -34,6 +40,12 @@ public static class Events
 
     public static event Action OnNextStage;
     public static void NextStage() => OnNextStage?.Invoke();
+
+    public static event Action<float> OnSetFogScale;
+    public static void SetFogScale(float scale) => OnSetFogScale?.Invoke(scale);
+
+    public static event Func<float> OnGetFogScale;
+    public static float GetFogScale() => OnGetFogScale?.Invoke() ?? 0f;
 
 
 

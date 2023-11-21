@@ -23,7 +23,7 @@ public class Augment : MonoBehaviour
 
         Selection1.onClick.AddListener(SetHealth);
         Selection2.onClick.AddListener(SetMovespeed);
-        Selection3.onClick.AddListener(SetSomething);
+        Selection3.onClick.AddListener(SetFogScale);
 
         healthMultiplier = 1.2f;
         speedMultiplier = 1.06f;
@@ -39,10 +39,9 @@ public class Augment : MonoBehaviour
         Events.SetMovespeedPerm(Events.GetMovespeedPerm() * speedMultiplier);
         Events.NextStage();
     }
-    private void SetSomething()
+    private void SetFogScale()
     {
-        // To-Do
-        // Set third augment to do something
+        Events.SetFogScalePerm(Events.GetFogScalePerm() * 0.9f);
         Events.NextStage();
     }
 }

@@ -17,8 +17,8 @@ public class CameraFollow : MonoBehaviour
         Camera cam = Camera.main;
         height = cam.orthographicSize * 2f + 0.5f;
         width = height * cam.aspect + 0.5f;
-        Fog = transform.GetChild(0).gameObject;
-        newScale(Fog, height, width);
+        //Fog = transform.GetChild(0).gameObject;
+        //newScale(Fog, height, width);
     }
 
     private void FixedUpdate()
@@ -27,7 +27,7 @@ public class CameraFollow : MonoBehaviour
         Vector3 smoothedPos = Vector3.Lerp(transform.position, Events.GetPlayerPosition(), smoothSpeed);
         smoothedPos.z = z;
         transform.position = smoothedPos;
-        newScale(Fog, height, width);
+        //newScale(Fog, height, width);
     }
 
     public void newScale(GameObject obj, float newY, float newX)

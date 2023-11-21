@@ -16,7 +16,7 @@ public class TurretCard : MonoBehaviour
     {
         if (TurretData != null)
         {
-            ShortCutText.text = TurretData.Shortcut;
+            ShortCutText.text = TurretData.Shortcut.ToUpper();
         }
     }
 
