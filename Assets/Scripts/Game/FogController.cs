@@ -9,6 +9,9 @@ public class FogController : MonoBehaviour
 
     private Material mat;
 
+    float height;
+    float width;
+
     private void Awake()
     {
         Events.OnSetFogScale += SetFogScale;
@@ -30,11 +33,10 @@ public class FogController : MonoBehaviour
     }
 
 
-
     private void Update()
     {
-        float width = (float)(Camera.main.orthographicSize * 2.0 * Screen.width / Screen.height);
-        float height = width * Screen.height / Screen.width;
+        width = (float)(Camera.main.orthographicSize * 2.0 * Screen.width / Screen.height);
+        height = width * Screen.height / Screen.width;
         transform.localScale = new Vector3(width, height, 1);
     }
 

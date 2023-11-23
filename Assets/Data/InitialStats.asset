@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 300
   movespeed: 4
-  timer: 5
-  fogScale: 1.5
+  timer: 60
+  fogScale: 1
   enemySpawnCap: 3
   startingTurretCount: 2
   turretDropCount: 2
