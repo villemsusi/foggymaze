@@ -9,10 +9,6 @@ public class Health : MonoBehaviour
 
     private ParticleSystem ps;
 
-
-    public GameObject DeadEnemyPrefab;
-
-
     private void Awake()
     {
         ps = transform.Find("HitParticle").GetComponent<ParticleSystem>();
@@ -22,11 +18,12 @@ public class Health : MonoBehaviour
 
     public void Damage(int damageAmount, Vector3 direction)
     {
-        healthPoints -= damageAmount;
         direction = direction.normalized;
-        float deg = Mathf.Atan2(direction.y, direction.x) * 180 / Mathf.PI;
+
+        healthPoints -= damageAmount;
         if (ps != null)
         {
+            float deg = Mathf.Atan2(direction.y, direction.x) * 180 / Mathf.PI;
             ps.gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, deg));
             ps.Play();
         }
@@ -38,14 +35,8 @@ public class Health : MonoBehaviour
         transform.GetComponent<SpriteRenderer>().color = Color.white;
         if (healthPoints <= 0)
         {
-            Die();
+            Destroy(gameObject);
         }
     }
-
-    public void Die()
-    {
-        DataManager.Instance.EnemyDeathAudio.Play(transform.position);
-        Instantiate(DeadEnemyPrefab, transform.position, Quaternion.identity, transform.parent);
-        Destroy(gameObject);
-    }
+    
 }

@@ -36,6 +36,7 @@ public class GenerateMap : MonoBehaviour
     public GameObject TurretItemPrefab;
     public Enemy RegularEnemyPrefab;
     public Enemy BeefyEnemyPrefab;
+    public Enemy ShieldedEnemyPrefab;
 
     private List<Vector3> worldLocs;
 
@@ -105,14 +106,19 @@ public class GenerateMap : MonoBehaviour
         Instantiate(StairsPrefab, worldLocs[randPos] + new Vector3(0.5f, 0.5f, 0), Quaternion.identity, null);
         worldLocs.RemoveAt(randPos);
 
-        randPos = Random.Range(0, worldLocs.Count);
-        EnemySpawner spawner_regular = Instantiate(EnemySpawnerPrefab, worldLocs[randPos] + new Vector3(0.5f, 0.5f, 0), Quaternion.identity, null);
-        spawner_regular.EnemyPrefab = RegularEnemyPrefab;
-        worldLocs.RemoveAt(randPos);
+        //randPos = Random.Range(0, worldLocs.Count);
+        //EnemySpawner spawner_regular = Instantiate(EnemySpawnerPrefab, worldLocs[randPos] + new Vector3(0.5f, 0.5f, 0), Quaternion.identity, null);
+        //spawner_regular.EnemyPrefab = RegularEnemyPrefab;
+        //worldLocs.RemoveAt(randPos);
+
+        //randPos = Random.Range(0, worldLocs.Count);
+        //EnemySpawner spawner_beefy = Instantiate(EnemySpawnerPrefab, worldLocs[randPos] + new Vector3(0.5f, 0.5f, 0), Quaternion.identity, null);
+        //spawner_beefy.EnemyPrefab = BeefyEnemyPrefab;
+        //worldLocs.RemoveAt(randPos);
 
         randPos = Random.Range(0, worldLocs.Count);
-        EnemySpawner spawner_beefy = Instantiate(EnemySpawnerPrefab, worldLocs[randPos] + new Vector3(0.5f, 0.5f, 0), Quaternion.identity, null);
-        spawner_beefy.EnemyPrefab = BeefyEnemyPrefab;
+        EnemySpawner spawner_shielded = Instantiate(EnemySpawnerPrefab, worldLocs[randPos] + new Vector3(0.5f, 0.5f, 0), Quaternion.identity, null);
+        spawner_shielded.EnemyPrefab = ShieldedEnemyPrefab;
         worldLocs.RemoveAt(randPos);
 
         for (int i = 0; i < lootboxCount; i++)
