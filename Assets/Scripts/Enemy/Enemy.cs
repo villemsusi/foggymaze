@@ -25,7 +25,7 @@ public class Enemy : MonoBehaviour
     float forceDamping = 1.2f;
 
     Vector2 MoveForce;
-    Vector2 MoveInput;
+    public Vector2 MoveInput;
 
     bool inWall = false;
 
@@ -212,5 +212,7 @@ public class Enemy : MonoBehaviour
             inWall = false;
         }
     }
+
+
 
 }

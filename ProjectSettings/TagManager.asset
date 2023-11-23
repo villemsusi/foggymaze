@@ -12,6 +12,7 @@ TagManager:
   - Lootbox
   - HealthOrb
   - Trigger
+  - Projectile
   layers:
   - Default
   - TransparentFX

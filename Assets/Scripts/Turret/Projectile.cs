@@ -37,7 +37,7 @@ public class Projectile : MonoBehaviour
         }
         transform.up = (target.position - transform.position);
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-        if (transform.position == target.position)
+        if (Vector3.Distance(transform.position, target.position)<0.2f)
         {
             target.GetComponent<Health>().Damage(damage, transform.up.normalized);
             Destroy(gameObject);
