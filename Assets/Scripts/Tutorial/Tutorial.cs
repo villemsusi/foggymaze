@@ -118,7 +118,7 @@ public class Tutorial : MonoBehaviour
                     TutorialText.text = "Survive for the duration of the timer";
                     Invoke(nameof(SpawnEnemy), 0.5f);
                     Timer.gameObject.SetActive(true);
-                    Events.SetTimer((int)timer);
+                    Events.SetTimer(timer);
                     endStarted = true;
                 }
                 if (endStarted)

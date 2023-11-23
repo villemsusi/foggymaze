@@ -70,8 +70,10 @@ public class HUD : MonoBehaviour
         StartCoroutine(TextChange(ReloadCountText));
     }
 
-    private void SetTimer(int amount)
+    private void SetTimer(float amount)
     {
+        Debug.Log(Alert.gameObject.activeSelf);
+        Debug.Log(Events.GetStageTimer() + " " + amount);
         if (amount == 0)
         {
             if (!Alert.gameObject.activeSelf)
@@ -97,13 +99,14 @@ public class HUD : MonoBehaviour
         {
             if (Alert.gameObject.activeSelf)
             {
-                CancelInvoke();
+                
                 Alert.gameObject.SetActive(false);
+                CancelInvoke();
             }
             
         }
             
-        Timer.text = amount.ToString();
+        Timer.text = Mathf.RoundToInt(amount).ToString();
     }
     private void AlertFlash()
     {

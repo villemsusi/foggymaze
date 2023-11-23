@@ -51,8 +51,8 @@ public static class Events
 
     // Stage controller section
 
-    public static event Action<int> OnSetTimer;
-    public static void SetTimer(int amount) => OnSetTimer?.Invoke(amount);
+    public static event Action<float> OnSetTimer;
+    public static void SetTimer(float amount) => OnSetTimer?.Invoke(amount);
 
     public static event Action OnAugmentsEnable;
     public static void EnableAugments() => OnAugmentsEnable?.Invoke();
