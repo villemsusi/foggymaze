@@ -46,11 +46,11 @@ public class Game : MonoBehaviour
     {
         timer -= Time.deltaTime;
     
-        if (timer <= 0)
+        if (Mathf.RoundToInt(timer) <= 0)
         {
             Events.EnableStairs();
         }
-        if (timer > 0)
+        if (timer >= 0)
         {
             Events.SetTimer((int)Mathf.Round(timer));
         }
