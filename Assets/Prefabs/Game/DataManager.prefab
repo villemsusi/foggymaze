@@ -59,6 +59,7 @@ MonoBehaviour:
   WaterDropAudio: {fileID: 11400000, guid: 9803ef70aebb8e944b7e2de0d4c5231f, type: 2}
   WalkAudio: {fileID: 11400000, guid: 8cfaba3a667198c44ac547d9e29e7c12, type: 2}
   OpenBoxAudio: {fileID: 11400000, guid: 929bc6e5434e3274eba9e2de213b4288, type: 2}
+  TrappedAudio: {fileID: 11400000, guid: f89992c6fdb062047b4e39f05505548c, type: 2}
   Music: {fileID: 0}
 --- !u!114 &9112068084950470380
 MonoBehaviour:

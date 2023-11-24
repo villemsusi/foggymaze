@@ -86,6 +86,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (STATE == "trapped")
+        {
+            return;
+        }
         SelectInteractable();
 
         if (Input.GetKeyDown(KeyCode.Q))
@@ -169,6 +173,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.CompareTag("Trap"))
         {
             STATE = "trapped";
+            DataManager.Instance.TrappedAudio.Play();
             Destroy(collision.gameObject);
             Invoke(nameof(NormalState), 2);
         }

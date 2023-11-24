@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6756803227557998364}
   - component: {fileID: 7459028135980566009}
-  - component: {fileID: 1472126837038973604}
+  - component: {fileID: 22489831436068058}
   m_Layer: 0
   m_Name: WebTrap
   m_TagString: Trap
@@ -85,8 +85,8 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &1472126837038973604
-BoxCollider2D:
+--- !u!58 &22489831436068058
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -117,16 +117,6 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.04301262, y: 0.036396027}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0.09375, z: 0.09375, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: -0.03311348, y: 0.042846203}
   serializedVersion: 2
-  m_Size: {x: 1.0992622, y: 1.013237}
-  m_EdgeRadius: 0
+  m_Radius: 0.37338972
