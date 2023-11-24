@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class FogController : MonoBehaviour
@@ -7,6 +8,9 @@ public class FogController : MonoBehaviour
     private float fogScale;
 
     private Material mat;
+
+    float height;
+    float width;
 
     private void Awake()
     {
@@ -29,11 +33,11 @@ public class FogController : MonoBehaviour
     }
 
 
-
     private void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //    SetFogScale(fogScale * 0.9f);
+        width = (float)(Camera.main.orthographicSize * 2.0 * Screen.width / Screen.height);
+        height = width * Screen.height / Screen.width;
+        transform.localScale = new Vector3(width, height, 1);
     }
 
 

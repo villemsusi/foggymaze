@@ -679,6 +679,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1470139863464305870, guid: e21e0bfc129982e429ff245fc5cca86b, type: 3}
+      propertyPath: ShieldedEnemyPrefab
+      value: 
+      objectReference: {fileID: 1682135878166744424, guid: 4f2bc941622bff54a86c5e946c21a87f, type: 3}
     - target: {fileID: 5855428782899226138, guid: e21e0bfc129982e429ff245fc5cca86b, type: 3}
       propertyPath: m_Name
       value: World

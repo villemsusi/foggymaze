@@ -101,6 +101,7 @@ MonoBehaviour:
   UpgradePrefab: {fileID: 15702641913395557, guid: 98cc4f8363175b842b025f1749c5047d, type: 3}
   HealthOrbPrefab: {fileID: 107165988799770336, guid: bd4afec8f7dcd35479186c3007834de9, type: 3}
   AmmoPrefab: {fileID: 8054187833701947320, guid: 1d16a20e52d1f144b80d7cf1b2967626, type: 3}
+  EnemyPrefab: {fileID: 1682135878166744424, guid: 364884f22e04e6749a4784453c20f072, type: 3}
 --- !u!61 &-1564586986166249140
 BoxCollider2D:
   m_ObjectHideFlags: 0

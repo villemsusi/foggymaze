@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
     private float hitCooldown = 0f;
 
     Vector2 MoveForce;
-    Vector2 MoveInput;
+    public Vector2 MoveInput;
 
     bool inWall = false;
 
@@ -231,5 +231,7 @@ public class Enemy : MonoBehaviour
             inWall = false;
         }
     }
+
+
 
 }

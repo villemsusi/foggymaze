@@ -11,24 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainStage.unity
     guid: a1b346e46f830534c838486a27088091
-  - enabled: 0
-    path: Assets/Scenes/Legacy Scenes/Stage1.unity
-    guid: 956868c3440ebb349b6541a364baec32
-  - enabled: 0
-    path: Assets/Scenes/Legacy Scenes/Stage2.unity
-    guid: fe069d222bda21d41ace33397df59be5
-  - enabled: 0
-    path: Assets/Scenes/Legacy Scenes/Stage3.unity
-    guid: a9ed890cb15de7d4190556e648a887cd
-  - enabled: 0
-    path: Assets/Scenes/Legacy Scenes/Stage4.unity
-    guid: 5a127a5ad9e8186479db46d827da0017
-  - enabled: 0
-    path: Assets/Scenes/Legacy Scenes/Stage5.unity
-    guid: 559fd7a4414fd624a8c22aff7ce037cf
-  - enabled: 0
-    path: Assets/Scenes/Stage 6.unity
-    guid: a2d314895b2223e4d901ca751cb234b2
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 980d4cb8e48ad2042b1c41a217f79165
