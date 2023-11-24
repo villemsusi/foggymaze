@@ -123,6 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD:Assets/Scenes/Legacy Scenes/Stage5.unity
 --- !u!1001 &380807884
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -376,6 +377,9 @@ Transform:
   m_PrefabInstance: {fileID: 579601766}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &700671153
+=======
+--- !u!1001 &685339741
+>>>>>>> fe42fb0289fc4695a1496f54b6f263efbcf26869:Assets/Scenes/Stage5.unity
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -46510,6 +46514,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+<<<<<<< HEAD:Assets/Scenes/Legacy Scenes/Stage5.unity
 --- !u!114 &738011788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46588,6 +46593,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 90856489818020316, guid: 12a03404f0fddfc4c90018924333b7b0, type: 3}
   m_PrefabInstance: {fileID: 801426783}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> fe42fb0289fc4695a1496f54b6f263efbcf26869:Assets/Scenes/Stage5.unity
 --- !u!1001 &915516412
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46745,6 +46752,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: deaf2e0c574ba2e45ac19d27f41ceb82, type: 3}
+<<<<<<< HEAD:Assets/Scenes/Legacy Scenes/Stage5.unity
 --- !u!1001 &1212479138
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -46811,6 +46819,92 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 90856489818020316, guid: 12a03404f0fddfc4c90018924333b7b0, type: 3}
   m_PrefabInstance: {fileID: 1212479138}
   m_PrefabAsset: {fileID: 0}
+=======
+--- !u!1 &1243375535
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1243375536}
+  - component: {fileID: 1243375537}
+  m_Layer: 0
+  m_Name: FogBase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1243375536
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243375535}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.15004063, y: 0.1305, z: 10}
+  m_LocalScale: {x: -15.850019, y: 8.8016205, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 596596119391755078}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1243375537
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1243375535}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -876546973899608171, guid: 675baeefb5ce6034cb8472261fc97d1a, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -2052771361
+  m_SortingLayer: 7
+  m_SortingOrder: 10
+  m_Sprite: {fileID: 21300000, guid: 65c0bf7d938e032488150b9ad8f17036, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1.28, y: 1.28}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+>>>>>>> fe42fb0289fc4695a1496f54b6f263efbcf26869:Assets/Scenes/Stage5.unity
 --- !u!1 &1288182343
 GameObject:
   m_ObjectHideFlags: 0
@@ -46840,6 +46934,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+<<<<<<< HEAD:Assets/Scenes/Legacy Scenes/Stage5.unity
   - {fileID: 380807885}
   - {fileID: 1212479139}
   - {fileID: 2024942533}
@@ -46853,6 +46948,9 @@ Transform:
   - {fileID: 2081018671}
   - {fileID: 1573523954}
   - {fileID: 1501949089}
+=======
+  - {fileID: 685339742}
+>>>>>>> fe42fb0289fc4695a1496f54b6f263efbcf26869:Assets/Scenes/Stage5.unity
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1314293126
@@ -46934,6 +47032,7 @@ Transform:
   - {fileID: 1314293128}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD:Assets/Scenes/Legacy Scenes/Stage5.unity
 --- !u!1001 &1378297105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47062,6 +47161,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 90856489818020316, guid: 12a03404f0fddfc4c90018924333b7b0, type: 3}
   m_PrefabInstance: {fileID: 1410995113}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> fe42fb0289fc4695a1496f54b6f263efbcf26869:Assets/Scenes/Stage5.unity
 --- !u!1 &1425560405
 GameObject:
   m_ObjectHideFlags: 0
@@ -99485,6 +99586,7 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+<<<<<<< HEAD:Assets/Scenes/Legacy Scenes/Stage5.unity
 --- !u!114 &1425560409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -99699,6 +99801,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 90856489818020316, guid: 12a03404f0fddfc4c90018924333b7b0, type: 3}
   m_PrefabInstance: {fileID: 1573523953}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> fe42fb0289fc4695a1496f54b6f263efbcf26869:Assets/Scenes/Stage5.unity
 --- !u!1001 &1592163635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -99775,6 +99879,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8617836905120715396, guid: 48262d5704798d2488130ce5d46bef2c, type: 3}
+      propertyPath: EnemyPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8617836905120715396, guid: 48262d5704798d2488130ce5d46bef2c, type: 3}
+      propertyPath: EnemyPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 571588167766083240, guid: 158c9776c7e028243909ba64e36689f4, type: 3}
+    - target: {fileID: 8617836905120715396, guid: 48262d5704798d2488130ce5d46bef2c, type: 3}
+      propertyPath: EnemyPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 571588167766083240, guid: 364884f22e04e6749a4784453c20f072, type: 3}
+    - target: {fileID: 8617836905120715396, guid: 48262d5704798d2488130ce5d46bef2c, type: 3}
+      propertyPath: EnemyPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 571588167766083240, guid: 18ec48b63042f4b488fc2e7ffce98682, type: 3}
     - target: {fileID: 8950265059260451709, guid: 48262d5704798d2488130ce5d46bef2c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -99978,6 +100098,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD:Assets/Scenes/Legacy Scenes/Stage5.unity
 --- !u!1001 &2024942532
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -100111,6 +100232,25 @@ Transform:
   m_PrefabInstance: {fileID: 2081018670}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2097628848
+=======
+--- !u!4 &596596119391755078
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6395590156043200370}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.44, y: -5.98, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1243375536}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &3584256036404635521
+>>>>>>> fe42fb0289fc4695a1496f54b6f263efbcf26869:Assets/Scenes/Stage5.unity
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2

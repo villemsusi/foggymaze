@@ -123,6 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD:Assets/Scenes/Legacy Scenes/Stage2.unity
 --- !u!1001 &536723512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4520,6 +4521,8 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+=======
+>>>>>>> fe42fb0289fc4695a1496f54b6f263efbcf26869:Assets/Scenes/Stage2.unity
 --- !u!1 &738011781
 GameObject:
   m_ObjectHideFlags: 0
@@ -11756,8 +11759,12 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+<<<<<<< HEAD:Assets/Scenes/Legacy Scenes/Stage2.unity
   - {fileID: 1512555644}
   - {fileID: 536723513}
+=======
+  - {fileID: 1018050542}
+>>>>>>> fe42fb0289fc4695a1496f54b6f263efbcf26869:Assets/Scenes/Stage2.unity
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1314293126
@@ -19675,6 +19682,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8617836905120715396, guid: 48262d5704798d2488130ce5d46bef2c, type: 3}
+      propertyPath: EnemyPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8617836905120715396, guid: 48262d5704798d2488130ce5d46bef2c, type: 3}
+      propertyPath: EnemyPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 571588167766083240, guid: 158c9776c7e028243909ba64e36689f4, type: 3}
+    - target: {fileID: 8617836905120715396, guid: 48262d5704798d2488130ce5d46bef2c, type: 3}
+      propertyPath: EnemyPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 571588167766083240, guid: 364884f22e04e6749a4784453c20f072, type: 3}
+    - target: {fileID: 8617836905120715396, guid: 48262d5704798d2488130ce5d46bef2c, type: 3}
+      propertyPath: EnemyPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 571588167766083240, guid: 18ec48b63042f4b488fc2e7ffce98682, type: 3}
     - target: {fileID: 8950265059260451709, guid: 48262d5704798d2488130ce5d46bef2c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
