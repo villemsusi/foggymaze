@@ -72,8 +72,6 @@ public class HUD : MonoBehaviour
 
     private void SetTimer(float amount)
     {
-        Debug.Log(Alert.gameObject.activeSelf);
-        Debug.Log(Events.GetStageTimer() + " " + amount);
         if (amount == 0)
         {
             if (!Alert.gameObject.activeSelf)

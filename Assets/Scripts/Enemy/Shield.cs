@@ -16,8 +16,11 @@ public class Shield : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("EEEEEEEEEEEEEEEEEEEEe00");
-        if (other.gameObject.CompareTag("Projectile")) GameObject.Destroy(other.gameObject);
+        if (other.gameObject.CompareTag("Projectile"))
+        {
+            DataManager.Instance.ShieldBlockAudio.Play();
+            Destroy(other.gameObject);
+        }
     }
 
 

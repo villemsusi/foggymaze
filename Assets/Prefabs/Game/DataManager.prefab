@@ -55,9 +55,11 @@ MonoBehaviour:
   ShootAudio: {fileID: 11400000, guid: c4d9d3803357f144490fb6fada21ab75, type: 2}
   DenyAudio: {fileID: 11400000, guid: 3ca7d993bfb3580498a2b9bcd4ada72a, type: 2}
   EnemyDeathAudio: {fileID: 11400000, guid: 01908a2a381a00c47ad663e56d8e67e7, type: 2}
+  ShieldBlockAudio: {fileID: 11400000, guid: 746ead9e3b429a74695d82bdfe7f1ded, type: 2}
   WaterDropAudio: {fileID: 11400000, guid: 9803ef70aebb8e944b7e2de0d4c5231f, type: 2}
   WalkAudio: {fileID: 11400000, guid: 8cfaba3a667198c44ac547d9e29e7c12, type: 2}
   OpenBoxAudio: {fileID: 11400000, guid: 929bc6e5434e3274eba9e2de213b4288, type: 2}
+  Music: {fileID: 0}
 --- !u!114 &9112068084950470380
 MonoBehaviour:
   m_ObjectHideFlags: 0
