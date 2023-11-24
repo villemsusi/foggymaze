@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 //using Unity.AI.Navigation;
 using NavMeshPlus.Components;
+using UnityEngine.UIElements;
 
 public class GenerateMap : MonoBehaviour
 {
@@ -30,10 +31,11 @@ public class GenerateMap : MonoBehaviour
 
 
     // ITEM SPAWNING VALUES
-    public Stairs StairsPrefab;
-    public EnemySpawner EnemySpawnerPrefab;
-    public Lootbox LootboxPrefab;
+    public GameObject StairsPrefab;
+    public GameObject LootboxPrefab;
     public GameObject TurretItemPrefab;
+    public GameObject WebTrapPrefab;
+
     public Enemy RegularEnemyPrefab;
     public Enemy BeefyEnemyPrefab;
     public Enemy ShieldedEnemyPrefab;
@@ -42,6 +44,7 @@ public class GenerateMap : MonoBehaviour
 
     private int lootboxCount;
     private int turretDropCount;
+    private int trapCount;
 
 
     private void Awake()
@@ -90,6 +93,7 @@ public class GenerateMap : MonoBehaviour
 
         lootboxCount = Events.GetStartingLootboxCount();
         turretDropCount = Events.GetStartingTurretDropCount();
+        trapCount = Events.GetTrapCount();
 
         worldLocs = new List<Vector3>();
 
@@ -102,45 +106,34 @@ public class GenerateMap : MonoBehaviour
             }
 
         }
-        int randPos = Random.Range(0, worldLocs.Count);
-        Instantiate(StairsPrefab, worldLocs[randPos] + new Vector3(0.5f, 0.5f, 0), Quaternion.identity, null);
-        worldLocs.RemoveAt(randPos);
+        SpawnItem(StairsPrefab, false);
 
-        //randPos = Random.Range(0, worldLocs.Count);
-        //EnemySpawner spawner_regular = Instantiate(EnemySpawnerPrefab, worldLocs[randPos] + new Vector3(0.5f, 0.5f, 0), Quaternion.identity, null);
-        //spawner_regular.EnemyPrefab = RegularEnemyPrefab;
-        //worldLocs.RemoveAt(randPos);
+        for (int i = 0; i < trapCount; i++)
+            SpawnItem(WebTrapPrefab, false);
 
-        //randPos = Random.Range(0, worldLocs.Count);
-        //EnemySpawner spawner_beefy = Instantiate(EnemySpawnerPrefab, worldLocs[randPos] + new Vector3(0.5f, 0.5f, 0), Quaternion.identity, null);
-        //spawner_beefy.EnemyPrefab = BeefyEnemyPrefab;
-        //worldLocs.RemoveAt(randPos);
-
-        randPos = Random.Range(0, worldLocs.Count);
-        EnemySpawner spawner_shielded = Instantiate(EnemySpawnerPrefab, worldLocs[randPos] + new Vector3(0.5f, 0.5f, 0), Quaternion.identity, null);
-        spawner_shielded.EnemyPrefab = ShieldedEnemyPrefab;
-        worldLocs.RemoveAt(randPos);
 
         for (int i = 0; i < lootboxCount; i++)
-        {
-            randPos = Random.Range(0, worldLocs.Count - i);
-            Lootbox box = Instantiate(LootboxPrefab, worldLocs[randPos] + new Vector3(0.5f, 0.2f, 0), Quaternion.identity, null);
-            Events.AddInteractable(box.gameObject);
-
-            worldLocs.RemoveAt(randPos);
-        }
+            SpawnItem(LootboxPrefab, true);
 
         for (int i = 0; i < turretDropCount; i++)
-        {
-            randPos = Random.Range(0, worldLocs.Count - i - lootboxCount);
-            Instantiate(TurretItemPrefab, worldLocs[randPos] + new Vector3(0.5f, 0.2f, 0), Quaternion.identity, null);
-
-            worldLocs.RemoveAt(randPos);
-        }
+            SpawnItem(TurretItemPrefab, false);
 
     }
 
-
+    void SpawnItem(GameObject prefab, bool interactable)
+    {
+        int randPos = Random.Range(0, worldLocs.Count);
+        GameObject item;
+        if (prefab.name == "Stairs")
+            item = Instantiate(prefab, worldLocs[randPos] + new Vector3(0.5f, 0.5f, 0), Quaternion.identity, null);
+        else
+            item = Instantiate(prefab, worldLocs[randPos] + new Vector3(Random.Range(0.3f, 0.7f), Random.value/2, 0), Quaternion.identity, null);
+        if (interactable)
+        {
+            Events.AddInteractable(item);
+        }
+        worldLocs.RemoveAt(randPos);
+    }
 
     void GenMaze(Vector3Int pos)
     {

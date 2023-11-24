@@ -550,9 +550,10 @@ MonoBehaviour:
   Width: 30
   Height: 30
   PlayerPrefab: {fileID: 5221466574417701483, guid: 48262d5704798d2488130ce5d46bef2c, type: 3}
-  StairsPrefab: {fileID: 6508878639646645844, guid: 38161e8dcb90dfd488d14bab57502817, type: 3}
-  EnemySpawnerPrefab: {fileID: 7905747046093522398, guid: 12a03404f0fddfc4c90018924333b7b0, type: 3}
-  LootboxPrefab: {fileID: 196657756257506742, guid: 3c03852d79404704fbdf1076619b57b3, type: 3}
+  StairsPrefab: {fileID: 9178596384435251780, guid: 38161e8dcb90dfd488d14bab57502817, type: 3}
+  LootboxPrefab: {fileID: 4196992971910723497, guid: 3c03852d79404704fbdf1076619b57b3, type: 3}
   TurretItemPrefab: {fileID: 7548633902485900914, guid: 876a09b0daeec7e4b885a4d67aebdb74, type: 3}
+  WebTrapPrefab: {fileID: 2326280905781585301, guid: c789d14614aabf54b92c148ae2697cf4, type: 3}
   RegularEnemyPrefab: {fileID: 1682135878166744424, guid: 364884f22e04e6749a4784453c20f072, type: 3}
   BeefyEnemyPrefab: {fileID: 1682135878166744424, guid: 158c9776c7e028243909ba64e36689f4, type: 3}
+  ShieldedEnemyPrefab: {fileID: 1682135878166744424, guid: 4f2bc941622bff54a86c5e946c21a87f, type: 3}

@@ -25,7 +25,7 @@ public class Player : MonoBehaviour
     private Light2D aura;
 
 
-    
+    public string STATE = "normal";
 
     private void Awake()
     {
@@ -165,6 +165,14 @@ public class Player : MonoBehaviour
         {
             onStairs = true;
         }
+
+        if (collision.gameObject.CompareTag("Trap"))
+        {
+            STATE = "trapped";
+            Destroy(collision.gameObject);
+            Invoke(nameof(NormalState), 2);
+        }
+            
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -174,6 +182,11 @@ public class Player : MonoBehaviour
         {
             onStairs = false;
         }
+    }
+
+    void NormalState()
+    {
+        STATE = "normal";
     }
 
     private void SelectInteractable()

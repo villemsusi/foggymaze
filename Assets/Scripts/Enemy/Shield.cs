@@ -3,7 +3,10 @@ using UnityEngine;
 
 public class Shield : MonoBehaviour
 {
-    
+    private void Start()
+    {
+        transform.parent.transform.parent.GetComponent<SpriteRenderer>().color = Color.cyan;
+    }
 
     void Update()
     {

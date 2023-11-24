@@ -13,6 +13,7 @@ TagManager:
   - HealthOrb
   - Trigger
   - Projectile
+  - Trap
   layers:
   - Default
   - TransparentFX

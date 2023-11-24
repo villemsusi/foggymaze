@@ -22,6 +22,7 @@ public class DataManager : MonoBehaviour
 
     private int lootboxCount;
     private int turretDropCount;
+    private int trapCount;
 
     private int startingTurretCount;
     private float timer;
@@ -86,6 +87,7 @@ public class DataManager : MonoBehaviour
         Events.OnGetStartingTurretCount += GetStartingTurretCount;
         Events.OnGetStartingLootboxCount += GetStartingLootboxCount;
         Events.OnGetStartingTurretDropCount += GetStartingTurretDropCount;
+        Events.OnGetTrapCount += GetTrapCount;
 
         Events.OnGetStageTimer += GetStageTimer;
 
@@ -124,6 +126,7 @@ public class DataManager : MonoBehaviour
         Events.OnGetStartingTurretCount -= GetStartingTurretCount;
         Events.OnGetStartingLootboxCount -= GetStartingLootboxCount;
         Events.OnGetStartingTurretDropCount -= GetStartingTurretDropCount;
+        Events.OnGetTrapCount -= GetTrapCount;
 
         Events.OnGetStageTimer -= GetStageTimer;
 
@@ -159,6 +162,7 @@ public class DataManager : MonoBehaviour
         startingTurretCount = InitialStats.startingTurretCount;
         turretDropCount = InitialStats.turretDropCount;
         lootboxCount = InitialStats.lootboxCount;
+        trapCount = InitialStats.trapCount;
 
         initialSpawnDelay = InitialStats.initialSpawnDelay;
         enemySpawnDelay = InitialStats.enemySpawnDelay;
@@ -207,6 +211,7 @@ public class DataManager : MonoBehaviour
     public int GetStartingTurretCount() => startingTurretCount;
     public int GetStartingLootboxCount() => lootboxCount;
     public int GetStartingTurretDropCount() => turretDropCount;
+    public int GetTrapCount() => trapCount;
     public float GetStageTimer() => timer;
     public int GetEnemySpawnCap() => enemySpawnCap;
     public float GetEnemySpawnDelay() => enemySpawnDelay;

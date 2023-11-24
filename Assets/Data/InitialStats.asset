@@ -20,6 +20,7 @@ MonoBehaviour:
   startingTurretCount: 2
   turretDropCount: 2
   lootboxCount: 8
+  trapCount: 10
   enemySpawnDelay: 3
   initialSpawnDelay: 5
   enemyHealthFactor: 1
