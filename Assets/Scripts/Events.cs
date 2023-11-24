@@ -47,6 +47,12 @@ public static class Events
     public static event Func<float> OnGetFogScale;
     public static float GetFogScale() => OnGetFogScale?.Invoke() ?? 0f;
 
+    public static event Action<float> OnSetTrauma;
+    public static void SetTrauma(float amount) => OnSetTrauma?.Invoke(amount);
+
+    public static event Func<float> OnGetTrauma;
+    public static float GetTrauma() => OnGetTrauma?.Invoke() ?? 0f;
+
 
 
     // Stage controller section

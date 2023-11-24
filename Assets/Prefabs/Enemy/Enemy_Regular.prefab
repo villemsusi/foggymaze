@@ -5004,6 +5004,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyData: {fileID: 11400000, guid: 09857709bdcb28d49beca5350a800c20, type: 2}
+  Shake: {fileID: 0}
   agent: {fileID: 0}
 --- !u!114 &2100361004951408618
 MonoBehaviour:
@@ -5018,7 +5019,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DeadEnemyPrefab: {fileID: 571588167766083240, guid: c2223e67fd62c8d4abb8edbb389485dc, type: 3}
-  DeathAudio: {fileID: 11400000, guid: 01908a2a381a00c47ad663e56d8e67e7, type: 2}
 --- !u!95 &8929848847252182668
 Animator:
   serializedVersion: 5

@@ -129,7 +129,7 @@ public class Turret : MonoBehaviour
         upDir.z = 0;
         transform.up = upDir;
 
-
+        Events.SetTrauma(Events.GetTrauma() + 0.3f);
         Recoil();
 
         Projectile projectile = Instantiate(TurretData.ProjectilePrefab, transform.position, Quaternion.identity, transform);

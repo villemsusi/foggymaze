@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     private Animator animator;
     private string currentAnimationState;
 
+    private CameraShake shake;
+
     private Rigidbody2D body;
     private Health health;
 
@@ -23,6 +25,8 @@ public class Enemy : MonoBehaviour
 
     Vector2 ForceToApply;
     float forceDamping = 1.2f;
+
+    private float hitCooldown = 0f;
 
     Vector2 MoveForce;
     Vector2 MoveInput;
@@ -51,6 +55,7 @@ public class Enemy : MonoBehaviour
         body = GetComponent<Rigidbody2D>();
         health = GetComponent<Health>();
 
+        shake = Camera.main.GetComponent<CameraShake>();
     }
 
     private void Start()
@@ -65,6 +70,12 @@ public class Enemy : MonoBehaviour
         agent.updateUpAxis = false;
 
         agent.CalculatePath(Events.GetPlayerPosition(), path);
+    }
+
+    private void Update()
+    {
+        if (hitCooldown > 0)
+            hitCooldown -= Time.deltaTime;
     }
 
     private void FixedUpdate()
@@ -185,18 +196,26 @@ public class Enemy : MonoBehaviour
 
 
 
-
-
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        Player player = collision.gameObject.GetComponent<Player>();
-        if (player != null)
+        if (collision.gameObject.GetComponent<Player>() != null)
         {
-            Events.SetHealth(Events.GetHealth() - EnemyData.Damage);
+            if (hitCooldown <= 0)
+            {
+                Events.SetHealth(Events.GetHealth() - EnemyData.Damage);
+                hitCooldown = 0.3f;
+                Events.SetTrauma(Events.GetTrauma() + 0.5f);
+            }
+            
             Vector2 difference = transform.position - Events.GetPlayerPosition();
             difference = difference.normalized * EnemyData.KnockbackAmount;
             ForceToApply = difference;
+            
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
         if (collision.gameObject.GetComponent<Tilemap>() != null)
         {
             inWall = true;
