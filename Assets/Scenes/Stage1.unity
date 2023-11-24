@@ -123,6 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1001 &536723512
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -184,6 +185,8 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 12a03404f0fddfc4c90018924333b7b0, type: 3}
+=======
+>>>>>>> fe42fb0289fc4695a1496f54b6f263efbcf26869
 --- !u!1 &618732613
 GameObject:
   m_ObjectHideFlags: 0
@@ -11748,7 +11751,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2134860449}
+<<<<<<< HEAD
   - {fileID: 1512555644}
+=======
+>>>>>>> fe42fb0289fc4695a1496f54b6f263efbcf26869
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1314293126
@@ -19502,6 +19508,7 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+<<<<<<< HEAD
 --- !u!1001 &1512555643
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19568,6 +19575,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 90856489818020316, guid: 12a03404f0fddfc4c90018924333b7b0, type: 3}
   m_PrefabInstance: {fileID: 1512555643}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> fe42fb0289fc4695a1496f54b6f263efbcf26869
 --- !u!1001 &1530294617
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19652,6 +19661,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8617836905120715396, guid: 48262d5704798d2488130ce5d46bef2c, type: 3}
+      propertyPath: EnemyPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8617836905120715396, guid: 48262d5704798d2488130ce5d46bef2c, type: 3}
+      propertyPath: EnemyPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 571588167766083240, guid: 158c9776c7e028243909ba64e36689f4, type: 3}
+    - target: {fileID: 8617836905120715396, guid: 48262d5704798d2488130ce5d46bef2c, type: 3}
+      propertyPath: EnemyPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 571588167766083240, guid: 364884f22e04e6749a4784453c20f072, type: 3}
+    - target: {fileID: 8617836905120715396, guid: 48262d5704798d2488130ce5d46bef2c, type: 3}
+      propertyPath: EnemyPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 571588167766083240, guid: 18ec48b63042f4b488fc2e7ffce98682, type: 3}
     - target: {fileID: 8950265059260451709, guid: 48262d5704798d2488130ce5d46bef2c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
