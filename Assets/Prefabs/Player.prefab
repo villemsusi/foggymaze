@@ -443,6 +443,7 @@ MonoBehaviour:
   Interactables: []
   slider: {fileID: 5828833775693967745}
   turretBuilder: {fileID: 4667472959134810663}
+  STATE: normal
 --- !u!50 &5188971281963920926
 Rigidbody2D:
   serializedVersion: 4
@@ -563,7 +564,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyPrefabs:
-  - {fileID: 0}
+  - {fileID: 571588167766083240, guid: 364884f22e04e6749a4784453c20f072, type: 3}
+  - {fileID: 571588167766083240, guid: 158c9776c7e028243909ba64e36689f4, type: 3}
+  - {fileID: 571588167766083240, guid: 4f2bc941622bff54a86c5e946c21a87f, type: 3}
 --- !u!1 &7864873704535204966
 GameObject:
   m_ObjectHideFlags: 0

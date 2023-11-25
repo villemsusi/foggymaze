@@ -4,7 +4,7 @@ using UnityEngine.Tilemaps;
 
 public class EnemySpawner : MonoBehaviour
 {
-    public List<GameObject> EnemyPrefabs;
+    public List<GameObject> EnemyPrefabs = new();
     
     private float SpawnDelay;
     private int EnemySpawnCap;
@@ -12,14 +12,12 @@ public class EnemySpawner : MonoBehaviour
     private Tilemap tilemap;
     private BoundsInt bounds;
     private List<Vector3> worldLocs;
-    private Player player;
 
     void Start()
     {
         tilemap = GameObject.Find("Ground").GetComponent<Tilemap>();
         worldLocs = new List<Vector3>();
         bounds = tilemap.cellBounds;
-        player = GameObject.Find("Player").GetComponent<Player>();
 
         foreach (var pos in bounds.allPositionsWithin)
         {
@@ -41,15 +39,17 @@ public class EnemySpawner : MonoBehaviour
     {
         if (GameObject.FindGameObjectsWithTag("Enemy").Length < EnemySpawnCap)
         {
-            List<Vector3> suitableWorldLocs = new List<Vector3>();
+            List<Vector3> suitableWorldLocs = new();
+            Vector3 pos = Events.GetPlayerPosition();
             foreach (Vector3 loc in worldLocs)
             {
                 if
                 (
-                    Mathf.Abs(loc.x - player.transform.position.x) >= 5 &&
-                    Mathf.Abs(loc.x - player.transform.position.x) <= 10 &&
-                    Mathf.Abs(loc.y - player.transform.position.y) >= 5 &&
-                    Mathf.Abs(loc.y - player.transform.position.y) <= 10
+                    
+                    Mathf.Abs(loc.x - pos.x) >= 5 &&
+                    Mathf.Abs(loc.x - pos.x) <= 10 &&
+                    Mathf.Abs(loc.y - pos.y) >= 5 &&
+                    Mathf.Abs(loc.y - pos.y) <= 10
                 )
                 {
                     suitableWorldLocs.Add(loc);
@@ -60,7 +60,7 @@ public class EnemySpawner : MonoBehaviour
             {
                 int randPos = Random.Range(0, suitableWorldLocs.Count);
                 int randEnemy = Random.Range(0, EnemyPrefabs.Count);
-                GameObject newEnemy = Instantiate(EnemyPrefabs[randEnemy], suitableWorldLocs[randPos], Quaternion.identity, null);
+                Instantiate(EnemyPrefabs[randEnemy], suitableWorldLocs[randPos], Quaternion.identity, null);
             }
         }
     }

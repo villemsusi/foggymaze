@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a30a5c8c15d9145b4811af2d469bff, type: 3}
   m_Name: Trapped
   m_EditorClassIdentifier: 
-  VolumeMin: 0.56
-  VolumeMax: 0.7
-  PitchMin: 0.77
-  PitchMax: 1.12
+  VolumeMin: 0.14
+  VolumeMax: 0.21
+  PitchMin: 1.51
+  PitchMax: 1.72
   Loop: 0
   Cooldown: 0.1
   MX: 0
