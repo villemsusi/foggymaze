@@ -151,7 +151,10 @@ public class Turret : MonoBehaviour
     private void Heal()
     {
         if (Vector3.Distance(transform.position, Events.GetPlayerPosition()) <= range.radius)
+        {
+            DataManager.Instance.HealingAudio.Play();
             Events.SetHealth(Events.GetHealth() + TurretData.ProjDamage);
+        }
     }
 
     public void Reload()

@@ -110,6 +110,7 @@ public class Player : MonoBehaviour
         {
             if (onStairs && Events.GetStairsOpen())
             {
+                DataManager.Instance.EscapeAudio.Play();
                 Time.timeScale = 0;
                 Events.EnableAugments();
                 return;
@@ -153,7 +154,11 @@ public class Player : MonoBehaviour
         health = Mathf.Clamp(amount, 0, Events.GetHealthPerm());
         slider.value = health;
         if (health <= 0)
+        {
+            DataManager.Instance.GameOverAudio.Play();
             Events.RestartGame();
+        }
+
     }
 
 

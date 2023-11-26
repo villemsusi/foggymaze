@@ -30,6 +30,7 @@ public class Game : MonoBehaviour
 
     private void Start()
     {
+        DataManager.Instance.LevelUpAudio.Play();
         AugmentSelector = GameObject.Find("Augments");
         AugmentSelector.SetActive(false);
 
