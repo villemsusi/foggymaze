@@ -35,6 +35,7 @@ public class Health : MonoBehaviour
         transform.GetComponent<SpriteRenderer>().color = Color.white;
         if (healthPoints <= 0)
         {
+            DataManager.Instance.EnemyDeathAudio.Play();
             Destroy(gameObject);
         }
     }
