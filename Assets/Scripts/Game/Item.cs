@@ -76,6 +76,7 @@ public class Item : MonoBehaviour
         if (player != null)
             if (transform.tag == "TurretItem")
             {
+                DataManager.Instance.TurretPickupAudio.Play();
                 Events.SetTurretCount(Events.GetTurretCount() + 1);
                 Destroy(gameObject);
             }

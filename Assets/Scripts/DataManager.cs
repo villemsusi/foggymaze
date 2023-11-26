@@ -47,6 +47,12 @@ public class DataManager : MonoBehaviour
     public AudioClipGroup WalkAudio;
     public AudioClipGroup OpenBoxAudio;
     public AudioClipGroup TrappedAudio;
+    public AudioClipGroup TurretPickupAudio;
+    public AudioClipGroup GameOverAudio;
+    public AudioClipGroup PlayerDamageAudio;
+    public AudioClipGroup EscapeAudio;
+    public AudioClipGroup HealingAudio;
+    public AudioClipGroup LevelUpAudio;
 
     private float SFXfactor;
     private float MXfactor;

@@ -60,6 +60,12 @@ MonoBehaviour:
   WalkAudio: {fileID: 11400000, guid: 8cfaba3a667198c44ac547d9e29e7c12, type: 2}
   OpenBoxAudio: {fileID: 11400000, guid: 929bc6e5434e3274eba9e2de213b4288, type: 2}
   TrappedAudio: {fileID: 11400000, guid: f89992c6fdb062047b4e39f05505548c, type: 2}
+  TurretPickupAudio: {fileID: 11400000, guid: 79661973a5278184ea3ac90a1620c3be, type: 2}
+  GameOverAudio: {fileID: 11400000, guid: 9fff9fa83dfb5304f9b19d9c74e5b266, type: 2}
+  PlayerDamageAudio: {fileID: 11400000, guid: a7d801c376eb88641895d0de25a30c89, type: 2}
+  EscapeAudio: {fileID: 11400000, guid: 8e518b3e15f020144b606391afd5fa17, type: 2}
+  HealingAudio: {fileID: 11400000, guid: 250af5fa571ac4f4f820986bd6eff08a, type: 2}
+  LevelUpAudio: {fileID: 11400000, guid: 09e479de7c60eb34bafbb4bc65517401, type: 2}
   Music: {fileID: 0}
 --- !u!114 &9112068084950470380
 MonoBehaviour:

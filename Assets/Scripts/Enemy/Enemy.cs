@@ -76,6 +76,7 @@ public class Enemy : MonoBehaviour
     {
         if (hitCooldown > 0)
             hitCooldown -= Time.deltaTime;
+
     }
 
     private void FixedUpdate()
@@ -202,9 +203,11 @@ public class Enemy : MonoBehaviour
         {
             if (hitCooldown <= 0)
             {
+                DataManager.Instance.PlayerDamageAudio.Play();
                 Events.SetHealth(Events.GetHealth() - EnemyData.Damage);
                 hitCooldown = 0.3f;
                 Events.SetTrauma(Events.GetTrauma() + 0.5f);
+
             }
             
             Vector2 difference = transform.position - Events.GetPlayerPosition();
