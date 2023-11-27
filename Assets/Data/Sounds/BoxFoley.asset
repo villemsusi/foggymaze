@@ -12,14 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a30a5c8c15d9145b4811af2d469bff, type: 3}
   m_Name: BoxFoley
   m_EditorClassIdentifier: 
-  VolumeMin: 1
-  VolumeMax: 1
+  VolumeMin: 0.18
+  VolumeMax: 0.25
   PitchMin: 0.82
   PitchMax: 0.86
   Loop: 1
   Cooldown: 0.1
   MX: 0
   SFX: 1
-  Spatial: 1
   Clips:
   - {fileID: 8300000, guid: 20fbfd6cfb9accd4eadff03f90331d1e, type: 3}

@@ -12,13 +12,20 @@ public class GenerateMap : MonoBehaviour
     public GameObject NavMesh;
     private NavMeshSurface navMeshSurface;
 
-    public List<Tile> GroundTiles;
-    public Tile WallTile;
+    public List<Tile> GroundTiles_Reg;
+    public Tile WallTile_Reg;
+    public List<Tile> GroundTiles_Green;
+    public Tile WallTile_Green;
+    public List<Tile> GroundTiles_Red;
+    public Tile WallTile_Red;
+
+    private string STATE = "REGULAR";
 
     public Tilemap Ground;
     public Tilemap Walls;
 
     private BoundsInt bounds;
+
 
     public int Width = 30;
     public int Height = 30;
@@ -49,6 +56,8 @@ public class GenerateMap : MonoBehaviour
 
     private void Awake()
     {
+        STATE = Random.value <= 0.66 ? (Random.value <= 0.33 ? "REGULAR" : "RED") : "GREEN";
+
         navMeshSurface = NavMesh.GetComponent<NavMeshSurface>();
 
         xMin = -1 * Width / 2;
@@ -182,18 +191,54 @@ public class GenerateMap : MonoBehaviour
 
     private void SetWallTile(Vector3Int pos)
     {
-        Walls.SetTile(pos, WallTile);
+        switch(STATE)
+        {
+            case "REGULAR":
+                Walls.SetTile(pos, WallTile_Reg);
+                break;
+            case "GREEN":
+                Walls.SetTile(pos, WallTile_Green);
+                break;
+            case "RED":
+                Walls.SetTile(pos, WallTile_Red);
+                break;
+            default: break;
+        }
+        
     }
 
     private void SetGroundTile(Vector3Int pos)
     {
         float rand = Random.value;
-        if (rand <= 0.8)
-            Ground.SetTile(pos, GroundTiles[0]);
-        else if (rand <= 0.9)
-            Ground.SetTile(pos, GroundTiles[1]);
-        else
-            Ground.SetTile(pos, GroundTiles[2]);
+        switch (STATE)
+        {
+            case "REGULAR":
+                if (rand <= 0.8)
+                    Ground.SetTile(pos, GroundTiles_Reg[0]);
+                else if (rand <= 0.9)
+                    Ground.SetTile(pos, GroundTiles_Reg[1]);
+                else
+                    Ground.SetTile(pos, GroundTiles_Reg[2]);
+                break;
+            case "GREEN":
+                if (rand <= 0.8)
+                    Ground.SetTile(pos, GroundTiles_Green[0]);
+                else if (rand <= 0.9)
+                    Ground.SetTile(pos, GroundTiles_Green[1]);
+                else
+                    Ground.SetTile(pos, GroundTiles_Green[2]);
+                break;
+            case "RED":
+                if (rand <= 0.8)
+                    Ground.SetTile(pos, GroundTiles_Red[0]);
+                else if (rand <= 0.9)
+                    Ground.SetTile(pos, GroundTiles_Red[1]);
+                else
+                    Ground.SetTile(pos, GroundTiles_Red[2]);
+                break;
+            default: break;
+        }
+        
     }
 
     void reshuffle(Vector2Int[] positions)

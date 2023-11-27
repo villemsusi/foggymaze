@@ -540,11 +540,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NavMesh: {fileID: 2295193969360488347}
-  GroundTiles:
+  GroundTiles_Reg:
   - {fileID: 11400000, guid: 641c26ef6d175884c9f0c8f3280bb8d0, type: 2}
   - {fileID: 11400000, guid: 60dc034284332fe4bb1c0916d2e74758, type: 2}
   - {fileID: 11400000, guid: 6dab9736fff6e7142841e549931bde81, type: 2}
-  WallTile: {fileID: 11400000, guid: 02b780c96e0ed8344b5a83535c3c5f24, type: 2}
+  WallTile_Reg: {fileID: 11400000, guid: 02b780c96e0ed8344b5a83535c3c5f24, type: 2}
+  GroundTiles_Green:
+  - {fileID: 11400000, guid: ed2165754b24908469899b6c9a5299a1, type: 2}
+  - {fileID: 11400000, guid: 4d79010aa94ed704482036354557f65a, type: 2}
+  - {fileID: 11400000, guid: ba21e2e0977dd894882ec73a52fa08bc, type: 2}
+  WallTile_Green: {fileID: 11400000, guid: 9c033a0b58e4a344b8877a931ebbba20, type: 2}
+  GroundTiles_Red:
+  - {fileID: 11400000, guid: 5ca72a92c2f2f334c9c03ae7e0dfd4c5, type: 2}
+  - {fileID: 11400000, guid: f6c634ee395ee8945a9c042aca64c677, type: 2}
+  - {fileID: 11400000, guid: c309a17ebfafeb84ab3a53237970d762, type: 2}
+  WallTile_Red: {fileID: 11400000, guid: b66e1e6fa32b2af4ab828e8da2268baa, type: 2}
   Ground: {fileID: 1226437673308474772}
   Walls: {fileID: 1206451743918735885}
   Width: 30

@@ -111,6 +111,7 @@ public class Player : MonoBehaviour
             if (onStairs && Events.GetStairsOpen())
             {
                 DataManager.Instance.EscapeAudio.Play();
+                Events.SetTrauma(0f);
                 Time.timeScale = 0;
                 Events.EnableAugments();
                 return;
