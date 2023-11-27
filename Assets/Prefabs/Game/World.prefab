@@ -541,20 +541,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NavMesh: {fileID: 2295193969360488347}
   GroundTiles_Reg:
-  - {fileID: 11400000, guid: 641c26ef6d175884c9f0c8f3280bb8d0, type: 2}
-  - {fileID: 11400000, guid: 60dc034284332fe4bb1c0916d2e74758, type: 2}
-  - {fileID: 11400000, guid: 6dab9736fff6e7142841e549931bde81, type: 2}
-  WallTile_Reg: {fileID: 11400000, guid: 02b780c96e0ed8344b5a83535c3c5f24, type: 2}
+  - {fileID: 11400000, guid: e1f29f72a46e7bf41907520dc082246e, type: 2}
+  - {fileID: 11400000, guid: 51fab8c66bc7e1f4d8fb81136006389d, type: 2}
+  - {fileID: 11400000, guid: 91886c6f5deb778439e8f44bfdb5e0fb, type: 2}
+  WallTile_Reg: {fileID: 11400000, guid: 1cef4de43e5e1334694f2aeb537a306f, type: 2}
   GroundTiles_Green:
-  - {fileID: 11400000, guid: ed2165754b24908469899b6c9a5299a1, type: 2}
-  - {fileID: 11400000, guid: 4d79010aa94ed704482036354557f65a, type: 2}
-  - {fileID: 11400000, guid: ba21e2e0977dd894882ec73a52fa08bc, type: 2}
-  WallTile_Green: {fileID: 11400000, guid: 9c033a0b58e4a344b8877a931ebbba20, type: 2}
+  - {fileID: 11400000, guid: 4eaab5c77078d0448acb7a939e6dea67, type: 2}
+  - {fileID: 11400000, guid: de82752d81a25eb42b9439fb8b88d07d, type: 2}
+  - {fileID: 11400000, guid: 62165896f38d77341aab106b4361c55e, type: 2}
+  WallTile_Green: {fileID: 11400000, guid: fbac8104a9ffa8c428d682ece474e0ef, type: 2}
   GroundTiles_Red:
-  - {fileID: 11400000, guid: 5ca72a92c2f2f334c9c03ae7e0dfd4c5, type: 2}
-  - {fileID: 11400000, guid: f6c634ee395ee8945a9c042aca64c677, type: 2}
-  - {fileID: 11400000, guid: c309a17ebfafeb84ab3a53237970d762, type: 2}
-  WallTile_Red: {fileID: 11400000, guid: b66e1e6fa32b2af4ab828e8da2268baa, type: 2}
+  - {fileID: 11400000, guid: 3c76a8f5cf7aaf54f9b1d49d2d6ae55c, type: 2}
+  - {fileID: 11400000, guid: aeb3802710c9edf40a8de7cf16b891eb, type: 2}
+  - {fileID: 11400000, guid: e50466adb5bac0c46ac17748d4141636, type: 2}
+  WallTile_Red: {fileID: 11400000, guid: eebb1b341516cf24ba90006df48040fa, type: 2}
   Ground: {fileID: 1226437673308474772}
   Walls: {fileID: 1206451743918735885}
   Width: 30

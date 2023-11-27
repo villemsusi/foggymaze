@@ -96,6 +96,7 @@ public class GenerateMap : MonoBehaviour
 
     void Start()
     {
+        
         navMeshSurface.BuildNavMeshAsync();
 
 
