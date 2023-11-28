@@ -53,6 +53,9 @@ public static class Events
     public static event Func<float> OnGetTrauma;
     public static float GetTrauma() => OnGetTrauma?.Invoke() ?? 0f;
 
+    public static event Func<float> OnGetStageStartTimer;
+    public static float GetStageStartTimer() => OnGetStageStartTimer?.Invoke() ?? 0f;
+
 
 
     // Stage controller section

@@ -96,7 +96,7 @@ public class DataManager : MonoBehaviour
         Events.OnGetStartingTurretDropCount += GetStartingTurretDropCount;
         Events.OnGetTrapCount += GetTrapCount;
 
-        Events.OnGetStageTimer += GetStageTimer;
+        Events.OnGetStageStartTimer += GetStageStartTimer;
 
 
         Events.OnSetProjectileColor += SetProjectileColor;
@@ -135,7 +135,7 @@ public class DataManager : MonoBehaviour
         Events.OnGetStartingTurretDropCount -= GetStartingTurretDropCount;
         Events.OnGetTrapCount -= GetTrapCount;
 
-        Events.OnGetStageTimer -= GetStageTimer;
+        Events.OnGetStageStartTimer -= GetStageStartTimer;
 
 
         Events.OnGetProjectileColor -= GetProjectileColor;
@@ -219,7 +219,7 @@ public class DataManager : MonoBehaviour
     public int GetStartingLootboxCount() => lootboxCount;
     public int GetStartingTurretDropCount() => turretDropCount;
     public int GetTrapCount() => trapCount;
-    public float GetStageTimer() => timer;
+    public float GetStageStartTimer() => timer;
     public int GetEnemySpawnCap() => enemySpawnCap;
     public float GetEnemySpawnDelay() => enemySpawnDelay;
     public float GetInitialSpawnDelay() => initialSpawnDelay;
