@@ -18,11 +18,12 @@ public class Health : MonoBehaviour
 
     public void Damage(int damageAmount, Vector3 direction)
     {
-        healthPoints -= damageAmount;
         direction = direction.normalized;
-        float deg = Mathf.Atan2(direction.y, direction.x) * 180 / Mathf.PI;
+
+        healthPoints -= damageAmount;
         if (ps != null)
         {
+            float deg = Mathf.Atan2(direction.y, direction.x) * 180 / Mathf.PI;
             ps.gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, deg));
             ps.Play();
         }
@@ -34,7 +35,9 @@ public class Health : MonoBehaviour
         transform.GetComponent<SpriteRenderer>().color = Color.white;
         if (healthPoints <= 0)
         {
+            DataManager.Instance.EnemyDeathAudio.Play();
             Destroy(gameObject);
         }
     }
+    
 }

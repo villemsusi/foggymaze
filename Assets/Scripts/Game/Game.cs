@@ -30,6 +30,7 @@ public class Game : MonoBehaviour
 
     private void Start()
     {
+        DataManager.Instance.LevelUpAudio.Play();
         AugmentSelector = GameObject.Find("Augments");
         AugmentSelector.SetActive(false);
 
@@ -39,9 +40,6 @@ public class Game : MonoBehaviour
         timer = Events.GetStageTimer();
 
         Events.SetTimer((int)timer);
-
-        Debug.Log("Level - " + Events.GetLevelProgress());
-
     }
 
 
@@ -49,11 +47,11 @@ public class Game : MonoBehaviour
     {
         timer -= Time.deltaTime;
     
-        if (timer <= 0)
+        if (Mathf.RoundToInt(timer) <= 0)
         {
             Events.EnableStairs();
         }
-        if (timer > 0)
+        if (timer >= 0)
         {
             Events.SetTimer((int)Mathf.Round(timer));
         }
@@ -63,8 +61,12 @@ public class Game : MonoBehaviour
 
     private void NextStage()
     {
-        
-        if (Stage.NextSceneName != "")
+        if (Stage.SceneName == "MainStage")
+        {
+            Events.SetLevelProgress(Events.GetLevelProgress() + 1);
+            SceneManager.LoadScene(Stage.SceneName);
+        }
+        else if (Stage.NextSceneName != "")
         {
             Events.SetLevelProgress(Events.GetLevelProgress() + 1);
             SceneManager.LoadScene(Stage.NextSceneName);

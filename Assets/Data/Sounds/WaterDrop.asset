@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59a30a5c8c15d9145b4811af2d469bff, type: 3}
+  m_Name: WaterDrop
+  m_EditorClassIdentifier: 
+  VolumeMin: 0.35
+  VolumeMax: 0.43
+  PitchMin: 0.75
+  PitchMax: 1.17
+  Loop: 0
+  Cooldown: 0.1
+  MX: 0
+  SFX: 1
+  Clips:
+  - {fileID: 8300000, guid: 06e62c6d921e62a41b4f7f85b2527e2d, type: 3}
+  - {fileID: 8300000, guid: 2064ff928c561344293995961537a2cf, type: 3}
+  - {fileID: 8300000, guid: 93b5c64dec110484ab6ca7c53d3229a9, type: 3}
+  - {fileID: 8300000, guid: fd8d37a71cd0f0444bfd7c8a070c37e3, type: 3}
+  - {fileID: 8300000, guid: f4619a873af029e4e98323f58e55e97c, type: 3}

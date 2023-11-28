@@ -19,4 +19,11 @@ public class GameOverMenu : MonoBehaviour
     {
         SceneManager.LoadScene("Menu");
     }
+
+    public void Restart()
+    {
+        Time.timeScale = 1;
+        DataManager.Instance.SetInitialStats();
+        SceneManager.LoadScene("MainStage");
+    }
 }

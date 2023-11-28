@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2358698733633511060}
   - component: {fileID: 7337251510409672603}
   - component: {fileID: 3400110408469717545}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HitParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4843,7 +4843,8 @@ GameObject:
   - component: {fileID: 1682135878166744424}
   - component: {fileID: 2100361004951408618}
   - component: {fileID: 8929848847252182668}
-  m_Layer: 0
+  - component: {fileID: -1355254200115075885}
+  m_Layer: 11
   m_Name: Enemy_Regular
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -5003,6 +5004,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyData: {fileID: 11400000, guid: 09857709bdcb28d49beca5350a800c20, type: 2}
+  MoveInput: {x: 0, y: 0}
+  agent: {fileID: 0}
 --- !u!114 &2100361004951408618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5015,6 +5018,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf3f7826ed2a5d4ba3b6e50ec031a25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeadEnemyPrefab: {fileID: 571588167766083240, guid: c2223e67fd62c8d4abb8edbb389485dc, type: 3}
+  DeathAudio: {fileID: 11400000, guid: 01908a2a381a00c47ad663e56d8e67e7, type: 2}
 --- !u!95 &8929848847252182668
 Animator:
   serializedVersion: 5
@@ -5036,3 +5041,25 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!195 &-1355254200115075885
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571588167766083240}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.1875
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1.2250004
+  m_BaseOffset: 0.6125002
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

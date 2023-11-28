@@ -123,13 +123,13 @@ public class Turret : MonoBehaviour
         currentAmmo -= 1;
         DrawDisplay();
 
-        audioSource.Play(0);
+        DataManager.Instance.ShootAudio.Play(transform.position);
         
         Vector3 upDir = EnemiesInRange[0].transform.position - transform.position;
         upDir.z = 0;
         transform.up = upDir;
 
-
+        Events.SetTrauma(Events.GetTrauma() + 0.3f);
         Recoil();
 
         Projectile projectile = Instantiate(TurretData.ProjectilePrefab, transform.position, Quaternion.identity, transform);
@@ -151,24 +151,33 @@ public class Turret : MonoBehaviour
     private void Heal()
     {
         if (Vector3.Distance(transform.position, Events.GetPlayerPosition()) <= range.radius)
+        {
+            DataManager.Instance.HealingAudio.Play();
             Events.SetHealth(Events.GetHealth() + TurretData.ProjDamage);
+        }
     }
 
     public void Reload()
     {
         if (Events.GetAmmoCount() > 0 && currentAmmo < TurretData.MaxAmmo)
         {
+            DataManager.Instance.ReloadAudio.Play();
+
             Events.SetAmmoCount(Events.GetAmmoCount() - 1);
             currentAmmo = TurretData.MaxAmmo;
             DrawDisplay();
 
         }
+        else
+            DataManager.Instance.DenyAudio.Play();
     }
 
     public void Upgrade()
     {
         if (Events.GetUpgradeCount() > 0 && TurretData.NextUpgrade != null)
         {
+            DataManager.Instance.UpgradeAudio.Play();
+
             Events.SetUpgradeCount(Events.GetUpgradeCount() - 1);
             Turret newTurret = Instantiate(TurretData.NextUpgrade, transform.position, Quaternion.identity, null);
             newTurret.transform.up = transform.up;
@@ -176,6 +185,10 @@ public class Turret : MonoBehaviour
             Events.RemoveInteractable(gameObject);
             Events.AddInteractable(newTurret.gameObject);
             Destroy(gameObject);
+        }
+        else
+        {
+            DataManager.Instance.DenyAudio.Play();
         }
     }
 

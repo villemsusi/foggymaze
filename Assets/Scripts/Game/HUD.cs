@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class HUD : MonoBehaviour
 {
@@ -12,6 +13,13 @@ public class HUD : MonoBehaviour
     public TextMeshProUGUI Timer;
     public TextMeshProUGUI Alert;
     public TextMeshProUGUI Level;
+
+    public GameObject PauseScreen;
+    
+    
+    private int textChangeScale = 5;
+
+
 
     private void Awake()
     {
@@ -37,21 +45,32 @@ public class HUD : MonoBehaviour
         Events.OnSetTimer -= SetTimer;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            TogglePause();
+        }
+    }
+
 
     private void SetTurretText(int amount)
     {
         TurretCountText.text = amount.ToString();
+        StartCoroutine(TextChange(TurretCountText));
     }
     private void SetUpgradeText(int amount)
     {
         UpgradeCountText.text = amount.ToString();
+        StartCoroutine(TextChange(UpgradeCountText));
     }
     private void SetReloadText(int amount)
     {
         ReloadCountText.text = amount.ToString();
+        StartCoroutine(TextChange(ReloadCountText));
     }
 
-    private void SetTimer(int amount)
+    private void SetTimer(float amount)
     {
         if (amount == 0)
         {
@@ -60,7 +79,6 @@ public class HUD : MonoBehaviour
             else
                 return;
             Timer.text = "";
-            Alert.transform.position += new Vector3(0, 150, 0);
             Alert.color = Color.red;
             Alert.text = "ESCAPE!";
             InvokeRepeating(nameof(AlertFlash), 0.5f, 0.5f);
@@ -79,13 +97,14 @@ public class HUD : MonoBehaviour
         {
             if (Alert.gameObject.activeSelf)
             {
-                CancelInvoke();
+                
                 Alert.gameObject.SetActive(false);
+                CancelInvoke();
             }
             
         }
             
-        Timer.text = amount.ToString();
+        Timer.text = Mathf.RoundToInt(amount).ToString();
     }
     private void AlertFlash()
     {
@@ -100,6 +119,41 @@ public class HUD : MonoBehaviour
     {
         Level.text = ToRoman(amount);
     }
+
+
+    private IEnumerator TextChange(TextMeshProUGUI text)
+    {
+        float t = 0;
+        while (t < 1)
+        {
+            t += Time.deltaTime;
+            if (t > 1) t = 1;
+
+            float scale = -4 * (textChangeScale - 1) * Mathf.Pow(t, 2) + (4 * (textChangeScale - 1) * t) + 1;
+            text.transform.localScale = new Vector3(scale, scale, 1);
+
+            yield return new WaitForEndOfFrame();
+            
+        }
+    }
+
+    private void TogglePause()
+    {
+        if (PauseScreen.activeSelf)
+        {
+            PauseScreen.SetActive(false);
+            Time.timeScale = 1;
+            return;
+        }
+        if (!(Time.timeScale == 0))
+        {
+
+            PauseScreen.SetActive(true);
+            Time.timeScale = 0;
+        }
+            
+    }
+
 
     public static string ToRoman(int number)
     {

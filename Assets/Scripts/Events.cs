@@ -19,6 +19,12 @@ public static class Events
     public static event Func<float> OnGetMovespeedPerm;
     public static float GetMovespeedPerm() => OnGetMovespeedPerm?.Invoke() ?? 0;
 
+    public static event Action<float> OnSetFogScalePerm;
+    public static void SetFogScalePerm(float scale) => OnSetFogScalePerm?.Invoke(scale);
+
+    public static event Func<float> OnGetFogScalePerm;
+    public static float GetFogScalePerm() => OnGetFogScalePerm?.Invoke() ?? 0f;
+
 
 
     // Game controller section
@@ -35,12 +41,24 @@ public static class Events
     public static event Action OnNextStage;
     public static void NextStage() => OnNextStage?.Invoke();
 
+    public static event Action<float> OnSetFogScale;
+    public static void SetFogScale(float scale) => OnSetFogScale?.Invoke(scale);
+
+    public static event Func<float> OnGetFogScale;
+    public static float GetFogScale() => OnGetFogScale?.Invoke() ?? 0f;
+
+    public static event Action<float> OnSetTrauma;
+    public static void SetTrauma(float amount) => OnSetTrauma?.Invoke(amount);
+
+    public static event Func<float> OnGetTrauma;
+    public static float GetTrauma() => OnGetTrauma?.Invoke() ?? 0f;
+
 
 
     // Stage controller section
 
-    public static event Action<int> OnSetTimer;
-    public static void SetTimer(int amount) => OnSetTimer?.Invoke(amount);
+    public static event Action<float> OnSetTimer;
+    public static void SetTimer(float amount) => OnSetTimer?.Invoke(amount);
 
     public static event Action OnAugmentsEnable;
     public static void EnableAugments() => OnAugmentsEnable?.Invoke();
@@ -59,6 +77,9 @@ public static class Events
 
     public static event Func<int> OnGetStartingTurretDropCount;
     public static int GetStartingTurretDropCount() => OnGetStartingTurretDropCount?.Invoke() ?? 0;
+
+    public static event Func<int> OnGetTrapCount;
+    public static int GetTrapCount() => OnGetTrapCount?.Invoke() ?? 0;
 
     public static event Func<float> OnGetStageTimer;
     public static float GetStageTimer() => OnGetStageTimer?.Invoke() ?? 0f;
@@ -152,4 +173,20 @@ public static class Events
 
     public static event Func<Color> OnGetProjectileColor;
     public static Color GetProjectileColor() => OnGetProjectileColor?.Invoke() ?? new Color();
+
+
+
+    // Sound section
+
+    public static event Action<float> OnSetSFX;
+    public static void SetSFX(float amount) => OnSetSFX?.Invoke(amount);
+
+    public static event Func<float> OnGetSFX;
+    public static float GetSFX() => OnGetSFX?.Invoke() ?? 0f;
+
+    public static event Action<float> OnSetMX;
+    public static void SetMX(float amount) => OnSetMX?.Invoke(amount);
+
+    public static event Func<float> OnGetMX;
+    public static float GetMX() => OnGetMX?.Invoke() ?? 0f;
 }

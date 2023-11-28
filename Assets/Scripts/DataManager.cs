@@ -14,6 +14,7 @@ public class DataManager : MonoBehaviour
 
     private int levelProgess;
 
+    private float fogScale;
 
     public Color auraColor;
     private Color projectileColor;
@@ -21,6 +22,7 @@ public class DataManager : MonoBehaviour
 
     private int lootboxCount;
     private int turretDropCount;
+    private int trapCount;
 
     private int startingTurretCount;
     private float timer;
@@ -31,6 +33,31 @@ public class DataManager : MonoBehaviour
 
     private float enemyMoveSpeedFactor;
     private float enemyHealthFactor;
+
+    public AudioClipGroup BckgrMusic;
+    public AudioClipGroup ClickAudio;
+    public AudioClipGroup BuildAudio;
+    public AudioClipGroup UpgradeAudio;
+    public AudioClipGroup ReloadAudio;
+    public AudioClipGroup ShootAudio;
+    public AudioClipGroup DenyAudio;
+    public AudioClipGroup EnemyDeathAudio;
+    public AudioClipGroup ShieldBlockAudio;
+    public AudioClipGroup WaterDropAudio;
+    public AudioClipGroup WalkAudio;
+    public AudioClipGroup OpenBoxAudio;
+    public AudioClipGroup TrappedAudio;
+    public AudioClipGroup TurretPickupAudio;
+    public AudioClipGroup GameOverAudio;
+    public AudioClipGroup PlayerDamageAudio;
+    public AudioClipGroup EscapeAudio;
+    public AudioClipGroup HealingAudio;
+    public AudioClipGroup LevelUpAudio;
+
+    private float SFXfactor;
+    private float MXfactor;
+
+    public AudioSource Music;
 
 
     private void Awake()
@@ -51,6 +78,9 @@ public class DataManager : MonoBehaviour
         Events.OnGetMovespeedPerm += GetMovespeed;
         Events.OnSetMovespeedPerm += SetMovespeed;
 
+        Events.OnGetFogScalePerm += GetFogScale;
+        Events.OnSetFogScalePerm += SetFogScale;
+
         Events.OnSetLevelProgress += SetLevelProgress;
         Events.OnGetLevelProgress += GetLevelProgress;
 
@@ -61,16 +91,23 @@ public class DataManager : MonoBehaviour
         Events.OnGetEnemyHealthFactor += GetEnemyHealthFactor;
         Events.OnGetEnemyMovespeedFactor += GetEnemyMovespeedFactor;
 
+        Events.OnGetStartingTurretCount += GetStartingTurretCount;
+        Events.OnGetStartingLootboxCount += GetStartingLootboxCount;
+        Events.OnGetStartingTurretDropCount += GetStartingTurretDropCount;
+        Events.OnGetTrapCount += GetTrapCount;
+
+        Events.OnGetStageTimer += GetStageTimer;
+
+
         Events.OnSetProjectileColor += SetProjectileColor;
         Events.OnGetProjectileColor += GetProjectileColor;
         Events.OnSetAuraColor += SetAuraColor;
         Events.OnGetAuraColor += GetAuraColor;
 
-        Events.OnGetStartingTurretCount += GetStartingTurretCount;
-        Events.OnGetStartingLootboxCount += GetStartingLootboxCount;
-        Events.OnGetStartingTurretDropCount += GetStartingTurretDropCount;
-
-        Events.OnGetStageTimer += GetStageTimer;
+        Events.OnSetSFX += SetSFX;
+        Events.OnGetSFX += GetSFX;
+        Events.OnSetMX += SetMX;
+        Events.OnGetMX += GetMX;
     }
 
     private void OnDestroy()
@@ -79,6 +116,9 @@ public class DataManager : MonoBehaviour
         Events.OnSetHealthPerm -= SetHealth;
         Events.OnGetMovespeedPerm -= GetMovespeed;
         Events.OnSetMovespeedPerm -= SetMovespeed;
+
+        Events.OnGetFogScalePerm -= GetFogScale;
+        Events.OnSetFogScalePerm -= SetFogScale;
 
         Events.OnSetLevelProgress -= SetLevelProgress;
         Events.OnGetLevelProgress -= GetLevelProgress;
@@ -90,44 +130,57 @@ public class DataManager : MonoBehaviour
         Events.OnGetEnemyHealthFactor -= GetEnemyHealthFactor;
         Events.OnGetEnemyMovespeedFactor -= GetEnemyMovespeedFactor;
 
+        Events.OnGetStartingTurretCount -= GetStartingTurretCount;
+        Events.OnGetStartingLootboxCount -= GetStartingLootboxCount;
+        Events.OnGetStartingTurretDropCount -= GetStartingTurretDropCount;
+        Events.OnGetTrapCount -= GetTrapCount;
+
+        Events.OnGetStageTimer -= GetStageTimer;
+
 
         Events.OnGetProjectileColor -= GetProjectileColor;
         Events.OnSetProjectileColor -= SetProjectileColor;
         Events.OnGetAuraColor -= GetAuraColor;
         Events.OnSetAuraColor -= SetAuraColor;
 
-        Events.OnGetStartingTurretCount -= GetStartingTurretCount;
-        Events.OnGetStartingLootboxCount -= GetStartingLootboxCount;
-        Events.OnGetStartingTurretDropCount -= GetStartingTurretDropCount;
-
-        Events.OnGetStageTimer -= GetStageTimer;
+        Events.OnSetSFX -= SetSFX;
+        Events.OnGetSFX -= GetSFX;
+        Events.OnSetMX -= SetMX;
+        Events.OnGetMX -= GetMX;
     }
 
     private void Start()
     {
-        auraColor = Color.blue;
-        projectileColor = Color.red;
+        SetStyleSettings();
+
+        SetSoundSettings();
+
+        Music = BckgrMusic.Play();
 
     }
 
     public void SetInitialStats()
     {
-        movespeed = InitialStats.movespeed;
-        health = InitialStats.health;
-
-        enemySpawnCap = 3;
-        startingTurretCount = 2;
-        turretDropCount = 2;
-        lootboxCount = 8;
-        enemySpawnDelay = 3f;
-        initialSpawnDelay = 5f;
-
-        enemyHealthFactor = 1;
-        enemyMoveSpeedFactor = 1;
-
         levelProgess = 1;
 
+        movespeed = InitialStats.movespeed;
+        health = InitialStats.health;
+        
+        startingTurretCount = InitialStats.startingTurretCount;
+        turretDropCount = InitialStats.turretDropCount;
+        lootboxCount = InitialStats.lootboxCount;
+        trapCount = InitialStats.trapCount;
+
+        initialSpawnDelay = InitialStats.initialSpawnDelay;
+        enemySpawnDelay = InitialStats.enemySpawnDelay;
+        enemySpawnCap = InitialStats.enemySpawnCap;
+        
+        enemyHealthFactor = InitialStats.enemyHealthFactor;
+        enemyMoveSpeedFactor = InitialStats.enemySpeedFactor;
+
         timer = InitialStats.timer;
+
+        fogScale = InitialStats.fogScale;
     }
 
     
@@ -147,11 +200,25 @@ public class DataManager : MonoBehaviour
         enemyHealthFactor *= 1.05f;
         enemyMoveSpeedFactor *= 1.05f;
     }
+
+    public void SetSoundSettings()
+    {
+        SFXfactor = 1;
+        MXfactor = 1;
+    }
+
+    public void SetStyleSettings()
+    {
+        auraColor = Color.blue;
+        projectileColor = Color.red;
+    }
+
     public int GetLevelProgress() => levelProgess;
 
     public int GetStartingTurretCount() => startingTurretCount;
     public int GetStartingLootboxCount() => lootboxCount;
     public int GetStartingTurretDropCount() => turretDropCount;
+    public int GetTrapCount() => trapCount;
     public float GetStageTimer() => timer;
     public int GetEnemySpawnCap() => enemySpawnCap;
     public float GetEnemySpawnDelay() => enemySpawnDelay;
@@ -168,8 +235,20 @@ public class DataManager : MonoBehaviour
     public void SetHealth(int amount) => health = amount;
 
 
+    private float GetFogScale() => fogScale;
+    private void SetFogScale(float scale)
+    {
+        fogScale = scale;
+    }
+
+
     private Color GetProjectileColor() => projectileColor;
     private void SetProjectileColor(Color col) => projectileColor = col;
     private Color GetAuraColor() => auraColor;
     private void SetAuraColor(Color col) => auraColor = col;
+
+    private void SetSFX(float amount) => SFXfactor = amount;
+    private float GetSFX() => SFXfactor;
+    private void SetMX(float amount) => MXfactor = amount;
+    private float GetMX() => MXfactor;
 }

@@ -20,7 +20,7 @@ MonoBehaviour:
   TurretPrefab: {fileID: 5899442377747358072, guid: a0bd5e259fb550045937460fa382f9ea, type: 3}
   NextUpgrade: {fileID: 0}
   ProjectilePrefab: {fileID: 0}
-  ProjDamage: 5
+  ProjDamage: 15
   ProjCooldown: 0.5
   ProjSpeed: 0
   Kickback: 0

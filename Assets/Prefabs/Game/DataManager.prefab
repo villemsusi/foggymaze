@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3794086738525784517}
   - component: {fileID: 781102406609401867}
+  - component: {fileID: 9112068084950470380}
   m_Layer: 0
   m_Name: DataManager
   m_TagString: Untagged
@@ -45,4 +46,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InitialStats: {fileID: 11400000, guid: 5fbaed34f4070ed47beeddd823ab98cb, type: 2}
-  auraColor: {r: 0, g: 0, b: 0, a: 0}
+  auraColor: {r: 0.048949808, g: 0.6282924, b: 0.9433962, a: 1}
+  BckgrMusic: {fileID: 11400000, guid: 860307951ef269e4c99d593c327f1709, type: 2}
+  ClickAudio: {fileID: 11400000, guid: bca08e0fb01810640b36b2ba008452b0, type: 2}
+  BuildAudio: {fileID: 11400000, guid: b232794d234413f47bf589f95cef3bb2, type: 2}
+  UpgradeAudio: {fileID: 11400000, guid: 87f47501be17dd145a98fdcd74867473, type: 2}
+  ReloadAudio: {fileID: 11400000, guid: 8359719bfd88e394884d084782fd49fe, type: 2}
+  ShootAudio: {fileID: 11400000, guid: c4d9d3803357f144490fb6fada21ab75, type: 2}
+  DenyAudio: {fileID: 11400000, guid: 3ca7d993bfb3580498a2b9bcd4ada72a, type: 2}
+  EnemyDeathAudio: {fileID: 11400000, guid: 01908a2a381a00c47ad663e56d8e67e7, type: 2}
+  ShieldBlockAudio: {fileID: 11400000, guid: 746ead9e3b429a74695d82bdfe7f1ded, type: 2}
+  WaterDropAudio: {fileID: 11400000, guid: 9803ef70aebb8e944b7e2de0d4c5231f, type: 2}
+  WalkAudio: {fileID: 11400000, guid: 8cfaba3a667198c44ac547d9e29e7c12, type: 2}
+  OpenBoxAudio: {fileID: 11400000, guid: 929bc6e5434e3274eba9e2de213b4288, type: 2}
+  TrappedAudio: {fileID: 11400000, guid: f89992c6fdb062047b4e39f05505548c, type: 2}
+  TurretPickupAudio: {fileID: 11400000, guid: 79661973a5278184ea3ac90a1620c3be, type: 2}
+  GameOverAudio: {fileID: 11400000, guid: 9fff9fa83dfb5304f9b19d9c74e5b266, type: 2}
+  PlayerDamageAudio: {fileID: 11400000, guid: a7d801c376eb88641895d0de25a30c89, type: 2}
+  EscapeAudio: {fileID: 11400000, guid: 8e518b3e15f020144b606391afd5fa17, type: 2}
+  HealingAudio: {fileID: 11400000, guid: 250af5fa571ac4f4f820986bd6eff08a, type: 2}
+  LevelUpAudio: {fileID: 11400000, guid: 09e479de7c60eb34bafbb4bc65517401, type: 2}
+  Music: {fileID: 0}
+--- !u!114 &9112068084950470380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3092021028575737037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d5b38fd2057c8847bec3cfb308a7e4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioSourcePrefab: {fileID: 4678299525482316020, guid: 25d70ded0b45581428ed00317f9dc4f5, type: 3}

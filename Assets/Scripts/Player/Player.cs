@@ -11,12 +11,11 @@ public class Player : MonoBehaviour
     private int upgradeCount = 0;
     private int ammoCount = 0;
     private int health;
-    private float movespeed;
 
     private bool onStairs;
 
     private GameObject SelectedItem;
-    private static readonly float selectionRadius = 0.7f;
+    private static readonly float selectionRadius = 1f;
 
     public List<GameObject> Interactables;
 
@@ -24,6 +23,9 @@ public class Player : MonoBehaviour
     public TurretBuilder turretBuilder;
 
     private Light2D aura;
+
+
+    public string STATE = "normal";
 
     private void Awake()
     {
@@ -46,7 +48,6 @@ public class Player : MonoBehaviour
 
 
         aura = transform.Find("AuraLight").GetComponent<Light2D>();
-
     }
     private void OnDestroy()
     {
@@ -85,20 +86,15 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SelectInteractable();
-        if (Input.GetKeyDown(KeyCode.R))
+        if (STATE == "trapped")
         {
-            if (SelectedItem != null)
-            {
-                if (SelectedItem.GetComponent<Turret>() != null)
-                    SelectedItem.GetComponent<Turret>().Reload();
-                return;
-            }
+            return;
         }
+        SelectInteractable();
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            if (Events.GetTurretCount() > 0 && !turretBuilder.gameObject.activeSelf)
+            if (!turretBuilder.gameObject.activeSelf)
             {
                 turretBuilder.gameObject.SetActive(true);
                 return;
@@ -114,6 +110,8 @@ public class Player : MonoBehaviour
         {
             if (onStairs && Events.GetStairsOpen())
             {
+                DataManager.Instance.EscapeAudio.Play();
+                Events.SetTrauma(0f);
                 Time.timeScale = 0;
                 Events.EnableAugments();
                 return;
@@ -125,6 +123,18 @@ public class Player : MonoBehaviour
                     SelectedItem.GetComponent<Turret>().Upgrade();
                 else if (SelectedItem.GetComponent<Lootbox>() != null)
                     SelectedItem.GetComponent<Lootbox>().Open();
+                else if (SelectedItem.GetComponent<LootboxTutorial>() != null)
+                    SelectedItem.GetComponent<LootboxTutorial>().Open();
+                return;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (SelectedItem != null)
+            {
+                if (SelectedItem.GetComponent<Turret>() != null) { }
+                    SelectedItem.GetComponent<Turret>().Reload();
                 return;
             }
         }
@@ -145,7 +155,11 @@ public class Player : MonoBehaviour
         health = Mathf.Clamp(amount, 0, Events.GetHealthPerm());
         slider.value = health;
         if (health <= 0)
+        {
+            DataManager.Instance.GameOverAudio.Play();
             Events.RestartGame();
+        }
+
     }
 
 
@@ -161,6 +175,15 @@ public class Player : MonoBehaviour
         {
             onStairs = true;
         }
+
+        if (collision.gameObject.CompareTag("Trap"))
+        {
+            STATE = "trapped";
+            DataManager.Instance.TrappedAudio.Play();
+            Destroy(collision.gameObject);
+            Invoke(nameof(NormalState), 2);
+        }
+            
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -170,6 +193,11 @@ public class Player : MonoBehaviour
         {
             onStairs = false;
         }
+    }
+
+    void NormalState()
+    {
+        STATE = "normal";
     }
 
     private void SelectInteractable()
@@ -184,6 +212,7 @@ public class Player : MonoBehaviour
             }
         }
         Transform t = GetClosestInteractable(Interactables);
+        
         if (t != null)
         {
             if (SelectedItem != null && SelectedItem != t.gameObject)
@@ -230,5 +259,11 @@ public class Player : MonoBehaviour
     private void ToggleSelectionShader(int state, GameObject obj)
     {
         obj.GetComponent<SpriteRenderer>().material.SetInt("_ShowShader", state);
+    }
+
+
+    public void PlayWalkSound()
+    {
+        DataManager.Instance.WalkAudio.Play();
     }
 }

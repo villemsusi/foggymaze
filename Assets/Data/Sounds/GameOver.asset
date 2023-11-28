@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59a30a5c8c15d9145b4811af2d469bff, type: 3}
+  m_Name: GameOver
+  m_EditorClassIdentifier: 
+  VolumeMin: 0.18
+  VolumeMax: 0.18
+  PitchMin: 0.61
+  PitchMax: 0.98
+  Loop: 0
+  Cooldown: 0.1
+  MX: 0
+  SFX: 1
+  Clips:
+  - {fileID: 8300000, guid: 6a7aa9944740b0c4b898c9e17f9cadaa, type: 3}

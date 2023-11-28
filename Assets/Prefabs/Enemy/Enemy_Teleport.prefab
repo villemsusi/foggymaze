@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1682135878166744424}
   - component: {fileID: 8929848847252182668}
   - component: {fileID: -2879956830634787194}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Enemy_Teleport
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -175,6 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyData: {fileID: 11400000, guid: 4efc95c208487f74a8edbba9dfa97036, type: 2}
+  agent: {fileID: 0}
 --- !u!95 &8929848847252182668
 Animator:
   serializedVersion: 5
@@ -208,6 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf3f7826ed2a5d4ba3b6e50ec031a25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeathAudio: {fileID: 11400000, guid: 01908a2a381a00c47ad663e56d8e67e7, type: 2}
 --- !u!1 &4508133330137398380
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,7 +221,7 @@ GameObject:
   - component: {fileID: 5820837956852563063}
   - component: {fileID: 2827116134510601458}
   - component: {fileID: 2793574510132291740}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: HitParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

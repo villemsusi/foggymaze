@@ -101,6 +101,7 @@ MonoBehaviour:
   UpgradePrefab: {fileID: 15702641913395557, guid: 98cc4f8363175b842b025f1749c5047d, type: 3}
   HealthOrbPrefab: {fileID: 107165988799770336, guid: bd4afec8f7dcd35479186c3007834de9, type: 3}
   AmmoPrefab: {fileID: 8054187833701947320, guid: 1d16a20e52d1f144b80d7cf1b2967626, type: 3}
+  EnemyPrefab: {fileID: 1682135878166744424, guid: 364884f22e04e6749a4784453c20f072, type: 3}
 --- !u!61 &-1564586986166249140
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -133,7 +134,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.10620952, y: 0.23366284}
+  m_Offset: {x: -0.052324533, y: 1.14961}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.49050757, y: 0.1300079}
@@ -144,5 +145,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.3522964, y: 7.397325}
+  m_Size: {x: 7.1065974, y: 6.4275103}
   m_EdgeRadius: 0

@@ -109,6 +109,9 @@ MonoBehaviour:
   EnemiesNotVisible: []
   display: {fileID: 8881073520559256813}
   display2: {fileID: 0}
+  ShotAudio: {fileID: 0}
+  UpgradeAudio: {fileID: 0}
+  BuildAudio: {fileID: 11400000, guid: b232794d234413f47bf589f95cef3bb2, type: 2}
 --- !u!114 &-5406074246016272981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5270,7 +5273,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2052771361
-  m_SortingLayer: 6
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_RenderMode: 0
   m_MeshDistribution: 0
