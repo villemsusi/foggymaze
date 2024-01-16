@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a30a5c8c15d9145b4811af2d469bff, type: 3}
   m_Name: PlayerWalk
   m_EditorClassIdentifier: 
-  VolumeMin: 0.14
-  VolumeMax: 0.21
+  VolumeMin: 0.04
+  VolumeMax: 0.06
   PitchMin: 0.27
   PitchMax: 0.35
   Loop: 0

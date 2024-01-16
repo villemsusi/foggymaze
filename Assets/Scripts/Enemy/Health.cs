@@ -7,20 +7,29 @@ public class Health : MonoBehaviour
 
     private int healthPoints;
 
+    private SpriteRenderer srenderer;
+
     private ParticleSystem ps;
 
     private void Awake()
     {
         ps = transform.Find("HitParticle").GetComponent<ParticleSystem>();
+        srenderer = GetComponent<SpriteRenderer>();
     }
 
-    public void SetHealth(int amount) => healthPoints = amount;
+    public void SetHealth(int amount)
+    {
+        healthPoints = amount;
+        if (amount < GetComponent<Enemy>().EnemyData.Health)
+            srenderer.color -= new Color(0,0,0,1 - (float)amount / (float)GetComponent<Enemy>().EnemyData.Health);
+        Debug.Log(srenderer.color.a);
+    }
 
     public void Damage(int damageAmount, Vector3 direction)
     {
         direction = direction.normalized;
 
-        healthPoints -= damageAmount;
+        SetHealth(healthPoints - damageAmount);
         if (ps != null)
         {
             float deg = Mathf.Atan2(direction.y, direction.x) * 180 / Mathf.PI;
