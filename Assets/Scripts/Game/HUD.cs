@@ -84,7 +84,7 @@ public class HUD : MonoBehaviour
             InvokeRepeating(nameof(AlertFlash), 0.5f, 0.5f);
             return;
         }
-        else if (Events.GetStageTimer() - amount < 5f)
+        else if (Events.GetStageStartTimer() - amount < 5f)
         {
             if (!Alert.gameObject.activeSelf)
                 Alert.gameObject.SetActive(true);
@@ -147,7 +147,7 @@ public class HUD : MonoBehaviour
         }
         if (!(Time.timeScale == 0))
         {
-
+            Events.SetTrauma(0f);
             PauseScreen.SetActive(true);
             Time.timeScale = 0;
         }

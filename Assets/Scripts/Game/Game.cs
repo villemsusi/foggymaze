@@ -17,7 +17,7 @@ public class Game : MonoBehaviour
         Events.OnAugmentsEnable += EnableAugments;
         Events.OnRestartGame += RestartGame;
         Events.OnNextStage += NextStage;
-
+        Events.OnGetStageTimer += GetTimer;
     }
 
     private void OnDestroy()
@@ -25,7 +25,7 @@ public class Game : MonoBehaviour
         Events.OnAugmentsEnable -= EnableAugments;
         Events.OnRestartGame -= RestartGame;
         Events.OnNextStage -= NextStage;
-
+        Events.OnGetStageTimer -= GetTimer;
     }
 
     private void Start()
@@ -37,7 +37,7 @@ public class Game : MonoBehaviour
         Events.SetTurretCount(Events.GetStartingTurretCount());
         Events.SetAmmoCount(0);
         Events.SetUpgradeCount(0);
-        timer = Events.GetStageTimer();
+        timer = Events.GetStageStartTimer();
 
         Events.SetTimer((int)timer);
     }
@@ -85,5 +85,8 @@ public class Game : MonoBehaviour
     { 
         SceneManager.LoadScene("GameOver");
     }
+
+
+    float GetTimer() => timer;
 
 }

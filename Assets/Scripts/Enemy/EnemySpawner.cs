@@ -15,6 +15,8 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
+        SpawnDelay = Events.GetEnemySpawnDelay();
+
         tilemap = GameObject.Find("Ground").GetComponent<Tilemap>();
         worldLocs = new List<Vector3>();
         bounds = tilemap.cellBounds;
@@ -32,11 +34,16 @@ public class EnemySpawner : MonoBehaviour
         }
 
         EnemySpawnCap = Events.GetEnemySpawnCap();
-        InvokeRepeating(nameof(SpawnEnemy), Events.GetInitialSpawnDelay(), Events.GetEnemySpawnDelay());
+        Invoke(nameof(SpawnEnemy), Events.GetInitialSpawnDelay());
     }
 
     void SpawnEnemy()
     {
+        if (Events.GetStageTimer() <= Events.GetStageStartTimer()/2)
+        {
+            SpawnDelay = 0.2f;
+            EnemySpawnCap = 2 * Events.GetEnemySpawnCap();
+        }
         if (GameObject.FindGameObjectsWithTag("Enemy").Length < EnemySpawnCap)
         {
             List<Vector3> suitableWorldLocs = new();
@@ -63,5 +70,6 @@ public class EnemySpawner : MonoBehaviour
                 Instantiate(EnemyPrefabs[randEnemy], suitableWorldLocs[randPos], Quaternion.identity, null);
             }
         }
+        Invoke(nameof(SpawnEnemy), SpawnDelay);
     }
 }
