@@ -39,7 +39,7 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnEnemy()
     {
-        if (Events.GetStageTimer() <= 0)
+        if (Events.GetStageTimer() <= Events.GetStageStartTimer()/2)
         {
             SpawnDelay = 0.2f;
             EnemySpawnCap = 2 * Events.GetEnemySpawnCap();
