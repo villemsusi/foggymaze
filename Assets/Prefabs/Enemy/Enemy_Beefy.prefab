@@ -5101,6 +5101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bf3f7826ed2a5d4ba3b6e50ec031a25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DeathPrefab: {fileID: 571588167766083240, guid: 598b2afd9b819b7418084396f72a6246, type: 3}
 --- !u!95 &8929848847252182668
 Animator:
   serializedVersion: 5

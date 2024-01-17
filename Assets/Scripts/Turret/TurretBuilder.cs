@@ -40,7 +40,7 @@ public class TurretBuilder : MonoBehaviour
         Turret turret = Instantiate(data.TurretPrefab, pos, Quaternion.identity, null);
         Events.AddInteractable(turret.gameObject);
         Events.SetTurretCount(Events.GetTurretCount() - 1);
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     }
 
 }

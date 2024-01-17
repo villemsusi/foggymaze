@@ -22,7 +22,10 @@ public class Shield : MonoBehaviour
         if (other.gameObject.CompareTag("Projectile"))
         {
             DataManager.Instance.ShieldBlockAudio.Play();
-            Destroy(other.gameObject);
+            if (other.gameObject.name == "ProjectileExplosion(Clone)")
+                other.gameObject.GetComponent<Projectile>().Explosion();
+            else
+                Destroy(other.gameObject);
         }
     }
 

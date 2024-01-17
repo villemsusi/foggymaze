@@ -121,7 +121,8 @@ public class Turret : MonoBehaviour
     private void Shoot()
     {
         currentAmmo -= 1;
-        DrawDisplay();
+        if (display != null)
+            DrawDisplay();
 
         DataManager.Instance.ShootAudio.Play(transform.position);
         

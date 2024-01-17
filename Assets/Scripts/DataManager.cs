@@ -40,6 +40,7 @@ public class DataManager : MonoBehaviour
     public AudioClipGroup UpgradeAudio;
     public AudioClipGroup ReloadAudio;
     public AudioClipGroup ShootAudio;
+    public AudioClipGroup ExplosionAudio;
     public AudioClipGroup DenyAudio;
     public AudioClipGroup EnemyDeathAudio;
     public AudioClipGroup ShieldBlockAudio;

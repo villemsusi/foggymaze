@@ -53,6 +53,7 @@ MonoBehaviour:
   UpgradeAudio: {fileID: 11400000, guid: 87f47501be17dd145a98fdcd74867473, type: 2}
   ReloadAudio: {fileID: 11400000, guid: 8359719bfd88e394884d084782fd49fe, type: 2}
   ShootAudio: {fileID: 11400000, guid: c4d9d3803357f144490fb6fada21ab75, type: 2}
+  ExplosionAudio: {fileID: 11400000, guid: 0e8ea601e78dd5642a1bf48b8f68cffe, type: 2}
   DenyAudio: {fileID: 11400000, guid: 3ca7d993bfb3580498a2b9bcd4ada72a, type: 2}
   EnemyDeathAudio: {fileID: 11400000, guid: 01908a2a381a00c47ad663e56d8e67e7, type: 2}
   ShieldBlockAudio: {fileID: 11400000, guid: 746ead9e3b429a74695d82bdfe7f1ded, type: 2}

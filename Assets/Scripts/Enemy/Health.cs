@@ -7,22 +7,18 @@ public class Health : MonoBehaviour
 
     private int healthPoints;
 
-    private SpriteRenderer srenderer;
-
     private ParticleSystem ps;
+
+    public GameObject DeathPrefab;
 
     private void Awake()
     {
         ps = transform.Find("HitParticle").GetComponent<ParticleSystem>();
-        srenderer = GetComponent<SpriteRenderer>();
     }
 
     public void SetHealth(int amount)
     {
         healthPoints = amount;
-        if (amount < GetComponent<Enemy>().EnemyData.Health)
-            srenderer.color -= new Color(0,0,0,1 - (float)amount / (float)GetComponent<Enemy>().EnemyData.Health);
-        Debug.Log(srenderer.color.a);
     }
 
     public void Damage(int damageAmount, Vector3 direction)
@@ -45,6 +41,7 @@ public class Health : MonoBehaviour
         if (healthPoints <= 0)
         {
             DataManager.Instance.EnemyDeathAudio.Play();
+            Instantiate(DeathPrefab, transform.position, Quaternion.identity, null);
             Destroy(gameObject);
         }
     }

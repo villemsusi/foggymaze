@@ -13,6 +13,8 @@ public class Projectile : MonoBehaviour
 
     private Material material;
 
+    public GameObject ExplosionPrefab;
+
 
     private void Awake()
     {
@@ -39,8 +41,31 @@ public class Projectile : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         if (Vector3.Distance(transform.position, target.position)<0.2f)
         {
-            target.GetComponent<Health>().Damage(damage, transform.up.normalized);
-            Destroy(gameObject);
+            if (gameObject.name == "ProjectileExplosion(Clone)")
+                Explosion();
+            else
+                Damage();
         }
+    }
+
+    public void Explosion()
+    {
+        Instantiate(ExplosionPrefab, transform.position, Quaternion.identity, null);
+        DataManager.Instance.ExplosionAudio.Play();
+        Events.SetTrauma(Events.GetTrauma() + 0.5f);
+
+        Collider2D[] enemiesInExplosionRange = Physics2D.OverlapCircleAll(target.gameObject.transform.position, 1f);
+        foreach (Collider2D col in enemiesInExplosionRange)
+        {
+            if (col.TryGetComponent<Health>(out var enemy))
+                enemy.Damage(damage, (col.transform.position-transform.position).normalized);
+        }
+        Destroy(gameObject);
+    }
+
+    public void Damage()
+    {
+        target.GetComponent<Health>().Damage(damage, transform.up.normalized);
+        Destroy(gameObject);
     }
 }

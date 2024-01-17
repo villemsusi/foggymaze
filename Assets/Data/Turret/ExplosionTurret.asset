@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 944b72dc82c6951488094976cd5d7fda, type: 3}
+  m_Name: ExplosionTurret
+  m_EditorClassIdentifier: 
+  Name: Explosion Turret
+  Shortcut: j
+  Type: Attack
+  ShotRadius: 4
+  Texture: {fileID: 2800000, guid: ab56c6b40f17abf459161e2e1f5db3e6, type: 3}
+  TurretPrefab: {fileID: 5899442377747358072, guid: 17685b6a8a5fcf64e81cc0dcecec652d, type: 3}
+  NextUpgrade: {fileID: 0}
+  ProjectilePrefab: {fileID: 5345155349098639341, guid: 039ad7cb93e4a9041969d5e00f494292, type: 3}
+  ProjDamage: 25
+  ProjCooldown: 1
+  ProjSpeed: 8
+  Kickback: 0.3
+  MaxAmmo: 15
+  ReloadCost: 1
