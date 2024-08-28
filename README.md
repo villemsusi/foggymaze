@@ -1,5 +1,6 @@
 # Echoes in the Mist
-Game Development course project
+
+A battle against time, anxiety and loads of red-bad-guys in a foggy labyrinth.
 
 https://villemsusi.itch.io/echoes-in-the-mist
 
